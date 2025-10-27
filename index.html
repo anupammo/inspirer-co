@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirer Co | Creative Intelligence Platform</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card-text {
+            color: var(--secondary);
+        }
+        
+        /* Featured Content */
+        .featured-content {
+            background-color: var(--light);
+        }
+        
+        .featured-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .featured-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            padding: 2rem;
+        }
+        
+        /* Inspirer Profile */
+        .inspirer-profile {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .inspirer-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--light);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Debate Section */
+        .debate-section {
+            background-color: var(--light);
+        }
+        
+        .debate-topic {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .comment {
+            border-left: 3px solid var(--border);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .comment.highlighted {
+            border-left-color: var(--accent);
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+        
+        .comment-reply {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Inspirer Co</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#brand-arc">Brand Arc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cultural-fuels">Cultural Fuels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inspirers">Inspirers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#connect">Connect</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2">Sign In</a>
+                    <a href="#" class="btn btn-dark">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="fade-in">Where Creativity Meets Connection</h1>
+                    <p class="fade-in">A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
+                    <div class="fade-in">
+                        <a href="#brand-arc" class="btn btn-light btn-lg me-2">Explore Content</a>
+                        <a href="#portfolio" class="btn btn-outline-light btn-lg">Join Community</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p class="lead">Inspirer Co is a creative intelligence platform founded by brand marketer Arunima Kar, designed to connect creative minds with inspiration, insights, and meaningful recognition.</p>
+                    <p>We celebrate the work of individuals whose contributions deserve more recognition, while providing a space for creative professionals to think, experiment, connect, and thrive without pressure.</p>
+                    <p>At Inspirer Co, we believe creativity flourishes when talent is nurtured, acknowledged, and given the freedom to explore. This is a space where curiosity meets connection, ideas turn into action, and professional growth happens naturally.</p>
+                    <a href="#" class="btn btn-outline-dark mt-3">Learn More</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" class="card-img-top" alt="Creative Collaboration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content Section -->
+    <section class="featured-content section">
+        <div class="container">
+            <h2 class="section-title">Featured Content</h2>
+            
+            <!-- Brand Arc Featured -->
+            <div class="row mb-5">
+                <div class="col-12 mb-4">
+                    <h3 class="h4 mb-3">Brand Arc</h3>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="featured-card">
+                        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2028&q=80" alt="Wakefit Campaign">
+                        <div class="featured-overlay">
+                            <span class="badge bg-light text-dark mb-2">Case Study</span>
+                            <h4 class="mb-2">Wakefit × Biswa Kalyan Rath: How Humor, Sleep, and Storytelling Redefined India's Festive Season 2025</h4>
+                            <p class="mb-0">From Diwali to Christmas and the wedding season, Wakefit's campaign with Biswa Kalyan Rath proves that wit and wellness can win hearts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Brand Campaign">
+                                <div class="card-body">
+                                    <span class="badge bg-light text-dark mb-2">Case Study</span>
+                                    <h5 class="card-title">Sustainable Fashion: The New Narrative</h5>
+                                    <p class="card-text">How conscious brands are reshaping consumer behavior through authentic storytelling.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://images.unsplash.com/photo-1551830893-b64bf0efb8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Tech Innovation">
+                                <div class="card-body">
+                                    <span class="badge bg-light text-dark mb-2">Case Study</span>
+                                    <h5 class="card-title">Tech for Good: Designing Inclusive Digital Experiences</h5>
+                                    <p class="card-text">Exploring how technology can bridge gaps and create meaningful social impact.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Fuels Featured -->
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <h3 class="h4 mb-3">Cultural Fuels</h3>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Cultural Movement">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Social Impact</span>
+                            <h5 class="card-title">From Sonpari to Pistachio Chocolates: How Quick Commerce Is Powering India's New Gifting Culture</h5>
+                            <p class="card-text">Festive gifting in India is evolving, yet tradition remains its emotional core.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" class="card-img-top" alt="Art Movement">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Social Impact</span>
+                            <h5 class="card-title">The Rise of Digital Art Communities in Tier 2 Cities</h5>
+                            <p class="card-text">How technology is democratizing art creation and appreciation across India.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Festival Culture">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Social Impact</span>
+                            <h5 class="card-title">Festival Culture in the Digital Age: Connection Beyond Physical Spaces</h5>
+                            <p class="card-text">Exploring how communities maintain cultural traditions while embracing digital transformation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspirers Section -->
+    <section id="inspirers" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Inspirers</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="inspirer-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" class="inspirer-img" alt="Abhay Sehgal">
+                        <h4>Abhay Sehgal</h4>
+                        <p class="text-muted">Visual Artist & Founder of Code Brown</p>
+                        <p>Reimagining India through contemporary art that blends tradition with modern life.</p>
+                        <a href="#" class="btn btn-outline-dark btn-sm">View Profile</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="inspirer-profile">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" class="inspirer-img" alt="Priya Sharma">
+                        <h4>Priya Sharma</h4>
+                        <p class="text-muted">Sustainable Fashion Designer</p>
+                        <p>Creating fashion with purpose, blending traditional techniques with eco-friendly practices.</p>
+                        <a href="#" class="btn btn-outline-dark btn-sm">View Profile</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="inspirer-profile">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="inspirer-img" alt="Rahul Verma">
+                        <h4>Rahul Verma</h4>
+                        <p class="text-muted">Digital Experience Designer</p>
+                        <p>Crafting inclusive digital experiences that bridge technology and human connection.</p>
+                        <a href="#" class="btn btn-outline-dark btn-sm">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-dark">View All Inspirers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio & Community Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Community Portfolio</h2>
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <h3>Showcase Your Work</h3>
+                    <p>Join our creative community to showcase your portfolio, offer services or consultations, and connect with like-minded professionals.</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="#" class="btn btn-dark me-md-2">Create Profile</a>
+                        <a href="#" class="btn btn-outline-dark">Explore Community</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Featured Community Projects</h5>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" class="rounded me-3" width="60" height="60" alt="Project">
+                                <div>
+                                    <h6 class="mb-0">Urban Photography Series</h6>
+                                    <small class="text-muted">by Ananya Patel</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80" class="rounded me-3" width="60" height="60" alt="Project">
+                                <div>
+                                    <h6 class="mb-0">Sustainable Packaging Design</h6>
+                                    <small class="text-muted">by Rohan Mehta</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="rounded me-3" width="60" height="60" alt="Project">
+                                <div>
+                                    <h6 class="mb-0">Interactive Web Experience</h6>
+                                    <small class="text-muted">by Neha Singh</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Debate Section -->
+            <div class="debate-section p-4 rounded">
+                <h3 class="h4 mb-3">Today's Debate</h3>
+                <div class="debate-topic">
+                    <h4>Is AI-generated art truly creative?</h4>
+                    <p class="text-muted">Posted by Arunima Kar • October 15, 2025</p>
+                    <p>As AI tools become more sophisticated in creating visual art, we're forced to reconsider what creativity means. Does the absence of human intention and emotional experience make AI art less valuable? Or are we witnessing the birth of a new creative medium?</p>
+                    
+                    <div class="mt-4">
+                        <h5 class="h6 mb-3">Community Responses</h5>
+                        
+                        <div class="comment highlighted">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <strong>Sarah Chen</strong>
+                                    <span class="badge bg-accent ms-2">Highlighted</span>
+                                </div>
+                                <small class="text-muted">2 hours ago</small>
+                            </div>
+                            <p>AI art is a tool, not a replacement. It's like photography - when cameras were invented, people questioned if it was "real art." Now we see it as its own medium. AI is similar - it's expanding what's possible, not replacing human creativity.</p>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 24</button>
+                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <strong>Marcus Johnson</strong>
+                                    <small class="text-muted">1 hour ago</small>
+                                </div>
+                                <p>I agree with Sarah. The creative intent comes from the human prompting and curating the output. The AI is just the brush.</p>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 8</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <strong>David Park</strong>
+                                <small class="text-muted">4 hours ago</small>
+                            </div>
+                            <p>I think we're missing the point. True creativity requires consciousness and lived experience. AI can mimic patterns but can't create from a place of emotion or personal narrative. It's sophisticated pattern recognition, not creation.</p>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 15</button>
+                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="h6 mb-3">Join the Conversation</h5>
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3" placeholder="Share your perspective..."></textarea>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="guidelines">
+                                <label class="form-check-label" for="guidelines">
+                                    I agree to the community guidelines for respectful discussion
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connect" class="section">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h3>Stay Inspired</h3>
+                    <p>Subscribe to our newsletter for the latest insights, features, and community updates.</p>
+                    <form class="row g-2">
+                        <div class="col-auto">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-dark">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="mt-4">
+                        <h5>Follow Us</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Get In Touch</h3>
+                    <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-dark">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Inspirer Co</h5>
+                    <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Explore</h5>
+                    <div class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#brand-arc">Brand Arc</a>
+                        <a href="#cultural-fuels">Cultural Fuels</a>
+                        <a href="#inspirers">Inspirers</a>
+                        <a href="#portfolio">Portfolio</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Community</h5>
+                    <div class="footer-links">
+                        <a href="#">Join Now</a>
+                        <a href="#">Guidelines</a>
+                        <a href="#">Events</a>
+                        <a href="#">Resources</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Connect</h5>
+                    <div class="footer-links">
+                        <a href="mailto:hello@inspirer.co">hello@inspirer.co</a>
+                        <div class="social-links mt-2">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Founded by Arunima Kar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Fade in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
