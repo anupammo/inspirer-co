@@ -9,56 +9,76 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #6c757d;
-            --accent: #ff6b6b;
-            --accent-light: #ff9e9e;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #e9ecef;
-            --success: #28a745;
-            --warning: #ffc107;
-            --info: #17a2b8;
-            --gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            --hover-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            /* New Color Palette from Image */
+            --bright-magenta: #e114e1;
+            --deep-blue: #3208cc;
+            --orange: #efa747;
+            --light-lavender: #e2a9f1;
+            --cyan: #63d5f6;
+            --golden-orange: #e9a043;
+            --light-pink: #e18bbb;
+            --muted-blue: #8a8cdd;
+            --light-brown: #f2b89e;
+            
+            /* Semantic Color Assignments */
+            --primary: var(--deep-blue);
+            --secondary: var(--muted-blue);
+            --accent: var(--bright-magenta);
+            --light: #fafbfc;
+            --dark: var(--deep-blue);
+            --border: var(--light-lavender);
+            --success: var(--cyan);
+            --warning: var(--golden-orange);
+            --info: var(--light-brown);
+            --text-primary: var(--deep-blue);
+            --text-secondary: var(--muted-blue);
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary);
+            font-family: 'Crimson Text', 'Times New Roman', serif;
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            background: linear-gradient(135deg, rgba(226, 169, 241, 0.05) 0%, rgba(99, 213, 246, 0.05) 100%);
+        }
+        
+        /* Heading Font */
+        h1, h2, h3, h4, h5, h6, .hero h1, .section-title, .card-title, .navbar-brand {
+            font-family: 'Open Sans', sans-serif;
         }
         
         /* Header & Navigation */
         .navbar {
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(50, 8, 204, 0.1);
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
         }
         
-        .navbar.scrolled {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
         .navbar-brand {
-            font-weight: 800;
-            font-size: 1.6rem;
-            background: var(--gradient);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary) !important;
+            background: linear-gradient(45deg, var(--bright-magenta), var(--deep-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .nav-link {
             font-weight: 500;
             margin: 0 0.5rem;
             position: relative;
-            color: var(--primary);
+            color: var(--text-primary) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--bright-magenta) !important;
         }
         
         .nav-link:after {
@@ -68,7 +88,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: var(--gradient);
+            background: linear-gradient(90deg, var(--bright-magenta), var(--cyan));
             transition: width 0.3s ease;
         }
         
@@ -78,104 +98,70 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=2000&q=80');
+            background: linear-gradient(135deg, 
+                rgba(50, 8, 204, 0.8) 0%, 
+                rgba(225, 20, 225, 0.6) 50%, 
+                rgba(99, 213, 246, 0.4) 100%
+            ), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=2000&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 10rem 0 8rem;
+            padding: 8rem 0 6rem;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
         
         .hero h1 {
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             font-size: 3.5rem;
-            line-height: 1.2;
         }
         
         .hero p {
             font-size: 1.25rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             max-width: 600px;
-            opacity: 0.9;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Buttons */
-        .btn-primary {
-            background: var(--gradient);
-            border: none;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
-        }
-        
-        .btn-outline-light {
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-light:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
         }
         
         /* Section Styling */
         .section {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
         
         .section-title {
-            font-weight: 800;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
         }
         
-        .section-subtitle {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 4rem;
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--bright-magenta), var(--orange));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
         }
         
         /* Cards */
         .card {
             border: none;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
-            box-shadow: var(--card-shadow);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 169, 241, 0.2);
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--hover-shadow);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(225, 20, 225, 0.15);
+            border-color: var(--light-lavender);
         }
         
         .card-img-top {
@@ -184,29 +170,32 @@
         }
         
         .card-body {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
         
         .card-title {
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 0.75rem;
+            color: var(--primary);
         }
         
         .card-text {
-            color: var(--secondary);
+            color: var(--text-secondary);
         }
         
         /* Featured Content */
         .featured-content {
-            background-color: var(--light);
+            background: linear-gradient(135deg, 
+                rgba(226, 169, 241, 0.1) 0%, 
+                rgba(99, 213, 246, 0.1) 100%
+            );
         }
         
         .featured-card {
             position: relative;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             height: 400px;
-            box-shadow: var(--card-shadow);
         }
         
         .featured-card img {
@@ -225,47 +214,19 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            background: linear-gradient(to top, 
+                rgba(50, 8, 204, 0.9) 0%, 
+                rgba(225, 20, 225, 0.3) 70%, 
+                transparent 100%
+            );
             color: white;
-            padding: 2.5rem;
-        }
-        
-        /* Stats Section */
-        .stats-section {
-            background: var(--gradient);
-            color: white;
-            padding: 4rem 0;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            padding: 2rem;
         }
         
         /* Inspirer Profile */
         .inspirer-profile {
             text-align: center;
             padding: 2rem 1rem;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .inspirer-profile:hover {
-            background: var(--light);
-            transform: translateY(-5px);
         }
         
         .inspirer-img {
@@ -274,41 +235,43 @@
             border-radius: 50%;
             object-fit: cover;
             margin: 0 auto 1.5rem;
-            border: 5px solid var(--light);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        /* Portfolio & Community Section */
-        .community-section {
-            background-color: var(--light);
-        }
-        
-        .community-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--card-shadow);
-            height: 100%;
+            border: 5px solid var(--light-lavender);
+            box-shadow: 0 5px 15px rgba(225, 20, 225, 0.2);
         }
         
         /* Debate Section */
         .debate-section {
-            background-color: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: var(--card-shadow);
+            background: linear-gradient(135deg, 
+                rgba(138, 140, 221, 0.1) 0%, 
+                rgba(242, 184, 158, 0.1) 100%
+            );
+        }
+        
+        .debate-topic {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(50, 8, 204, 0.08);
             margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 169, 241, 0.2);
         }
         
         .comment {
-            border-left: 3px solid var(--border);
-            padding-left: 1.5rem;
+            border-left: 3px solid var(--light-lavender);
+            padding-left: 1rem;
             margin-bottom: 1.5rem;
         }
         
         .comment.highlighted {
-            border-left-color: var(--accent);
-            background-color: rgba(255, 107, 107, 0.05);
+            border-left-color: var(--bright-magenta);
+            background: linear-gradient(90deg, 
+                rgba(225, 20, 225, 0.05) 0%, 
+                rgba(99, 213, 246, 0.05) 100%
+            );
+            border-radius: 8px;
+            padding: 1rem;
+            margin-left: -1rem;
         }
         
         .comment-reply {
@@ -318,13 +281,16 @@
         
         /* Footer */
         .footer {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, 
+                var(--deep-blue) 0%, 
+                var(--muted-blue) 100%
+            );
             color: white;
-            padding: 5rem 0 2rem;
+            padding: 4rem 0 2rem;
         }
         
         .footer h5 {
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
         
@@ -332,7 +298,7 @@
             color: rgba(255,255,255,0.7);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             transition: color 0.3s ease;
         }
         
@@ -350,59 +316,110 @@
             line-height: 40px;
             margin-right: 0.5rem;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
         }
         
         .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            background: linear-gradient(45deg, var(--bright-magenta), var(--cyan));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(225, 20, 225, 0.3);
         }
         
         /* Custom Button Styles */
         .btn-primary {
-            background: linear-gradient(45deg, #e114e1, #3208cc);
+            background: linear-gradient(45deg, var(--bright-magenta), var(--deep-blue));
             border: none;
             color: white;
             transition: all 0.3s ease;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(45deg, #3208cc, #e114e1);
+            background: linear-gradient(45deg, var(--deep-blue), var(--bright-magenta));
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(225, 20, 225, 0.3);
-            color: white;
         }
         
         .btn-outline-primary {
-            border: 2px solid #e114e1;
-            color: #e114e1;
+            border: 2px solid var(--bright-magenta);
+            color: var(--bright-magenta);
             background: transparent;
-            transition: all 0.3s ease;
         }
         
         .btn-outline-primary:hover {
-            background: #e114e1;
+            background: var(--bright-magenta);
             color: white;
             transform: translateY(-2px);
-            border-color: #e114e1;
         }
         
-        /* Badges */
-        .badge {
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+        .btn-light {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--deep-blue);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-light:hover {
+            background: white;
+            color: var(--bright-magenta);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            background: transparent;
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Special Accent Elements */
+        .accent-gradient {
+            background: linear-gradient(135deg, var(--bright-magenta), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(226, 169, 241, 0.1) 0%, 
+                rgba(99, 213, 246, 0.1) 100%
+            );
+            border-left: 4px solid var(--bright-magenta);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .dot-magenta { background: var(--bright-magenta); }
+        .dot-blue { background: var(--deep-blue); }
+        .dot-orange { background: var(--orange); }
+        .dot-lavender { background: var(--light-lavender); }
+        .dot-cyan { background: var(--cyan); }
+        .dot-golden { background: var(--golden-orange); }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Responsive */
@@ -412,22 +429,14 @@
             }
             
             .section {
-                padding: 4rem 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
+                padding: 3rem 0;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">Inspirer Co</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -467,33 +476,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="hero-badge fade-in">New on Inspirer Co</div>
                     <h1 class="fade-in">Where Creativity Meets Connection</h1>
                     <p class="fade-in">A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
                     <div class="fade-in">
-                        <a href="#brand-arc" class="btn btn-primary btn-lg me-3">Explore Content</a>
+                        <a href="#brand-arc" class="btn btn-light btn-lg me-2">Explore Content</a>
                         <a href="#portfolio" class="btn btn-outline-light btn-lg">Join Community</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 stat-item">
-                    <div class="stat-number">2X</div>
-                    <div class="stat-label">More Engagement</div>
-                </div>
-                <div class="col-md-4 stat-item">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-label">Faster Growth</div>
-                </div>
-                <div class="col-md-4 stat-item">
-                    <div class="stat-number">4X</div>
-                    <div class="stat-label">More Connections</div>
                 </div>
             </div>
         </div>
@@ -502,14 +490,13 @@
     <!-- About Us Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title text-center">Your Creative Intelligence Platform</h2>
-            <p class="section-subtitle text-center">We celebrate the work of individuals whose contributions deserve more recognition, while providing a space for creative professionals to think, experiment, connect, and thrive without pressure.</p>
-            
+            <h2 class="section-title">About Us</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <p class="lead">Inspirer Co is a creative intelligence platform founded by brand marketer Arunima Kar, designed to connect creative minds with inspiration, insights, and meaningful recognition.</p>
+                    <p>We celebrate the work of individuals whose contributions deserve more recognition, while providing a space for creative professionals to think, experiment, connect, and thrive without pressure.</p>
                     <p>At Inspirer Co, we believe creativity flourishes when talent is nurtured, acknowledged, and given the freedom to explore. This is a space where curiosity meets connection, ideas turn into action, and professional growth happens naturally.</p>
-                    <a href="#" class="btn btn-primary mt-3">Learn More</a>
+                    <a href="#" class="btn btn-outline-dark mt-3">Learn More</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="card">
@@ -523,8 +510,7 @@
     <!-- Featured Content Section -->
     <section class="featured-content section">
         <div class="container">
-            <h2 class="section-title text-center">Featured Content</h2>
-            <p class="section-subtitle text-center">Discover insights, case studies, and stories that inspire creative thinking and meaningful connections.</p>
+            <h2 class="section-title">Featured Content</h2>
             
             <!-- Brand Arc Featured -->
             <div class="row mb-5">
@@ -609,8 +595,7 @@
     <!-- Inspirers Section -->
     <section id="inspirers" class="section">
         <div class="container">
-            <h2 class="section-title text-center">Featured Inspirers</h2>
-            <p class="section-subtitle text-center">Meet the creative minds shaping our cultural landscape through their unique perspectives and impactful work.</p>
+            <h2 class="section-title">Featured Inspirers</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="inspirer-profile">
@@ -641,50 +626,48 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="#" class="btn btn-primary">View All Inspirers</a>
+                <a href="#" class="btn btn-dark">View All Inspirers</a>
             </div>
         </div>
     </section>
 
     <!-- Portfolio & Community Section -->
-    <section id="portfolio" class="section community-section">
+    <section id="portfolio" class="section">
         <div class="container">
-            <h2 class="section-title text-center">Create Your Portfolio in a Flash</h2>
-            <p class="section-subtitle text-center">Join our creative community to showcase your work, offer services, and connect with like-minded professionals.</p>
-            
+            <h2 class="section-title">Community Portfolio</h2>
             <div class="row mb-5">
                 <div class="col-lg-6 mb-4">
-                    <div class="community-card">
-                        <h3>Showcase Your Work</h3>
-                        <p>Build your professional presence with our easy-to-use portfolio builder. Highlight your projects, skills, and services in a beautifully designed profile.</p>
-                        <div class="d-grid gap-2 d-md-flex mt-4">
-                            <a href="#" class="btn btn-primary me-md-3">Create Profile</a>
-                            <a href="#" class="btn btn-outline-dark">Explore Community</a>
-                        </div>
+                    <h3>Showcase Your Work</h3>
+                    <p>Join our creative community to showcase your portfolio, offer services or consultations, and connect with like-minded professionals.</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="#" class="btn btn-dark me-md-2">Create Profile</a>
+                        <a href="#" class="btn btn-outline-dark">Explore Community</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="community-card">
-                        <h5>Featured Community Projects</h5>
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Urban Photography">
-                            <div>
-                                <h6 class="mb-0">Urban Photography Series</h6>
-                                <small class="text-muted">by Ananya Patel</small>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Featured Community Projects</h5>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Urban Photography">
+                                <div>
+                                    <h6 class="mb-0">Urban Photography Series</h6>
+                                    <small class="text-muted">by Ananya Patel</small>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Sustainable Design">
-                            <div>
-                                <h6 class="mb-0">Sustainable Packaging Design</h6>
-                                <small class="text-muted">by Rohan Mehta</small>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Sustainable Design">
+                                <div>
+                                    <h6 class="mb-0">Sustainable Packaging Design</h6>
+                                    <small class="text-muted">by Rohan Mehta</small>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Web Design">
-                            <div>
-                                <h6 class="mb-0">Interactive Web Experience</h6>
-                                <small class="text-muted">by Neha Singh</small>
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=120&q=80" class="rounded me-3" width="60" height="60" alt="Web Design">
+                                <div>
+                                    <h6 class="mb-0">Interactive Web Experience</h6>
+                                    <small class="text-muted">by Neha Singh</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -692,71 +675,71 @@
             </div>
             
             <!-- Debate Section -->
-            <div class="debate-section">
+            <div class="debate-section p-4 rounded">
                 <h3 class="h4 mb-3">Today's Debate</h3>
-                <div class="mb-4">
+                <div class="debate-topic">
                     <h4>Is AI-generated art truly creative?</h4>
                     <p class="text-muted">Posted by Arunima Kar • October 15, 2025</p>
                     <p>As AI tools become more sophisticated in creating visual art, we're forced to reconsider what creativity means. Does the absence of human intention and emotional experience make AI art less valuable? Or are we witnessing the birth of a new creative medium?</p>
-                </div>
-                
-                <div class="mt-4">
-                    <h5 class="h6 mb-3">Community Responses</h5>
                     
-                    <div class="comment highlighted">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <strong>Sarah Chen</strong>
-                                <span class="badge bg-accent ms-2">Highlighted</span>
+                    <div class="mt-4">
+                        <h5 class="h6 mb-3">Community Responses</h5>
+                        
+                        <div class="comment highlighted">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <strong>Sarah Chen</strong>
+                                    <span class="badge bg-accent ms-2">Highlighted</span>
+                                </div>
+                                <small class="text-muted">2 hours ago</small>
                             </div>
-                            <small class="text-muted">2 hours ago</small>
-                        </div>
-                        <p>AI art is a tool, not a replacement. It's like photography - when cameras were invented, people questioned if it was "real art." Now we see it as its own medium. AI is similar - it's expanding what's possible, not replacing human creativity.</p>
-                        <div class="d-flex align-items-center">
-                            <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 24</button>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                            <p>AI art is a tool, not a replacement. It's like photography - when cameras were invented, people questioned if it was "real art." Now we see it as its own medium. AI is similar - it's expanding what's possible, not replacing human creativity.</p>
+                            <div class="d-flex align-items-center">
+                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 24</button>
+                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                            </div>
+                            
+                            <div class="comment-reply">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <strong>Marcus Johnson</strong>
+                                    <small class="text-muted">1 hour ago</small>
+                                </div>
+                                <p>I agree with Sarah. The creative intent comes from the human prompting and curating the output. The AI is just the brush.</p>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 8</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="comment-reply">
+                        <div class="comment">
                             <div class="d-flex justify-content-between align-items-start">
-                                <strong>Marcus Johnson</strong>
-                                <small class="text-muted">1 hour ago</small>
+                                <strong>David Park</strong>
+                                <small class="text-muted">4 hours ago</small>
                             </div>
-                            <p>I agree with Sarah. The creative intent comes from the human prompting and curating the output. The AI is just the brush.</p>
+                            <p>I think we're missing the point. True creativity requires consciousness and lived experience. AI can mimic patterns but can't create from a place of emotion or personal narrative. It's sophisticated pattern recognition, not creation.</p>
                             <div class="d-flex align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 8</button>
+                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 15</button>
                                 <button class="btn btn-sm btn-outline-secondary">Reply</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="comment">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <strong>David Park</strong>
-                            <small class="text-muted">4 hours ago</small>
-                        </div>
-                        <p>I think we're missing the point. True creativity requires consciousness and lived experience. AI can mimic patterns but can't create from a place of emotion or personal narrative. It's sophisticated pattern recognition, not creation.</p>
-                        <div class="d-flex align-items-center">
-                            <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 15</button>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                        </div>
+                    <div class="mt-4">
+                        <h5 class="h6 mb-3">Join the Conversation</h5>
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3" placeholder="Share your perspective..."></textarea>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="guidelines">
+                                <label class="form-check-label" for="guidelines">
+                                    I agree to the community guidelines for respectful discussion
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Post Comment</button>
+                        </form>
                     </div>
-                </div>
-                
-                <div class="mt-4">
-                    <h5 class="h6 mb-3">Join the Conversation</h5>
-                    <form>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="3" placeholder="Share your perspective..."></textarea>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="guidelines">
-                            <label class="form-check-label" for="guidelines">
-                                I agree to the community guidelines for respectful discussion
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Post Comment</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -765,57 +748,51 @@
     <!-- Connect Section -->
     <section id="connect" class="section">
         <div class="container">
-            <h2 class="section-title text-center">Connect With Us</h2>
-            <p class="section-subtitle text-center">Stay inspired with the latest insights, features, and community updates.</p>
-            
+            <h2 class="section-title">Connect With Us</h2>
             <div class="row">
                 <div class="col-lg-6 mb-4">
-                    <div class="community-card">
-                        <h3>Stay Inspired</h3>
-                        <p>Subscribe to our newsletter for the latest insights, features, and community updates.</p>
-                        <form class="row g-2 mt-4">
-                            <div class="col-12">
-                                <input type="email" class="form-control" placeholder="Your email address">
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary w-100">Subscribe</button>
-                            </div>
-                        </form>
-                        <div class="mt-4">
-                            <h5>Follow Us</h5>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
+                    <h3>Stay Inspired</h3>
+                    <p>Subscribe to our newsletter for the latest insights, features, and community updates.</p>
+                    <form class="row g-2">
+                        <div class="col-auto">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-dark">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="mt-4">
+                        <h5>Follow Us</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="community-card">
-                        <h3>Get In Touch</h3>
-                        <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
-                        <form>
-                            <div class="row g-3 mt-3">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control" placeholder="Subject">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                                </div>
+                    <h3>Get In Touch</h3>
+                    <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-dark">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -889,7 +866,6 @@
         // Fade in animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
             const fadeElements = document.querySelectorAll('.fade-in');
-            const navbar = document.querySelector('.navbar');
             
             const fadeInOnScroll = function() {
                 fadeElements.forEach(element => {
@@ -902,19 +878,11 @@
                 });
             };
             
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-                
-                fadeInOnScroll();
-            });
-            
             // Initial check
             fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
         });
     </script>
 </body>

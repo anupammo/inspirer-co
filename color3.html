@@ -9,56 +9,89 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #6c757d;
-            --accent: #ff6b6b;
-            --accent-light: #ff9e9e;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #e9ecef;
-            --success: #28a745;
-            --warning: #ffc107;
-            --info: #17a2b8;
-            --gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            --hover-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            /* Brown and Black Palette */
+            --dark-brown: #2a1f18;
+            --very-dark-brown: #211b18;
+            --medium-brown: #82501b;
+            --black: #000000;
+            --light-gray: #a6a5a5;
+            --white: #ffffff;
+            
+            /* Additional Browns for Gradients */
+            --lighter-brown: #9c5d28;
+            --warm-brown: #654032;
+            --rich-brown: #3c2920;
+            
+            /* Semantic Color Assignments */
+            --primary: var(--dark-brown);
+            --secondary: var(--light-gray);
+            --accent: var(--medium-brown);
+            --accent-light: var(--lighter-brown);
+            --light: var(--white);
+            --dark: var(--black);
+            --border: var(--light-gray);
+            --success: var(--medium-brown);
+            --warning: var(--medium-brown);
+            --info: var(--light-gray);
+            --gradient: linear-gradient(135deg, var(--medium-brown) 0%, var(--dark-brown) 100%);
+            --brown-gradient: linear-gradient(135deg, var(--dark-brown) 0%, var(--very-dark-brown) 100%);
+            --warm-gradient: linear-gradient(135deg, var(--medium-brown) 0%, var(--warm-brown) 100%);
+            --card-shadow: 0 10px 30px rgba(42, 31, 24, 0.15);
+            --hover-shadow: 0 20px 40px rgba(130, 80, 27, 0.20);
+            --text-primary: var(--very-dark-brown);
+            --text-secondary: var(--light-gray);
+            --text-light: var(--white);
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            background: linear-gradient(135deg, rgba(166, 165, 165, 0.08) 0%, rgba(42, 31, 24, 0.05) 100%);
+        }
+        
+        /* Heading Font - Times New Roman MT Condensed */
+        h1, h2, h3, h4, h5, h6, .hero h1, .section-title, .card-title, .navbar-brand {
+            font-family: 'Crimson Text', 'Times New Roman', serif;
         }
         
         /* Header & Navigation */
         .navbar {
             padding: 1.2rem 0;
             transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 15px rgba(42, 31, 24, 0.12);
         }
         
         .navbar.scrolled {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 25px rgba(42, 31, 24, 0.18);
         }
         
         .navbar-brand {
             font-weight: 800;
-            font-size: 1.6rem;
-            background: var(--gradient);
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            background: var(--brown-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .nav-link {
             font-weight: 500;
             margin: 0 0.5rem;
             position: relative;
-            color: var(--primary);
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent) !important;
         }
         
         .nav-link:after {
@@ -78,7 +111,11 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=2000&q=80');
+            background: linear-gradient(135deg, 
+                rgba(42, 31, 24, 0.85) 0%, 
+                rgba(33, 27, 24, 0.75) 50%, 
+                rgba(130, 80, 27, 0.65) 100%
+            ), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -122,27 +159,154 @@
             border: none;
             font-weight: 600;
             padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 15px rgba(130, 80, 27, 0.25);
         }
         
         .btn-primary:hover {
+            background: linear-gradient(135deg, var(--lighter-brown) 0%, var(--rich-brown) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 25px rgba(130, 80, 27, 0.40);
+            color: white;
         }
         
-        .btn-outline-light {
-            border: 2px solid rgba(255, 255, 255, 0.3);
+        .btn-outline-primary {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
             font-weight: 600;
             padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
         
-        .btn-outline-light:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+        .btn-outline-primary:hover {
+            background: var(--accent);
+            color: white;
             transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(130, 80, 27, 0.30);
+        }
+        
+        .btn-success {
+            background: var(--warm-gradient);
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 15px rgba(42, 31, 24, 0.25);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, var(--warm-brown) 0%, var(--very-dark-brown) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(42, 31, 24, 0.40);
+            color: white;
+        }
+        
+        .btn-outline-success {
+            border: 2px solid var(--success);
+            color: var(--success);
+            background: transparent;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-success:hover {
+            background: var(--success);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--success);
+            box-shadow: 0 6px 20px rgba(130, 80, 27, 0.30);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            background: transparent;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--very-dark-brown);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(166, 165, 165, 0.4);
+            color: var(--very-dark-brown);
+        }
+        
+        /* Small Button Variants */
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+        }
+        
+        /* Button Size Variants */
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 14px;
+        }
+        
+        /* Custom Color Button Styles */
+        .btn-outline-dark {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-dark:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(42, 31, 24, 0.30);
+        }
+        
+        .btn-outline-secondary {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: transparent;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-secondary:hover {
+            background: var(--secondary);
+            color: var(--very-dark-brown);
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(166, 165, 165, 0.30);
         }
         
         /* Section Styling */
@@ -154,10 +318,24 @@
             font-weight: 800;
             margin-bottom: 1rem;
             font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .section-subtitle {
-            color: var(--secondary);
+            color: var(--text-secondary);
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 4rem;
@@ -171,11 +349,15 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             box-shadow: var(--card-shadow);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(166, 165, 165, 0.25);
         }
         
         .card:hover {
             transform: translateY(-10px);
             box-shadow: var(--hover-shadow);
+            border-color: var(--accent);
         }
         
         .card-img-top {
@@ -190,10 +372,11 @@
         .card-title {
             font-weight: 700;
             margin-bottom: 0.75rem;
+            color: var(--primary);
         }
         
         .card-text {
-            color: var(--secondary);
+            color: var(--text-secondary);
         }
         
         /* Featured Content */
@@ -232,7 +415,7 @@
         
         /* Stats Section */
         .stats-section {
-            background: var(--gradient);
+            background: var(--brown-gradient);
             color: white;
             padding: 4rem 0;
         }
@@ -308,7 +491,7 @@
         
         .comment.highlighted {
             border-left-color: var(--accent);
-            background-color: rgba(255, 107, 107, 0.05);
+            background-color: rgba(130, 80, 27, 0.08);
         }
         
         .comment-reply {
@@ -318,7 +501,7 @@
         
         /* Footer */
         .footer {
-            background-color: var(--dark);
+            background: var(--brown-gradient);
             color: white;
             padding: 5rem 0 2rem;
         }
@@ -369,34 +552,53 @@
             transform: translateY(0);
         }
         
-        /* Custom Button Styles */
-        .btn-primary {
-            background: linear-gradient(45deg, #e114e1, #3208cc);
-            border: none;
-            color: white;
-            transition: all 0.3s ease;
+        /* Special Accent Elements */
+        .accent-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .btn-primary:hover {
-            background: linear-gradient(45deg, #3208cc, #e114e1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(225, 20, 225, 0.3);
-            color: white;
+        .brown-gradient-text {
+            background: var(--brown-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .btn-outline-primary {
-            border: 2px solid #e114e1;
-            color: #e114e1;
-            background: transparent;
-            transition: all 0.3s ease;
+        .warm-gradient-text {
+            background: var(--warm-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .btn-outline-primary:hover {
-            background: #e114e1;
-            color: white;
-            transform: translateY(-2px);
-            border-color: #e114e1;
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(166, 165, 165, 0.12) 0%, 
+                rgba(42, 31, 24, 0.08) 100%
+            );
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
+        
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .dot-dark-brown { background: var(--dark-brown); }
+        .dot-very-dark-brown { background: var(--very-dark-brown); }
+        .dot-medium-brown { background: var(--medium-brown); }
+        .dot-light-gray { background: var(--light-gray); }
+        .dot-black { background: var(--black); }
+        .dot-white { background: var(--white); border: 1px solid var(--light-gray); }
         
         /* Badges */
         .badge {
@@ -599,6 +801,74 @@
                             <span class="badge bg-warning text-dark mb-2">Social Impact</span>
                             <h5 class="card-title">Festival Culture in the Digital Age: Connection Beyond Physical Spaces</h5>
                             <p class="card-text">Exploring how communities maintain cultural traditions while embracing digital transformation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette Showcase -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(42, 31, 24, 0.05) 0%, rgba(166, 165, 165, 0.05) 100%);">
+        <div class="container">
+            <h2 class="section-title text-center">Our Design Philosophy</h2>
+            <p class="section-subtitle text-center">Inspired by earth tones and sophisticated neutrals, our brown and black palette creates a warm, professional atmosphere that promotes creativity and focus.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <h4 class="brown-gradient-text mb-4">🎨 Brown Shades</h4>
+                            <div class="row mb-4">
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--dark-brown); color: white;">
+                                        <strong>Dark Brown</strong><br>
+                                        <small>#2a1f18</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--very-dark-brown); color: white;">
+                                        <strong>Very Dark</strong><br>
+                                        <small>#211b18</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--medium-brown); color: white;">
+                                        <strong>Medium</strong><br>
+                                        <small>#82501b</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mb-4" style="color: var(--light-gray);">🖤 Neutral Shades</h4>
+                            <div class="row mb-4">
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--black); color: white;">
+                                        <strong>Black</strong><br>
+                                        <small>#000000</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--light-gray); color: var(--very-dark-brown);">
+                                        <strong>Light Gray</strong><br>
+                                        <small>#a6a5a5</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-4 rounded mb-2" style="background: var(--white); color: var(--very-dark-brown); border: 1px solid var(--light-gray);">
+                                        <strong>White</strong><br>
+                                        <small>#ffffff</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <div class="highlight-box">
+                            <h5 class="accent-gradient mb-2">Design Psychology</h5>
+                            <p class="mb-0">Brown represents stability, reliability, and earth connection while black and gray add sophistication and elegance. This palette creates a professional environment that encourages thoughtful creativity and authentic expression.</p>
                         </div>
                     </div>
                 </div>
