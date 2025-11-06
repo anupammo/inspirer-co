@@ -50,6 +50,9 @@
             color: var(--primary) !important;
             display: flex;
             align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .navbar-brand .brand-icon {
@@ -79,7 +82,33 @@
         }
 
         .navbar-nav {
-            margin: 0 auto;
+            margin: 0;
+        }
+        
+        /* Social Media Icons */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
         }
         
         .btn-nav {
@@ -202,6 +231,40 @@
             .hero-profiles {
                 display: block;
             }
+        }
+        
+        /* Image Grid Layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 280px;
+        }
+        
+        .grid-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .grid-image:hover {
+            transform: translateY(-3px);
+        }
+        
+        .grid-image img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .grid-image.tall {
+            grid-row: span 2;
+        }
+        
+        .grid-image.tall img {
+            height: 252px;
         }
         
         .profiles-column {
@@ -586,6 +649,21 @@
             .section {
                 padding: 3rem 0;
             }
+            
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin: 1rem auto;
+            }
+            
+            .navbar-nav {
+                margin: 1rem 0;
+            }
+            
+            .social-nav {
+                justify-content: center;
+                margin: 1rem 0;
+            }
         }
     </style>
 </head>
@@ -593,6 +671,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
+            <div class="d-flex align-items-center gap-2">
+                <a href="#" class="btn btn-nav btn-solid">Join us</a>
+            </div>
             <a class="navbar-brand" href="#">
                 <div class="brand-icon">I</div>
                 Inspirer Co
@@ -601,20 +682,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#search">Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#listing">Listing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-2">
-                    <a href="#" class="btn btn-nav btn-outline">Sign In</a>
-                    <a href="#" class="btn btn-nav btn-solid">Start Creating</a>
+                <div class="social-nav ms-auto">
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="Threads">
+                        <i class="fas fa-at"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -647,34 +730,17 @@
                     </div>
                 </div>
                 
-                <!-- Profile Cards -->
+                <!-- Image Grid -->
                 <div class="hero-profiles">
-                    <div class="profiles-column">
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <div class="profile-company">Chaucer</div>
-                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Melissa Chapman" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Melissa (Chapman)</h6>
-                                <small>PMP eBook Author</small>
-                            </div>
+                    <div class="image-grid">
+                        <div class="grid-image">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
                         </div>
-                        
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                            <div class="profile-company">I Listen Space</div>
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Chiradeep Patra" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Chiradeep Patra</h6>
-                                <small>Life Coach (ICF - CCE)</small>
-                            </div>
+                        <div class="grid-image tall">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Team collaboration">
                         </div>
-                        
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: var(--primary);">
-                            <div class="profile-company" style="background: rgba(0,0,0,0.1); color: var(--primary);">Ridgewood</div>
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Vatsal Nahata" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Vatsal Nahata</h6>
-                                <small>Career Guidance</small>
-                            </div>
+                        <div class="grid-image">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Digital design">
                         </div>
                     </div>
                 </div>

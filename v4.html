@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSPIRER CO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .header-top .join-us {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .header-top .join-us img {
+            margin-right: 5px;
+        }
+        .header-top .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .header-top .social-icons img {
+            height: 24px;
+            margin-left: 15px;
+        }
+        .navbar {
+            background-color: #fff;
+            padding: 10px 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            margin-right: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .main-content {
+            display: flex;
+            margin-top: 20px;
+        }
+        .left-panel {
+            background-color: #388e3c; /* Green color from the image */
+            color: #fff;
+            padding: 50px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .left-panel h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 0;
+            z-index: 1;
+        }
+        .right-panel {
+            background-color: #ff5722; /* Orange color from the image */
+            flex: 2;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .right-panel .card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .right-panel .card img {
+            width: 100%;
+            display: block;
+        }
+        .right-panel .card-content {
+            padding: 15px;
+        }
+        .right-panel .card-content h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .right-panel .card-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .blinkit-logo {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 80px; /* Adjust as needed */
+        }
+
+        /* Overlapping triangles */
+        .right-panel::before,
+        .right-panel::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .right-panel::before {
+            border-width: 150px 0 150px 200px; /* Adjust size and position */
+            border-color: transparent transparent transparent rgba(255,255,255,0.8);
+            transform: rotate(-45deg);
+            top: 20%;
+            left: 30%;
+        }
+
+        .right-panel::after {
+            border-width: 100px 0 100px 150px; /* Adjust size and position */
+            border-color: transparent transparent transparent rgba(255,255,255,0.8);
+            transform: rotate(-45deg);
+            bottom: 15%;
+            right: 25%;
+        }
+
+        .left-panel .triangle-bg {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .left-panel .triangle-bg.one {
+            border-width: 100px 0 100px 150px; /* Adjust size */
+            border-color: transparent transparent transparent #ffffff;
+            transform: rotate(-30deg);
+            top: 20%;
+            right: -50px; /* Position off-screen */
+        }
+
+        .left-panel .triangle-bg.two {
+            border-width: 150px 0 150px 200px; /* Adjust size */
+            border-color: transparent transparent transparent #ffffff;
+            transform: rotate(20deg);
+            bottom: 10%;
+            right: -70px; /* Position off-screen */
+        }
+
+        .image-card-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1; /* Ensure cards are above triangles */
+        }
+
+        .full-width-image-card {
+            flex: 1;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-top">
+        <a href="#" class="join-us">
+            <img src="https://www.freeiconspng.com/uploads/cursor-icon-22.png" alt="Cursor" height="15">
+            JOIN US
+        </a>
+        <div class="logo">INSPIRER CO</div>
+        <div class="social-icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png" alt="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/X_logo_2023.svg/1200px-X_logo_2023.svg.png" alt="X">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Google_Photos_icon.svg/1200px-Google_Photos_icon.svg.png" alt="Google Photos">
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Brand Arc</a>
+        <a href="#">Cultural Fuels</a>
+        <a href="#">Inspirers</a>
+        <a href="#">Portfolio</a>
+        <a href="#">About Us</a>
+    </div>
+
+    <div class="main-content">
+        <div class="left-panel">
+            <h1>Inspiring <br> Creative <br> Minds</h1>
+            <div class="triangle-bg one"></div>
+            <div class="triangle-bg two"></div>
+        </div>
+        <div class="right-panel">
+            <div class="image-card-wrapper">
+                <div class="card full-width-image-card">
+                    <img src="https://via.placeholder.com/300x200?text=Diwali+gifts,+lights,+diyas" alt="Diwali Gifts">
+                    <div class="card-content">
+                        <p>Diwali gifts, lights, diyas and more delivered in <strong>10 minutes</strong></p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Blinkit_logo.svg/2560px-Blinkit_logo.svg.png" alt="Blinkit Logo" class="blinkit-logo">
+                    </div>
+                </div>
+            </div>
+            <div class="image-card-wrapper">
+                <div class="card full-width-image-card">
+                    <img src="https://via.placeholder.com/300x400?text=BISWA+SWASTH+AADMI" alt="Man sleeping">
+                    <div class="card-content">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
