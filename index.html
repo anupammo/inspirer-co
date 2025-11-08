@@ -50,6 +50,9 @@
             color: var(--primary) !important;
             display: flex;
             align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .navbar-brand .brand-icon {
@@ -79,7 +82,65 @@
         }
 
         .navbar-nav {
-            margin: 0 auto;
+            margin: 0;
+        }
+        
+        /* Social Media Icons */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: var(--dark);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 1020;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .secondary-nav .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .secondary-nav .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .secondary-nav .nav-link:hover {
+            color: var(--accent) !important;
         }
         
         .btn-nav {
@@ -110,28 +171,38 @@
             background: var(--accent);
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }        /* Hero Section */
-        .hero {
+        }        
+        /* Hero Section */
+        /* .hero {
             background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
             color: var(--primary);
-            padding: 8rem 0 6rem;
+            padding: 10rem 0 6rem;
             position: relative;
             min-height: 70vh;
             display: flex;
             align-items: center;
+        } */
+
+        .hero {
+            padding-top: 150px;
+            background: #ff5722;
+            background-image: url(res/blobgreen.svg);
+            background-position: left bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
-        .hero-content {
+        /* .hero-content {
             max-width: 600px;
-        }
+        } */
 
-        .hero h1 {
+        /* .hero h1 {
             font-weight: 800;
             margin-bottom: 1.5rem;
             font-size: 3.5rem;
             line-height: 1.1;
             color: var(--primary);
-        }
+        } */
 
         .hero-subtitle {
             font-size: 1.3rem;
@@ -202,6 +273,40 @@
             .hero-profiles {
                 display: block;
             }
+        }
+        
+        /* Image Grid Layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 280px;
+        }
+        
+        .grid-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .grid-image:hover {
+            transform: translateY(-3px);
+        }
+        
+        .grid-image img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .grid-image.tall {
+            grid-row: span 2;
+        }
+        
+        .grid-image.tall img {
+            height: 252px;
         }
         
         .profiles-column {
@@ -586,48 +691,129 @@
             .section {
                 padding: 3rem 0;
             }
+            
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin: 1rem auto;
+            }
+            
+            .navbar-nav {
+                margin: 1rem 0;
+            }
+            
+            .social-nav {
+                justify-content: center;
+                margin: 1rem 0;
+            }
+            
+            .secondary-nav {
+                position: static;
+                top: auto;
+                padding: 0.5rem 0;
+            }
+            
+            .secondary-nav .navbar-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+            
+            .secondary-nav .nav-link {
+                padding: 0.25rem 0.5rem !important;
+                margin: 0.125rem;
+                font-size: 0.9rem;
+            }
+            
+            .secondary-nav .navbar-toggler {
+                margin: 0 auto;
+            }
+            
+            .hero {
+                padding: 8rem 0 6rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <div class="brand-icon">I</div>
-                Inspirer Co
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#search">Search</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#listing">Listing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-2">
-                    <a href="#" class="btn btn-nav btn-outline">Sign In</a>
-                    <a href="#" class="btn btn-nav btn-solid">Start Creating</a>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div class="container">
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="btn btn-nav btn-solid">Join us</a>
+                        </div>
+                        <a class="navbar-brand" href="#">
+                            <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="social-nav ms-auto">
+                                <a href="#" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" aria-label="X (Twitter)">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" aria-label="Threads">
+                                    <i class="fas fa-at"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Secondary Navigation -->
+                <nav class="navbar navbar-expand-lg secondary-nav">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
+                            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="secondaryNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#brand-arc">Brand Arc</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#cultural-fuels">Cultural Fuels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#inspirers">Inspirers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="slide1">
+        <div class="bg-shapw-1"></div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="hero-content">
-                        <h1>Your All-in-One Creator Storefront</h1>
-                        <p class="hero-subtitle">Make money from your content. Sell products, host sessions, and grow your business — all from a single link.</p>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                    <div class="py-5">
+                        <h1 class="text-white align-middle display-1 my-5">Inspiring Creative Minds</h1>
+                        <!-- <p class="hero-subtitle">Make money from your content. Sell products, host sessions, and grow your business — all from a single link.</p>
                         
                         <div class="hero-stats">
                             <div class="hero-stat">
@@ -643,490 +829,96 @@
                             <a href="#start" class="btn btn-hero btn-primary">
                                 Start My Page <i class="fas fa-arrow-right"></i>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                
-                <!-- Profile Cards -->
-                <div class="hero-profiles">
-                    <div class="profiles-column">
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <div class="profile-company">Chaucer</div>
-                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Melissa Chapman" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Melissa (Chapman)</h6>
-                                <small>PMP eBook Author</small>
+                <div class="col-md-3 col-12"></div>
+                <div class="col-md-5 col-12">
+                    <div class="img-grid my-5">
+                        <div class="row">
+                            <div class="col">
+                                <img class="img-fluid rounded my-3" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
+                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg" alt="Team collaboration">
                             </div>
-                        </div>
-                        
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                            <div class="profile-company">I Listen Space</div>
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Chiradeep Patra" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Chiradeep Patra</h6>
-                                <small>Life Coach (ICF - CCE)</small>
-                            </div>
-                        </div>
-                        
-                        <div class="profile-card gradient" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: var(--primary);">
-                            <div class="profile-company" style="background: rgba(0,0,0,0.1); color: var(--primary);">Ridgewood</div>
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Vatsal Nahata" class="profile-avatar">
-                            <div class="profile-info">
-                                <h6>Vatsal Nahata</h6>
-                                <small>Career Guidance</small>
+                            <div class="col">
+                                <!-- <img class="img-fluid rounded my-2" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Digital design"> -->
+                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/7652039/pexels-photo-7652039.jpeg" alt="Digital design">
                             </div>
                         </div>
                     </div>
+                    <!-- Image Grid -->
+                    <!-- <div class="hero-profiles">
+                        <div class="image-grid">
+                            <div class="grid-image">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
+                            </div>
+                            <div class="grid-image tall">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Team collaboration">
+                            </div>
+                            <div class="grid-image">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Digital design">
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature checklist accordion -->
-    <section class="section fade-in">
+    <section class="hero" id="slide2">
+        <div class="bg-shapw-1"></div>
         <div class="container">
-            <div class="row g-4 align-items-start">
-                <div class="col-lg-6">
-                    <h2 class="section-title">Get started in 5 simple steps</h2>
-                    <div class="accordion feature-accordion" id="featuresChecklist">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="f1h">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
-                                    <span class="step"><span class="step-index">1</span> Set up your profile</span>
-                                </button>
-                            </h2>
-                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#featuresChecklist">
-                                <div class="accordion-body">
-                                    <p class="mb-2"><i class="fas fa-check-circle check"></i>Add your name, bio, avatar and expertise tags.</p>
-                                    <p class="mb-0"><i class="fas fa-check-circle check"></i>Pick a template that matches your brand.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="f2h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
-                                    <span class="step"><span class="step-index">2</span> Add what you sell</span>
-                                </button>
-                            </h2>
-                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#featuresChecklist">
-                                <div class="accordion-body">
-                                    <p class="mb-2"><i class="fas fa-check-circle check"></i>1:1 sessions, group calls or webinars.</p>
-                                    <p class="mb-0"><i class="fas fa-check-circle check"></i>Digital downloads, courses and bundles.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="f3h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
-                                    <span class="step"><span class="step-index">3</span> Connect payments</span>
-                                </button>
-                            </h2>
-                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#featuresChecklist">
-                                <div class="accordion-body">
-                                    <p class="mb-2"><i class="fas fa-check-circle check"></i>Enable global payments with instant payouts.</p>
-                                    <p class="mb-0"><i class="fas fa-check-circle check"></i>Support for multiple currencies.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="f4h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
-                                    <span class="step"><span class="step-index">4</span> Share your link</span>
-                                </button>
-                            </h2>
-                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#featuresChecklist">
-                                <div class="accordion-body">
-                                    <p class="mb-2"><i class="fas fa-check-circle check"></i>Add to your bio, email signature and posts.</p>
-                                    <p class="mb-0"><i class="fas fa-check-circle check"></i>Use built-in promo tools to boost reach.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="f5h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">
-                                    <span class="step"><span class="step-index">5</span> Track and optimize</span>
-                                </button>
-                            </h2>
-                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#featuresChecklist">
-                                <div class="accordion-body">
-                                    <p class="mb-2"><i class="fas fa-check-circle check"></i>See traffic, conversions and revenue in one place.</p>
-                                    <p class="mb-0"><i class="fas fa-check-circle check"></i>Refine your offers with data-backed insights.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="benefit-card h-100">
-                        <h5 class="mb-2">What you can sell</h5>
-                        <div class="mb-2">
-                            <span class="chip">1:1 Sessions</span>
-                            <span class="chip">Group Calls</span>
-                            <span class="chip">Webinars</span>
-                            <span class="chip">Ebooks</span>
-                            <span class="chip">Templates</span>
-                            <span class="chip">Courses</span>
-                            <span class="chip">Bundles</span>
-                        </div>
-                        <p class="text-muted mb-3">Mix-and-match products and services to fit your audience. Launch fast and iterate with built-in analytics.</p>
-                        <a href="#start" class="btn btn-primary">Start Creating</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- New on Inspirer -->
-    <section id="new" class="section section-soft fade-in">
-        <div class="container">
-            <h2 class="section-title">New on Inspirer</h2>
-            <div class="scroll-cards">
-                <a class="scroll-card" href="#">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Launch your course">
-                    <div class="sc-body">
-                        <strong>Launch Your Course</strong>
-                        <p class="mb-0 small text-muted">Host live cohorts and recorded modules with ease</p>
-                    </div>
-                </a>
-                <a class="scroll-card" href="#">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Sell digital downloads">
-                    <div class="sc-body">
-                        <strong>Sell Digital Products</strong>
-                        <p class="mb-0 small text-muted">Ebooks, presets, templates and more</p>
-                    </div>
-                </a>
-                <a class="scroll-card" href="#">
-                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="1:1 sessions">
-                    <div class="sc-body">
-                        <strong>Offer 1:1 Sessions</strong>
-                        <p class="mb-0 small text-muted">Mentoring, consulting and coaching</p>
-                    </div>
-                </a>
-                <a class="scroll-card" href="#">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Bundles">
-                    <div class="sc-body">
-                        <strong>Bundle Your Services</strong>
-                        <p class="mb-0 small text-muted">Create high-converting packs</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Build page fast + features -->
-    <section class="section fade-in">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-5">
-                    <h2 class="section-title">Create your Inspirer page in a <span class="accent-gradient">flash</span></h2>
-                    <p class="text-muted">Start sharing your work in minutes with ready-to-use blocks: services, sessions, products and more.</p>
-                    <div class="hero-cta">
-                        <a href="#start" class="btn btn-primary">Launch your page</a>
-                        <a href="#" class="btn btn-outline-primary">View templates</a>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="benefit-card">
-                                <div class="benefit-icon" style="background:#ff6b6b"><i class="fas fa-bolt"></i></div>
-                                <h5 class="mb-1">Quick setup</h5>
-                                <p class="mb-0 text-muted">Pick a template and go live instantly.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="benefit-card">
-                                <div class="benefit-icon" style="background:#6c5ce7"><i class="fas fa-video"></i></div>
-                                <h5 class="mb-1">Host sessions</h5>
-                                <p class="mb-0 text-muted">1:1, group calls or webinars.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="benefit-card">
-                                <div class="benefit-icon" style="background:#2ecc71"><i class="fas fa-file-download"></i></div>
-                                <h5 class="mb-1">Sell downloads</h5>
-                                <p class="mb-0 text-muted">Ebooks, presets, guides and more.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="benefit-card">
-                                <div class="benefit-icon" style="background:#f39c12"><i class="fas fa-cubes"></i></div>
-                                <h5 class="mb-1">Create bundles</h5>
-                                <p class="mb-0 text-muted">Offer curated packs at better value.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials dark strip -->
-    <section class="section section-dark fade-in">
-        <div class="container">
-            <h2 class="text-center mb-5">Don't Just Take Our Word for It</h2>
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p class="mb-2">“Love how Inspirer works for creators, coaches and artists alike. A true all-in-one.”</p>
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" class="rounded-circle" width="36" height="36" alt="Aisha"/>
-                            <small>Aisha • Musician</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p class="mb-2">“The clean UI made it super easy to start selling my design resources.”</p>
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=120&q=80" class="rounded-circle" width="36" height="36" alt="Mehern"/>
-                            <small>Mehern • Designer</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p class="mb-2">“Took me 10 minutes to put together a professional storefront.”</p>
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=120&q=80" class="rounded-circle" width="36" height="36" alt="Ritu"/>
-                            <small>Ritu • Educator</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experts gallery -->
-    <section id="inspirers" class="section section-soft fade-in">
-        <div class="container">
-            <h2 class="section-title text-center">The Go-To Platform for Experts</h2>
-            <div class="text-center mb-3">
-                <span class="chip">Coaches</span>
-                <span class="chip">Design</span>
-                <span class="chip">Fashion</span>
-                <span class="chip">Marketing</span>
-                <span class="chip">Wellness</span>
-            </div>
-            <div class="row g-3">
-                <div class="col-6 col-md-3">
-                    <div class="expert-card">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Coach">
-                        <div class="name">Sonia Chaudhary</div>
-                        <small class="text-muted">Life Coach</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="expert-card">
-                        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80" alt="Designer">
-                        <div class="name">Rohit Saxena</div>
-                        <small class="text-muted">Designer</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="expert-card">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Angela Singh">
-                        <div class="name">Angela Singh</div>
-                        <small class="text-muted">Creator</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="expert-card">
-                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=400&q=80" alt="Coder">
-                        <div class="name">Code Partners</div>
-                        <small class="text-muted">Dev Community</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Earn & Convert Section -->
-    <section class="section fade-in">
-        <div class="container">
-            <h2 class="section-title">Earn & Convert more with Inspirer</h2>
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <div class="benefit-card text-center h-100">
-                        <div class="benefit-icon mx-auto" style="background:#8e44ad"><i class="fas fa-bolt"></i></div>
-                        <h5>2X</h5>
-                        <p class="text-muted mb-0">Faster sales with localized currency</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="benefit-card text-center h-100">
-                        <div class="benefit-icon mx-auto" style="background:#27ae60"><i class="fas fa-chart-line"></i></div>
-                        <h5>40%</h5>
-                        <p class="text-muted mb-0">Increase in reach with promotional tools</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="benefit-card text-center h-100">
-                        <div class="benefit-icon mx-auto" style="background:#f39c12"><i class="fas fa-users"></i></div>
-                        <h5>upto 4X</h5>
-                        <p class="text-muted mb-0">Higher conversion with smart checkout</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="benefit-card text-center h-100">
-                        <div class="benefit-icon mx-auto" style="background:#3498db"><i class="fas fa-bullhorn"></i></div>
-                        <h5>Get Discovered</h5>
-                        <p class="text-muted mb-0">Growth through our community directory</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Debate Section -->
-    <section class="section fade-in">
-        <div class="container">
-            <div class="debate-section p-4 rounded border">
-                <h3 class="h4 mb-3">Today's Debate</h3>
-                <div class="debate-topic">
-                    <h4>Is AI-generated art truly creative?</h4>
-                    <p class="text-muted">Posted by Arunima Kar • October 15, 2025</p>
-                    <p>As AI tools become more sophisticated in creating visual art, we're forced to reconsider what creativity means. Does the absence of human intention and emotional experience make AI art less valuable? Or are we witnessing the birth of a new creative medium?</p>
-                    <div class="mt-4">
-                        <h5 class="h6 mb-3">Community Responses</h5>
-                        <div class="comment highlighted">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <div>
-                                    <strong>Sarah Chen</strong>
-                                    <span class="badge bg-accent ms-2">Highlighted</span>
-                                </div>
-                                <small class="text-muted">2 hours ago</small>
-                            </div>
-                            <p>AI art is a tool, not a replacement. It's like photography - when cameras were invented, people questioned if it was "real art." Now we see it as its own medium. AI is similar - it's expanding what's possible, not replacing human creativity.</p>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 24</button>
-                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                            </div>
-                            <div class="comment-reply">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <strong>Marcus Johnson</strong>
-                                    <small class="text-muted">1 hour ago</small>
-                                </div>
-                                <p>I agree with Sarah. The creative intent comes from the human prompting and curating the output. The AI is just the brush.</p>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 8</button>
-                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <strong>David Park</strong>
-                                <small class="text-muted">4 hours ago</small>
-                            </div>
-                            <p>I think we're missing the point. True creativity requires consciousness and lived experience. AI can mimic patterns but can't create from a place of emotion or personal narrative. It's sophisticated pattern recognition, not creation.</p>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary me-2"><i class="fas fa-thumbs-up"></i> 15</button>
-                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h5 class="h6 mb-3">Join the Conversation</h5>
-                        <form>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="3" placeholder="Share your perspective..."></textarea>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" id="guidelines">
-                                <label class="form-check-label" for="guidelines">
-                                    I agree to the community guidelines for respectful discussion
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-dark">Post Comment</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section faq fade-in">
-        <div class="container">
-            <h2 class="section-title">Frequently asked questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="q1h">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What is Inspirer Co?</button>
-                    </h2>
-                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">Inspirer Co is a creator storefront to sell services, downloads and sessions, built for creative professionals.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="q2h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Can I conduct paid sessions?</button>
-                    </h2>
-                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">Yes. Offer 1:1, group or webinar sessions with calendar integrations and automatic reminders.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="q3h">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">How do the payments work?</button>
-                    </h2>
-                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">We support global gateways with instant payouts to your bank account depending on your region.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Connect Section -->
-    <section id="connect" class="section fade-in">
-        <div class="container">
-            <h2 class="section-title">Connect With Us</h2>
             <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <h3>Stay Inspired</h3>
-                    <p>Subscribe to our newsletter for the latest insights, features, and community updates.</p>
-                    <form class="row g-2">
-                        <div class="col-auto">
-                            <input type="email" class="form-control" placeholder="Your email address">
+                <div class="col-md-4 col-12">
+                    <div class="py-5">
+                        <h1 class="text-white align-middle display-1 my-5">Inspiring Creative Minds</h1>
+                        <!-- <p class="hero-subtitle">Make money from your content. Sell products, host sessions, and grow your business — all from a single link.</p>
+                        
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="stars">★★★★★</span>
+                                <span><strong>100k+</strong> reviews</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span><strong>1mn+</strong> professionals</span>
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-dark">Subscribe</button>
-                        </div>
-                    </form>
-                    <div class="mt-4">
-                        <h5>Follow Us</h5>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
+                        
+                        <div class="hero-cta">
+                            <a href="#start" class="btn btn-hero btn-primary">
+                                Start My Page <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div> -->
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3>Get In Touch</h3>
-                    <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your Name">
+                <div class="col-md-3 col-12"></div>
+                <div class="col-md-5 col-12">
+                    <div class="img-grid my-5">
+                        <div class="row">
+                            <div class="col">
+                                <img class="img-fluid rounded my-3" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
+                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg" alt="Team collaboration">
                             </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Your Email">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control" placeholder="Subject">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-dark">Send Message</button>
+                            <div class="col">
+                                <!-- <img class="img-fluid rounded my-2" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Digital design"> -->
+                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/7652039/pexels-photo-7652039.jpeg" alt="Digital design">
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    <!-- Image Grid -->
+                    <!-- <div class="hero-profiles">
+                        <div class="image-grid">
+                            <div class="grid-image">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
+                            </div>
+                            <div class="grid-image tall">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Team collaboration">
+                            </div>
+                            <div class="grid-image">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Digital design">
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1135,16 +927,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-cta">
-                <p class="cta-title mb-0 d-flex align-items-center"><span class="brand-icon">I</span>Build your creator storefront today</p>
-                <div>
-                    <a href="#" class="btn btn-light me-2">Explore Templates</a>
-                    <a href="#start" class="btn btn-primary">Start Creating</a>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5 class="d-flex align-items-center"><span class="brand-icon">I</span>Inspirer Co</h5>
+                    <!-- <h5 class="d-flex align-items-center"><span class="brand-icon">I</span>Inspirer Co</h5> -->
+                    <h5 class="d-flex align-items-center">
+                        <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
+                    </h5>
                     <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
                     <div class="d-flex align-items-center text-muted small">
                         <i class="fas fa-credit-card me-2"></i>
