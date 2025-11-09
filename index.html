@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspirer Co | Creative Intelligence Platform</title>
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #1a1a1a;
@@ -22,26 +27,35 @@
             --warning: #ffc107;
             --info: #17a2b8;
         }
-        
+
         body {
             font-family: 'Roboto Condensed', 'Times New Roman', serif;
             color: var(--primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         /* Heading Font */
-        h1, h2, h3, h4, h5, h6, .hero h1, .section-title, .card-title, .navbar-brand {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero h1,
+        .section-title,
+        .card-title,
+        .navbar-brand {
             font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
         }
-        
+
         /* Header & Navigation */
         .navbar {
             padding: 1.2rem 0;
             transition: all 0.3s ease;
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .navbar-brand {
@@ -54,7 +68,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         .navbar-brand .brand-icon {
             width: 32px;
             height: 32px;
@@ -84,14 +98,14 @@
         .navbar-nav {
             margin: 0;
         }
-        
+
         /* Social Media Icons */
         .social-nav {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-        
+
         .social-nav a {
             display: flex;
             align-items: center;
@@ -99,18 +113,18 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             color: var(--primary);
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-nav a:hover {
             background: var(--accent);
             color: white;
             transform: translateY(-2px);
         }
-        
+
         /* Secondary Navigation */
         .secondary-nav {
             background: var(--dark);
@@ -120,29 +134,44 @@
             left: 0;
             right: 0;
             z-index: 1020;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .secondary-nav .navbar-nav {
             flex-direction: row;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
-        
+
         .secondary-nav .nav-link {
-            color: rgba(255,255,255,0.8) !important;
+            color: rgba(255, 255, 255, 0.8) !important;
             font-weight: 500;
             padding: 0.5rem 1rem !important;
             margin: 0 0.25rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             white-space: nowrap;
+            position: relative;
+            border-radius: 8px;
         }
-        
+
         .secondary-nav .nav-link:hover {
             color: var(--accent) !important;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
         }
-        
+
+        .secondary-nav .nav-link.active {
+            color: #ffffff !important;
+            background: var(--accent);
+            font-weight: 600;
+        }
+
+        .secondary-nav .nav-link.active:hover {
+            background: var(--accent);
+            transform: none;
+        }
+
         .btn-nav {
             border-radius: 8px;
             padding: 0.6rem 1.5rem;
@@ -150,28 +179,29 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-        
+
         .btn-nav.btn-outline {
             color: var(--primary);
-            border-color: rgba(0,0,0,0.1);
+            border-color: rgba(0, 0, 0, 0.1);
             background: transparent;
         }
-        
+
         .btn-nav.btn-outline:hover {
             background: var(--light);
             border-color: var(--primary);
         }
-        
+
         .btn-nav.btn-solid {
             background: var(--primary);
             color: white;
         }
-        
+
         .btn-nav.btn-solid:hover {
             background: var(--accent);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }        
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         /* Hero Section */
         /* .hero {
             background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
@@ -210,31 +240,31 @@
             color: var(--secondary);
             line-height: 1.5;
         }
-        
+
         .hero-stats {
             display: flex;
             gap: 2rem;
             margin: 2rem 0;
             flex-wrap: wrap;
         }
-        
+
         .hero-stat {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .hero-stat .stars {
             color: #ffc107;
         }
-        
+
         .hero-cta {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
             flex-wrap: wrap;
         }
-        
+
         .btn-hero {
             padding: 0.8rem 2rem;
             border-radius: 12px;
@@ -247,19 +277,19 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .btn-hero.btn-primary {
             background: var(--primary);
             color: white;
         }
-        
+
         .btn-hero.btn-primary:hover {
             background: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             color: white;
         }
-        
+
         .hero-profiles {
             position: absolute;
             right: 5%;
@@ -268,13 +298,13 @@
             display: none;
             max-width: 320px;
         }
-        
+
         @media (min-width: 1200px) {
             .hero-profiles {
                 display: block;
             }
         }
-        
+
         /* Image Grid Layout */
         .image-grid {
             display: grid;
@@ -282,48 +312,48 @@
             gap: 1rem;
             max-width: 280px;
         }
-        
+
         .grid-image {
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
         }
-        
+
         .grid-image:hover {
             transform: translateY(-3px);
         }
-        
+
         .grid-image img {
             width: 100%;
             height: 120px;
             object-fit: cover;
             display: block;
         }
-        
+
         .grid-image.tall {
             grid-row: span 2;
         }
-        
+
         .grid-image.tall img {
             height: 252px;
         }
-        
+
         .profiles-column {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         .profiles-column.left {
             margin-right: 1rem;
         }
-        
+
         .profile-card {
             background: white;
             border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             width: 280px;
             display: flex;
             align-items: center;
@@ -332,57 +362,57 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .profile-card:hover {
             transform: translateX(-5px);
         }
-        
+
         .profile-card.gradient {
             color: white;
         }
-        
+
         .profile-avatar {
             width: 60px;
             height: 60px;
             border-radius: 12px;
             object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.2);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .profile-info h6 {
             margin: 0 0 0.25rem 0;
             font-weight: 600;
             font-size: 1rem;
         }
-        
+
         .profile-info small {
             font-size: 0.85rem;
             opacity: 0.8;
         }
-        
+
         .profile-company {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
         }
-        
+
         /* Section Styling */
         .section {
             padding: 5rem 0;
         }
-        
+
         .section-title {
             font-weight: 700;
             margin-bottom: 3rem;
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
@@ -392,7 +422,7 @@
             bottom: -10px;
             left: 0;
         }
-        
+
         /* Cards */
         .card {
             border: none;
@@ -401,69 +431,69 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .card-img-top {
             height: 200px;
             object-fit: cover;
         }
-        
+
         .card-body {
             padding: 1.5rem;
         }
-        
+
         .card-title {
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
-        
+
         .card-text {
             color: var(--secondary);
         }
-        
+
         /* Featured Content */
         .featured-content {
             background-color: var(--light);
         }
-        
+
         .featured-card {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
             height: 400px;
         }
-        
+
         .featured-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .featured-card:hover img {
             transform: scale(1.05);
         }
-        
+
         .featured-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
             color: white;
             padding: 2rem;
         }
-        
+
         /* Inspirer Profile */
         .inspirer-profile {
             text-align: center;
             padding: 2rem 1rem;
         }
-        
+
         .inspirer-img {
             width: 150px;
             height: 150px;
@@ -471,42 +501,43 @@
             object-fit: cover;
             margin: 0 auto 1.5rem;
             border: 5px solid var(--light);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Debate Section */
         .debate-section {
             background-color: var(--light);
         }
-        
+
         .debate-topic {
             background-color: white;
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 2rem;
         }
-        
+
         .comment {
             border-left: 3px solid var(--border);
             padding-left: 1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .comment.highlighted {
             border-left-color: var(--accent);
             background-color: rgba(255, 107, 107, 0.05);
         }
-        
+
         .comment-reply {
             margin-left: 2rem;
             margin-top: 1rem;
         }
-        
+
         /* Utility Sections */
         .section-soft {
             background: #fdf7f0;
         }
+
         .section-dark {
             background: #0f1b2d;
             color: #e6eef7;
@@ -518,52 +549,52 @@
             color: white;
             padding: 4rem 0 2rem;
         }
-        
+
         .footer h5 {
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
-        
+
         .footer-links a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             color: white;
         }
-        
+
         .social-links a {
             display: inline-block;
             width: 40px;
             height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             text-align: center;
             line-height: 40px;
             margin-right: 0.5rem;
             transition: background-color 0.3s ease;
         }
-        
+
         .social-links a:hover {
             background-color: var(--accent);
         }
-        
+
         /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Custom Button Styles */
         .btn-primary {
             background: var(--primary);
@@ -572,25 +603,28 @@
             transition: all 0.3s ease;
             border-radius: 10px;
         }
-        .btn-primary:hover { 
+
+        .btn-primary:hover {
             background: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
             color: #fff;
         }
+
         .btn-outline-primary {
-            border: 2px solid rgba(0,0,0,0.12);
+            border: 2px solid rgba(0, 0, 0, 0.12);
             color: var(--primary);
             background: transparent;
             transition: all 0.3s ease;
             border-radius: 10px;
         }
+
         .btn-outline-primary:hover {
             background: #fff;
             color: var(--primary);
             transform: translateY(-2px);
             border-color: var(--primary);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
         /* Scroll Cards ("New on" section) */
@@ -603,41 +637,58 @@
             padding-bottom: 0.5rem;
             scroll-snap-type: x mandatory;
         }
+
         .scroll-card {
             scroll-snap-align: start;
             border-radius: 16px;
             background: #fff;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             border: 1px solid #f0f0f0;
         }
-        .scroll-card img{width:100%;height:140px;object-fit:cover}
-        .scroll-card .sc-body{padding:1rem}
+
+        .scroll-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover
+        }
+
+        .scroll-card .sc-body {
+            padding: 1rem
+        }
 
         /* Feature/Benefit cards */
-        .benefit-card{
-            background:#fff;
-            border-radius:16px;
-            padding:1.25rem;
-            box-shadow:0 8px 22px rgba(0,0,0,0.06);
-            border:1px solid #f0f0f0;
-            height:100%;
+        .benefit-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            height: 100%;
         }
-        .benefit-icon{
-            width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:#fff
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            color: #fff
         }
 
         /* Testimonials */
-        .testimonial{
-            background: rgba(255,255,255,0.06);
-            border:1px solid rgba(255,255,255,0.08);
-            border-radius:16px;
-            padding:1.25rem;
-            height:100%;
+        .testimonial {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.25rem;
+            height: 100%;
         }
 
         /* Accent gradient text */
-        .accent-gradient{
+        .accent-gradient {
             background: linear-gradient(135deg, #ff6b6b 0%, #6c5ce7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -645,107 +696,201 @@
         }
 
         /* Chips for filters */
-        .chip{
-            display:inline-block;
-            padding:0.4rem 0.9rem;
-            background:#fff;
-            border:1px solid #eee;
-            border-radius:20px;
-            font-weight:600;
-            margin:0.25rem 0.3rem;
+        .chip {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.25rem 0.3rem;
         }
 
         /* Experts gallery cards */
-        .expert-card{
-            background:#fff;border-radius:14px;padding:0.75rem;box-shadow:0 8px 20px rgba(0,0,0,0.06);border:1px solid #f0f0f0;text-align:center;height:100%
+        .expert-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 0.75rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            height: 100%
         }
-        .expert-card img{width:100%;height:140px;object-fit:cover;border-radius:10px}
-        .expert-card .name{font-weight:700;margin-top:0.5rem}
+
+        .expert-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px
+        }
+
+        .expert-card .name {
+            font-weight: 700;
+            margin-top: 0.5rem
+        }
 
         /* FAQ overrides */
-        .faq .accordion-button{font-weight:600}
-        .faq .accordion-item{border:1px solid #eee;border-radius:12px;overflow:hidden;margin-bottom:0.75rem}
+        .faq .accordion-button {
+            font-weight: 600
+        }
+
+        .faq .accordion-item {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 0.75rem
+        }
 
         /* Accent background helpers */
-        .bg-accent{background:#ff6b6b !important;color:#fff}
-        
+        .bg-accent {
+            background: #ff6b6b !important;
+            color: #fff
+        }
+
         /* Feature checklist accordion */
-        .feature-accordion .accordion-item{border:1px solid #eee;border-radius:12px;overflow:hidden;margin-bottom:0.75rem}
-        .feature-accordion .accordion-button{font-weight:600}
-        .feature-accordion .accordion-button:not(.collapsed){background:#fdf7f0}
-        .feature-accordion .step{display:flex;align-items:center;gap:.6rem}
-        .feature-accordion .step-index{width:28px;height:28px;border-radius:50%;background:#f1f3f5;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#333}
-        .feature-accordion .check{color:#27ae60;margin-right:.5rem}
+        .feature-accordion .accordion-item {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 0.75rem
+        }
+
+        .feature-accordion .accordion-button {
+            font-weight: 600
+        }
+
+        .feature-accordion .accordion-button:not(.collapsed) {
+            background: #fdf7f0
+        }
+
+        .feature-accordion .step {
+            display: flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .feature-accordion .step-index {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f3f5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #333
+        }
+
+        .feature-accordion .check {
+            color: #27ae60;
+            margin-right: .5rem
+        }
 
         /* Footer CTA */
-        .footer-cta{background:linear-gradient(135deg,#1a1a1a,#343a40);color:#fff;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem}
-        .footer-cta .cta-title{font-weight:700;margin:0}
-        .footer .brand-icon{width:28px;height:28px;background:linear-gradient(135deg,#ff6b6b,#4ecdc4);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-right:.5rem}
+        .footer-cta {
+            background: linear-gradient(135deg, #1a1a1a, #343a40);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem
+        }
+
+        .footer-cta .cta-title {
+            font-weight: 700;
+            margin: 0
+        }
+
+        .footer .brand-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            margin-right: .5rem
+        }
 
         .bottom-align {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            height: 300px; 
+            height: 285px;
             /* or any fixed height */
             /* border: 1px solid #ccc; */
             /* padding: 10px; */
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .section {
                 padding: 3rem 0;
             }
-            
+
             .navbar-brand {
                 position: static;
                 transform: none;
                 margin: 1rem auto;
             }
-            
+
             .navbar-nav {
                 margin: 1rem 0;
             }
-            
+
             .social-nav {
                 justify-content: center;
                 margin: 1rem 0;
             }
-            
+
             .secondary-nav {
                 position: static;
                 top: auto;
                 padding: 0.5rem 0;
             }
-            
+
             .secondary-nav .navbar-nav {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 0.25rem;
             }
-            
+
             .secondary-nav .nav-link {
                 padding: 0.25rem 0.5rem !important;
                 margin: 0.125rem;
-                font-size: 0.9rem;
             }
-            
+
+            .breadcrumb-wrapper {
+                margin-top: 76px;
+                padding: 0.75rem 0;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+
             .secondary-nav .navbar-toggler {
                 margin: 0 auto;
             }
-            
+
             .hero {
                 padding: 8rem 0 6rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -759,7 +904,8 @@
                         <a class="navbar-brand" href="#">
                             <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
                         </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
@@ -787,25 +933,29 @@
                 <!-- Secondary Navigation -->
                 <nav class="navbar navbar-expand-lg secondary-nav">
                     <div class="container">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
                             <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="secondaryNav">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#brand-arc">Brand Arc</a>
+                                    <a class="nav-link active" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#cultural-fuels">Cultural Fuels</a>
+                                    <a class="nav-link" href="brand-arc.html">Brand Arc</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#inspirers">Inspirers</a>
+                                    <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                                    <a class="nav-link" href="inspirers.html">Inspirers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#about">About Us</a>
+                                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -816,26 +966,149 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="slide1">
-        <div class="bg-shapw-1"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-12">
-                    <div class="py-5">
-                        <h1 class="text-white align-middle display-1 my-5">Inspiring Creative Minds</h1>
+    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner hero">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="p-5">
+                                <h1 class="text-white align-middle display-1">Inspiring Creative Minds</h1>
+                                <p class="text-white lead">Empowering brands with the insights and creative
+                                    excellence needed to connect authentically across cultures.</p>
+                                <div class="mt-4">
+                                    <a href="brand-arc.html" class="btn btn-light btn-lg me-3">Explore Our Work</a>
+                                    <a href="inspirers.html" class="btn btn-outline-light btn-lg">Join Community</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="img-grid my-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid rounded mb-4 mt-3"
+                                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80"
+                                            alt="Creative workspace">
+                                        <img class="img-fluid rounded my-4"
+                                            src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=400&q=80"
+                                            alt="Team collaboration">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded my-3"
+                                            src="https://images.pexels.com/photos/30992413/pexels-photo-30992413.jpeg"
+                                            alt="Digital design">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12"></div>
-                <div class="col-md-5 col-12">
-                    <div class="img-grid my-5">
-                        <div class="row">
-                            <div class="col">
-                                <img class="img-fluid rounded my-3" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Creative workspace">
-                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg" alt="Team collaboration">
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="py-5">
+                                <h2 class="text-white align-middle display-1 my-5">Inspirers</h2>
+                                <!-- <p class="text-white lead">Connect with 500+ cultural strategists, designers, and innovators across 50+ countries.</p> -->
+                                <div class="mt-4">
+                                    <a href="inspirers.html" class="btn btn-light btn-lg me-3">Meet Inspirers</a>
+                                    <a href="cultural-fuels.html" class="btn btn-outline-light btn-lg">Cultural
+                                        Insights</a>
+                                </div>
                             </div>
-                            <div class="col">
-                                <img class="img-fluid rounded my-3" src="https://images.pexels.com/photos/7652039/pexels-photo-7652039.jpeg" alt="Digital design">
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="img-grid my-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid rounded my-3"
+                                            src="https://images.pexels.com/photos/1181561/pexels-photo-1181561.jpeg"
+                                            alt="Creative workspace">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded my-3"
+                                            src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg"
+                                            alt="Team collaboration">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded my-3"
+                                            src="https://images.pexels.com/photos/3184431/pexels-photo-3184431.jpeg"
+                                            alt="Digital design">
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="py-5">
+                                <h2 class="text-white align-middle display-5 my-5">Top featured Inspirer of the
+                                    month</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12 pb-5">
+                            <div class="card bg-dark p-3">
+                                <div class="img-grid">
+                                    <div class="row">
+                                        <div class="col px-0">
+                                            <h3 class="text-white bottom-align text-bold h1 px-3">Abhay Sehgal</h3>
+                                        </div>
+                                        <div class="col">
+                                            <img class="img-fluid my-3"
+                                                src="https://images.pexels.com/photos/3660035/pexels-photo-3660035.jpeg"
+                                                alt="Team collaboration">
+                                        </div>
+                                        <div class="col">
+                                            <img class="img-fluid my-3"
+                                                src="https://images.pexels.com/photos/4442088/pexels-photo-4442088.jpeg"
+                                                alt="Digital design">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p class="text-white">Redefining Indian Identity with surreal fusion of
+                                            heritage and
+                                            digital modernity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Our Story Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle shadow-lg my-5" src="res/profile.jpg" alt="Arunima Kar - Founder" style="max-width: 400px;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
+                        <h2 class="section-title mb-4">Our Story</h2>
+                        <p class="lead mb-4">Inspirer Co is a creative intelligence platform founded by brand marketer Arunima Kar, designed to connect creative minds with inspiration, insights, and meaningful recognition.</p>
+                        <p class="mb-4">We celebrate the work of individuals whose contributions deserve more recognition, while providing a space for creative professionals to think, experiment, connect, and thrive without pressure.</p>
+                        <p class="mb-4">Our goal is to help creative professionals overcome everyday creative blocks, foster collaboration, and turn inspiration into work that truly makes an impact.</p>
+                        <div class="mt-4">
+                            <a href="about.html" class="btn btn-primary me-3">Learn More About Us</a>
+                            <a href="inspirers.html" class="btn btn-outline-primary">Join Our Community</a>
                         </div>
                     </div>
                 </div>
@@ -843,28 +1116,56 @@
         </div>
     </section>
 
-    <section class="hero" id="slide2">
-        <div class="bg-shapw-1"></div>
+    <!-- Platform Features -->
+    <section class="py-5" style="background: var(--light);">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-12">
-                    <div class="py-5">
-                        <h2 class="text-white align-middle display-1 my-5">Inspirers</h2>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 mb-3">Creative Intelligence Platform</h2>
+                    <p class="lead text-muted">Comprehensive solutions for brands navigating global markets with
+                        cultural authenticity</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-brain fa-2x"></i>
+                            </div>
+                            <h4>Brand Arc</h4>
+                            <p class="text-muted">Strategic brand development with cultural intelligence at its core.
+                                From positioning to activation.</p>
+                            <a href="brand-arc.html" class="btn btn-outline-primary">Explore Brand Arc</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-12"></div>
-                <div class="col-md-5 col-12">
-                    <div class="img-grid my-5">
-                        <div class="row">
-                            <div class="col px-0">
-                                <img class="img-fluid my-3" src="https://images.pexels.com/photos/4467687/pexels-photo-4467687.jpeg" alt="Creative workspace">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-globe-americas fa-2x"></i>
                             </div>
-                            <div class="col px-0">
-                                <img class="img-fluid my-3" src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg" alt="Team collaboration">
+                            <h4>Cultural Fuels</h4>
+                            <p class="text-muted">Real-time cultural insights and trend forecasting to keep your brand
+                                ahead of the curve.</p>
+                            <a href="cultural-fuels.html" class="btn btn-outline-success">View Insights</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-users fa-2x"></i>
                             </div>
-                            <div class="col px-0">
-                                <img class="img-fluid my-3" src="https://images.pexels.com/photos/7652039/pexels-photo-7652039.jpeg" alt="Digital design">
-                            </div>
+                            <h4>Inspirer Network</h4>
+                            <p class="text-muted">Connect with 500+ creative professionals and cultural strategists
+                                worldwide.</p>
+                            <a href="inspirers.html" class="btn btn-outline-warning">Join Network</a>
                         </div>
                     </div>
                 </div>
@@ -872,33 +1173,40 @@
         </div>
     </section>
 
-    <section class="hero" id="slide3">
-        <div class="bg-shapw-1"></div>
+    <!-- Our Story -->
+    <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-12">
-                    <div class="py-5">
-                        <h2 class="text-white align-middle display-5 my-5">Top featured Inspirer of the month</h2>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                        alt="Arunima Kar - Founder" class="img-fluid rounded shadow">
                 </div>
-                <div class="col-md-3 col-12"></div>
-                <div class="col-md-5 col-12 pb-5">
-                    <div class="card bg-dark p-3">
-                        <div class="img-grid">
-                            <div class="row">
-                                <div class="col px-0">
-                                    <h3 class="text-white bottom-align text-bold h1 px-3">Abhay Sehgal</h3>
-                                </div>
-                                <div class="col px-0">
-                                    <img class="img-fluid my-3" src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg" alt="Team collaboration">
-                                </div>
-                                <div class="col px-0">
-                                    <img class="img-fluid my-3" src="https://images.pexels.com/photos/7652039/pexels-photo-7652039.jpeg" alt="Digital design">
+                <div class="col-lg-6">
+                    <div class="ps-lg-5">
+                        <h2 class="display-5 mb-4">Bridging Creativity & Culture</h2>
+                        <p class="lead mb-4">Founded by brand strategist Arunima Kar, Inspirer Co emerged from a simple
+                            yet powerful belief: the most authentic brands are built on deep cultural understanding.</p>
+                        <p class="mb-4">We've created a platform where creativity meets intelligence, where cultural
+                            insights drive innovation, and where meaningful recognition celebrates excellence. Our
+                            community of 500+ professionals across 50+ countries collaborates to build brands that don't
+                            just communicate – they inspire.</p>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <h3 class="text-primary mb-0">500+</h3>
+                                    <small class="text-muted">Creative Professionals</small>
                                 </div>
                             </div>
-                            <div class="row">
-                                <p class="text-white">Redefining Indian Identity with surreal fusion of heritage and digital modernity.</p>
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <h3 class="text-primary mb-0">50+</h3>
+                                    <small class="text-muted">Countries</small>
+                                </div>
                             </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="about.html" class="btn btn-primary me-3">Our Story</a>
+                            <a href="portfolio.html" class="btn btn-outline-primary">View Portfolio</a>
                         </div>
                     </div>
                 </div>
@@ -906,23 +1214,68 @@
         </div>
     </section>
 
-    <section>
+    <!-- Latest Projects Showcase -->
+    <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-12">
-                    <img class="img-fluid p-5" src="https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg" alt="">
+            <div class="row mb-5">
+                <div class="col-12 text-center text-white">
+                    <h2 class="display-5 mb-3">Featured Work</h2>
+                    <p class="lead opacity-75">Recent projects that showcase our cultural intelligence approach</p>
                 </div>
-                <div class="col-md-6 col-12">
-                    <h2 class="text-center my-5">Our Story</h2>
-                    <p class="text-center mb-4">Become a part of our vibrant community of creative minds. Sign up now to access exclusive content, connect with inspirers, and stay updated with the latest trends in creativity and innovation.</p>
-                    <div class="text-center mb-5">
-                        <a href="#" class="btn btn-primary rounded-pill btn-lg mx-2 px-4">Sign Up</a>
-                        <a href="#" class="btn btn-outline-primary rounded-pill btn-lg mx-2 px-4">Learn More</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80"
+                            class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Brand Strategy</span>
+                            <h5 class="card-title">TechFlow Global Expansion</h5>
+                            <p class="card-text text-muted">Helped fintech startup successfully enter 12 new markets
+                                through culturally-intelligent brand strategy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80"
+                            class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Cultural Intelligence</span>
+                            <h5 class="card-title">Luxury Brand Localization</h5>
+                            <p class="card-text text-muted">Developed cultural adaptation framework for premium fashion
+                                brand across Asian markets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 h-100">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"
+                            class="card-img-top" alt="Project">
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Innovation</span>
+                            <h5 class="card-title">Sustainable Future Platform</h5>
+                            <p class="card-text text-muted">Created digital platform connecting sustainability
+                                initiatives across diverse cultural contexts.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="text-center mt-5">
+                <a href="portfolio.html" class="btn btn-light btn-lg">View All Projects</a>
+            </div>
         </div>
     </section>
+
+    <!-- <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center my-4">At Inspirer Co. we believe creativity flourishes when talent is nurtured, acknowledged, and given the freedom to explore. This is a space where curiosity meets connection, ideas turn into action, and professional growth happens naturally.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -933,7 +1286,8 @@
                     <h5 class="d-flex align-items-center">
                         <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
                     </h5>
-                    <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
+                    <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful
+                        recognition.</p>
                     <div class="d-flex align-items-center text-muted small">
                         <i class="fas fa-credit-card me-2"></i>
                         Payments via Stripe, Razorpay and more
@@ -942,11 +1296,11 @@
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Explore</h5>
                     <div class="footer-links">
-                        <a href="#about">About Us</a>
-                        <a href="#brand-arc">Brand Arc</a>
-                        <a href="#cultural-fuels">Cultural Fuels</a>
-                        <a href="#inspirers">Inspirers</a>
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="about.html">About Us</a>
+                        <a href="brand-arc.html">Brand Arc</a>
+                        <a href="cultural-fuels.html">Cultural Fuels</a>
+                        <a href="inspirers.html">Inspirers</a>
+                        <a href="portfolio.html">Portfolio</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
@@ -992,31 +1346,35 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
     <!-- Custom JS -->
     <script>
         // Fade in animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
+
+            const fadeInOnScroll = function () {
                 fadeElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const elementVisible = 150;
-                    
+
                     if (elementTop < window.innerHeight - elementVisible) {
                         element.classList.add('visible');
                     }
                 });
             };
-            
+
             // Initial check
             fadeInOnScroll();
-            
+
             // Check on scroll
             window.addEventListener('scroll', fadeInOnScroll);
         });
     </script>
 </body>
+
 </html>

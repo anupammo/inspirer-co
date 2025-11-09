@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Inspirer Co</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Times New Roman', serif;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Heading Font */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero h1,
+        .section-title,
+        .card-title,
+        .navbar-brand {
+            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        /* Social Media Icons */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: var(--dark);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 1020;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .secondary-nav .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .secondary-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .secondary-nav .nav-link:hover {
+            color: var(--accent) !important;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .secondary-nav .nav-link.active {
+            color: #ffffff !important;
+            background: var(--accent);
+            font-weight: 600;
+        }
+
+        .secondary-nav .nav-link.active:hover {
+            background: var(--accent);
+            transform: none;
+        }
+
+        .btn-nav {
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-nav.btn-solid {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-nav.btn-solid:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Page Header */
+        /* Breadcrumb */
+        .breadcrumb-wrapper {
+            background: var(--light);
+            padding: 1rem 0;
+            margin-top: 142px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--secondary);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: var(--secondary);
+        }
+
+        /* Team Section */
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--light);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .team-photo {
+            transform: scale(1.05);
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), #ff9a9e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin: 1rem auto;
+            }
+
+            .navbar-nav {
+                margin: 1rem 0;
+            }
+
+            .social-nav {
+                justify-content: center;
+                margin: 1rem 0;
+            }
+
+            .secondary-nav {
+                position: static;
+                top: auto;
+                padding: 0.5rem 0;
+            }
+
+            .secondary-nav .navbar-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.25rem;
+            }
+
+            .secondary-nav .nav-link {
+                padding: 0.25rem 0.5rem !important;
+                margin: 0.125rem;
+                font-size: 0.9rem;
+            }
+
+            .breadcrumb-wrapper {
+                margin-top: 76px;
+                padding: 0.75rem 0;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+
+            .team-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div class="container">
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="#" class="btn btn-nav btn-solid">Join us</a>
+                        </div>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="social-nav ms-auto">
+                                <a href="#" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" aria-label="X (Twitter)">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" aria-label="Threads">
+                                    <i class="fas fa-at"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Secondary Navigation -->
+                <nav class="navbar navbar-expand-lg secondary-nav">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
+                            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="secondaryNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="brand-arc.html">Brand Arc</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="inspirers.html">Inspirers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="about.html">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Inspiring creativity and innovation through meaningful connections</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="lead">Inspirer Co was born from a simple yet powerful observation: the most innovative brands emerge when creativity meets cultural intelligence.</p>
+                    <p>Founded in 2020 by Arunima Kar, our journey began with a mission to bridge the growing gap between global brands and local cultures. We recognized that in an increasingly connected world, authenticity and cultural sensitivity had become the ultimate differentiators.</p>
+                    <p>What started as a boutique consultancy has evolved into a comprehensive creative intelligence platform, connecting 500+ professionals across 50+ countries. We've helped brands navigate cultural nuances, predict trends, and create meaningful connections with their audiences.</p>
+                    <p>Today, we're not just a service provider – we're a movement of creative minds working together to build a more culturally intelligent and inclusive brand landscape.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Our Story" class="img-fluid rounded">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-white p-3 rounded shadow">
+                                <div class="text-center">
+                                    <h4 class="h5 mb-1">5 Years</h4>
+                                    <small class="text-muted">Of Innovation</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded p-3 me-3">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3>Our Mission</h3>
+                            </div>
+                            <p class="lead">To empower brands with cultural intelligence and creative excellence, fostering authentic connections that transcend boundaries and inspire meaningful change.</p>
+                            <p>We believe that understanding culture is the key to building brands that don't just sell products, but create movements, shape conversations, and drive positive impact in communities worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-accent text-white rounded p-3 me-3">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Our Vision</h3>
+                            </div>
+                            <p class="lead">A world where every brand interaction is culturally intelligent, creatively inspiring, and genuinely meaningful to the communities they serve.</p>
+                            <p>We envision a future where cultural diversity is not just respected but celebrated as the driving force behind innovation, creativity, and authentic brand storytelling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title text-center">Our Values</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-description">We push boundaries and challenge conventions to create breakthrough solutions that shape the future.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Collaboration</h3>
+                        <p class="value-description">We believe the best ideas emerge when diverse perspectives come together with shared purpose.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="value-title">Authenticity</h3>
+                        <p class="value-description">We value genuine connections and authentic expression in everything we create and share.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title text-center">Leadership Team</h2>
+            <p class="text-center text-muted mb-5">Meet the visionaries behind Inspirer Co's cultural intelligence revolution</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Arunima Kar" class="team-photo">
+                        <h3 class="team-name">Arunima Kar</h3>
+                        <p class="team-role">Founder & CEO</p>
+                        <p class="team-bio">Visionary entrepreneur with 15+ years of experience bridging creativity and culture. Former Global Creative Director at leading agencies, Arunima founded Inspirer Co to democratize cultural intelligence and empower authentic brand storytelling worldwide.</p>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80" alt="Team Member" class="team-photo">
+                        <h3 class="team-name">Dr. Sarah Kim</h3>
+                        <p class="team-role">Chief Cultural Officer</p>
+                        <p class="team-bio">Cultural anthropologist and design strategist with expertise in Asian and Nordic markets. PhD in Cultural Studies from Cambridge. Sarah leads our cultural intelligence research and methodology development, ensuring authentic cross-cultural brand experiences.</p>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="me-3"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Team Member" class="team-photo">
+                        <h3 class="team-name">Marcus Rodriguez</h3>
+                        <p class="team-role">Head of Innovation & Technology</p>
+                        <p class="team-bio">Former Google AI researcher specializing in machine learning for cultural pattern recognition. Marcus leads our technology initiatives, developing AI-powered tools that help brands understand and predict cultural movements at scale.</p>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advisory Board -->
+            <div class="mt-5">
+                <h3 class="text-center mb-4">Advisory Board</h3>
+                <div class="row g-3">
+                    <div class="col-md-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Advisor" class="rounded-circle mb-2" style="width: 80px; height: 80px; object-fit: cover;">
+                        <h6>Elena Vasquez</h6>
+                        <small class="text-muted">Former CCO, Ogilvy Global</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Advisor" class="rounded-circle mb-2" style="width: 80px; height: 80px; object-fit: cover;">
+                        <h6>Prof. James Wright</h6>
+                        <small class="text-muted">MIT Media Lab</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=100&q=80" alt="Advisor" class="rounded-circle mb-2" style="width: 80px; height: 80px; object-fit: cover;">
+                        <h6>Yuki Tanaka</h6>
+                        <small class="text-muted">Design Director, Muji</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt="Advisor" class="rounded-circle mb-2" style="width: 80px; height: 80px; object-fit: cover;">
+                        <h6>Amara Okafor</h6>
+                        <small class="text-muted">Cultural Strategist</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Creative Professionals</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Countries Reached</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">5 Years</span>
+                        <div class="stat-label">Of Excellence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="lead mb-4">Ready to join our community of inspirers or partner with us on your next project?</p>
+                    <div class="mb-3">
+                        <i class="fas fa-envelope text-primary me-3"></i>
+                        <strong>Email:</strong> hello@inspirer.co
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-phone text-primary me-3"></i>
+                        <strong>Phone:</strong> +1 (555) 123-4567
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                        <strong>Address:</strong> 123 Creative Street, Innovation District, City 12345
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-nav btn-solid">Join Our Community</a>
+                        <a href="#" class="btn btn-outline-primary">Start a Project</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Send us a message</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-nav btn-solid w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="d-flex align-items-center">
+                        <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
+                    </h5>
+                    <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful
+                        recognition.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Explore</h5>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="brand-arc.html">Brand Arc</a>
+                        <a href="cultural-fuels.html">Cultural Fuels</a>
+                        <a href="inspirers.html">Inspirers</a>
+                        <a href="portfolio.html">Portfolio</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Community</h5>
+                    <div class="footer-links">
+                        <a href="#">Join Now</a>
+                        <a href="#">Guidelines</a>
+                        <a href="#">Events</a>
+                        <a href="#">Resources</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Connect</h5>
+                    <div class="footer-links">
+                        <a href="mailto:hello@inspirer.co">hello@inspirer.co</a>
+                        <div class="social-links mt-2">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Founded by Arunima Kar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+
+</html>
