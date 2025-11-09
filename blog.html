@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Inspirer Co</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6c757d;
+            --accent: #ff5722;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Times New Roman', serif;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Heading Font */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero h1,
+        .section-title,
+        .card-title,
+        .navbar-brand {
+            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent) !important;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        /* Social Media Icons */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: var(--primary);
+            padding: 0.8rem 0;
+        }
+
+        .secondary-nav .navbar-nav {
+            width: 100%;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .secondary-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            padding: 0.5rem 0 !important;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-nav .nav-link:hover,
+        .secondary-nav .nav-link.active {
+            color: var(--accent) !important;
+            border-bottom-color: var(--accent);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background: linear-gradient(135deg, var(--light) 0%, #e9ecef 100%);
+            padding: 2rem 0;
+            margin-top: 140px;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '>';
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c2c2c 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 5rem 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--border);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--dark);
+        }
+
+        /* Featured Post */
+        .featured-post {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 2.5rem;
+        }
+
+        .featured-category {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-form .form-control {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .btn-search {
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .category-list a:hover {
+            color: var(--accent);
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #ff7043 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .newsletter-form .form-control {
+            border: none;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+        }
+
+        .btn-newsletter {
+            background: white;
+            color: var(--accent);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem 0;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                position: static;
+                transform: none;
+                left: auto;
+            }
+
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .secondary-nav .navbar-nav {
+                gap: 1rem;
+            }
+
+            .secondary-nav .nav-link {
+                font-size: 0.8rem;
+            }
+
+            .breadcrumb-section {
+                margin-top: 120px;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+
+            .featured-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <div class="d-flex align-items-center gap-2">
+                <a href="contact.html" class="btn btn-nav btn-solid">Join us</a>
+            </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="social-nav ms-auto">
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="Threads">
+                        <i class="fas fa-at"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="navbar navbar-expand-lg secondary-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="secondaryNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brand-arc.html">Brand Arc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inspirers.html">Inspirers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Creative Insights & Industry Trends</h1>
+                    <p class="lead mb-4">Discover the latest in creative intelligence, cultural trends, and brand innovation. Stay ahead with insights from industry leaders and creative minds.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <div class="blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Featured Post -->
+                    <div class="featured-post">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=300&fit=crop&crop=center" alt="The Future of Brand Storytelling" class="featured-image">
+                        <div class="featured-content">
+                            <span class="featured-category">Brand Strategy</span>
+                            <h2 class="featured-title">The Future of Brand Storytelling in the Digital Age</h2>
+                            <div class="blog-meta mb-3">
+                                <i class="fas fa-calendar-alt me-2"></i>November 8, 2024
+                                <span class="mx-2">•</span>
+                                <i class="fas fa-user me-2"></i>Sarah Johnson
+                                <span class="mx-2">•</span>
+                                <i class="fas fa-clock me-2"></i>5 min read
+                            </div>
+                            <p class="blog-excerpt">Explore how brands are revolutionizing storytelling through immersive digital experiences, cultural authenticity, and meaningful connections that transcend traditional marketing boundaries.</p>
+                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Posts Grid -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=200&fit=crop&crop=center" alt="Cultural Intelligence in Marketing" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Cultural Intelligence</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>November 5, 2024
+                                    </div>
+                                    <h3 class="blog-title">Cultural Intelligence: The Key to Global Brand Success</h3>
+                                    <p class="blog-excerpt">Understanding cultural nuances is crucial for brands expanding internationally. Learn how to navigate cultural differences...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&crop=center" alt="Design Thinking Workshop" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Innovation</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>November 2, 2024
+                                    </div>
+                                    <h3 class="blog-title">Design Thinking: Revolutionizing Creative Problem-Solving</h3>
+                                    <p class="blog-excerpt">Discover how design thinking methodologies are transforming the way teams approach creative challenges...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop&crop=center" alt="Digital Strategy Trends" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Digital Strategy</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>October 30, 2024
+                                    </div>
+                                    <h3 class="blog-title">2024 Digital Marketing Trends That Actually Matter</h3>
+                                    <p class="blog-excerpt">Cut through the noise and focus on digital marketing trends that will genuinely impact your brand's success...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&crop=center" alt="Community Building" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Community</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>October 28, 2024
+                                    </div>
+                                    <h3 class="blog-title">Building Authentic Brand Communities in 2024</h3>
+                                    <p class="blog-excerpt">Learn the strategies and principles behind creating genuine, engaged communities that champion your brand...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=200&fit=crop&crop=center" alt="Creative Leadership" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Leadership</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>October 25, 2024
+                                    </div>
+                                    <h3 class="blog-title">Leading Creative Teams: Balancing Innovation and Delivery</h3>
+                                    <p class="blog-excerpt">Effective creative leadership requires a unique balance of artistic vision and practical execution...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                                <img src="https://images.unsplash.com/photo-1515378791036-0648a814c963?w=400&h=200&fit=crop&crop=center" alt="Brand Identity Evolution" class="blog-image">
+                                <div class="blog-content">
+                                    <span class="blog-category">Branding</span>
+                                    <div class="blog-meta">
+                                        <i class="fas fa-calendar-alt me-2"></i>October 22, 2024
+                                    </div>
+                                    <h3 class="blog-title">When to Evolve Your Brand Identity: Signs and Strategies</h3>
+                                    <p class="blog-excerpt">Understanding the right time and approach for brand evolution is crucial for maintaining relevance...</p>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>
+                            <li class="page-item active">
+                                <span class="page-link">1</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Search -->
+                    <div class="sidebar-card">
+                        <h4 class="h5 mb-3">Search Articles</h4>
+                        <form class="search-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <button class="btn btn-search" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-card">
+                        <h4 class="h5 mb-3">Categories</h4>
+                        <ul class="category-list">
+                            <li><a href="#">Brand Strategy <span class="text-muted">(12)</span></a></li>
+                            <li><a href="#">Cultural Intelligence <span class="text-muted">(8)</span></a></li>
+                            <li><a href="#">Innovation <span class="text-muted">(15)</span></a></li>
+                            <li><a href="#">Digital Strategy <span class="text-muted">(10)</span></a></li>
+                            <li><a href="#">Community Building <span class="text-muted">(6)</span></a></li>
+                            <li><a href="#">Leadership <span class="text-muted">(9)</span></a></li>
+                            <li><a href="#">Branding <span class="text-muted">(11)</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts -->
+                    <div class="sidebar-card">
+                        <h4 class="h5 mb-3">Recent Posts</h4>
+                        <div class="d-flex mb-3">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=80&h=60&fit=crop&crop=center" alt="Recent post" class="rounded me-3" style="width: 80px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1" style="font-size: 0.9rem; line-height: 1.3;">The Psychology Behind Color in Brand Design</h6>
+                                <small class="text-muted">Nov 1, 2024</small>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=80&h=60&fit=crop&crop=center" alt="Recent post" class="rounded me-3" style="width: 80px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1" style="font-size: 0.9rem; line-height: 1.3;">Sustainable Branding: More Than Just a Trend</h6>
+                                <small class="text-muted">Oct 29, 2024</small>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <img src="https://images.unsplash.com/photo-1586880244386-8b3e34c8382c?w=80&h=60&fit=crop&crop=center" alt="Recent post" class="rounded me-3" style="width: 80px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1" style="font-size: 0.9rem; line-height: 1.3;">Cross-Cultural Communication in Global Teams</h6>
+                                <small class="text-muted">Oct 26, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-4">Stay Inspired</h2>
+                    <p class="lead mb-4">Subscribe to our newsletter for weekly insights on creative intelligence, industry trends, and brand innovation.</p>
+                    <form class="newsletter-form">
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email address">
+                                    <button class="btn btn-newsletter" type="submit">Subscribe</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Inspirer Co</h5>
+                    <p class="text-light">Creative Intelligence Platform transforming brands through innovative strategies and cultural insights.</p>
+                    <div class="social-nav">
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" aria-label="X (Twitter)">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="brand-arc.html">Brand Arc</a></li>
+                        <li><a href="cultural-fuels.html">Cultural Fuels</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="inspirers.html">Inspirers</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-light">&copy; 2024 Inspirer Co. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>

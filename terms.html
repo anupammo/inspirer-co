@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Inspirer Co</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6c757d;
+            --accent: #ff5722;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', 'Times New Roman', serif;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Heading Font */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .hero h1,
+        .section-title,
+        .card-title,
+        .navbar-brand {
+            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent) !important;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        /* Social Media Icons */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: var(--primary);
+            padding: 0.8rem 0;
+        }
+
+        .secondary-nav .navbar-nav {
+            width: 100%;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .secondary-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            padding: 0.5rem 0 !important;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-nav .nav-link:hover,
+        .secondary-nav .nav-link.active {
+            color: var(--accent) !important;
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 140px;
+            padding: 3rem 0;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .content-title {
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            color: var(--secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .last-updated {
+            background: var(--light);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem 0;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                position: static;
+                transform: none;
+                left: auto;
+            }
+
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .secondary-nav .navbar-nav {
+                gap: 1rem;
+            }
+
+            .secondary-nav .nav-link {
+                font-size: 0.8rem;
+            }
+
+            .main-content {
+                margin-top: 120px;
+            }
+
+            .content-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <div class="d-flex align-items-center gap-2">
+                <a href="contact.html" class="btn btn-nav btn-solid">Join us</a>
+            </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="social-nav ms-auto">
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="Threads">
+                        <i class="fas fa-at"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="navbar navbar-expand-lg secondary-nav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="secondaryNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brand-arc.html">Brand Arc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inspirers.html">Inspirers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="content-card">
+                        <div class="last-updated">
+                            <i class="fas fa-calendar-alt me-2"></i>
+                            Last Updated: November 9, 2024
+                        </div>
+
+                        <h1 class="content-title">Terms of Service</h1>
+
+                        <div class="highlight-box">
+                            <p class="mb-0"><strong>Agreement Overview:</strong> These Terms of Service govern your use of Inspirer Co's website and services. By using our services, you agree to be bound by these terms.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>1. Acceptance of Terms</h3>
+                            <p>By accessing and using the Inspirer Co website and services, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these terms, you should not use our services.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>2. Description of Service</h3>
+                            <p>Inspirer Co provides creative intelligence services including but not limited to:</p>
+                            <ul>
+                                <li>Brand strategy and identity development</li>
+                                <li>Cultural intelligence research and consulting</li>
+                                <li>Creative innovation and design thinking</li>
+                                <li>Digital strategy and implementation</li>
+                                <li>Community building and engagement services</li>
+                            </ul>
+                            <p>We reserve the right to modify, suspend, or discontinue any aspect of our services at any time.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>3. User Responsibilities</h3>
+                            <p>When using our services, you agree to:</p>
+                            <ul>
+                                <li>Provide accurate and complete information</li>
+                                <li>Use our services for lawful purposes only</li>
+                                <li>Respect intellectual property rights</li>
+                                <li>Not interfere with or disrupt our services</li>
+                                <li>Not attempt to gain unauthorized access to our systems</li>
+                                <li>Comply with all applicable laws and regulations</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>4. Intellectual Property Rights</h3>
+                            <p>All content, materials, and intellectual property on our website and in our services are owned by Inspirer Co or our licensors. This includes but is not limited to:</p>
+                            <ul>
+                                <li>Text, graphics, logos, and images</li>
+                                <li>Software, code, and technical documentation</li>
+                                <li>Methodologies, processes, and frameworks</li>
+                                <li>Trademarks, service marks, and trade names</li>
+                            </ul>
+                            <p>You may not use, copy, modify, or distribute any of our intellectual property without explicit written permission.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>5. Client Work and Confidentiality</h3>
+                            <p>For our consulting and creative services:</p>
+                            <ul>
+                                <li>All client work is governed by separate service agreements</li>
+                                <li>We maintain strict confidentiality standards</li>
+                                <li>Intellectual property ownership is defined in project contracts</li>
+                                <li>We may showcase work with client permission</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>6. Payment Terms</h3>
+                            <p>For paid services:</p>
+                            <ul>
+                                <li>Payment terms are specified in service agreements</li>
+                                <li>All fees are due as specified in invoices</li>
+                                <li>Late payments may incur additional charges</li>
+                                <li>Refunds are handled according to our refund policy</li>
+                                <li>Disputed charges must be reported within 30 days</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>7. Limitation of Liability</h3>
+                            <p>To the maximum extent permitted by law, Inspirer Co shall not be liable for:</p>
+                            <ul>
+                                <li>Any indirect, incidental, or consequential damages</li>
+                                <li>Loss of profits, data, or business opportunities</li>
+                                <li>Damages resulting from third-party services or content</li>
+                                <li>Service interruptions or technical failures</li>
+                            </ul>
+                            <p>Our total liability shall not exceed the amount paid by you for our services in the twelve months preceding the claim.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>8. Indemnification</h3>
+                            <p>You agree to indemnify and hold harmless Inspirer Co, its officers, directors, employees, and agents from any claims, damages, or expenses arising from:</p>
+                            <ul>
+                                <li>Your use of our services</li>
+                                <li>Your violation of these terms</li>
+                                <li>Your infringement of third-party rights</li>
+                                <li>Any content you submit or transmit through our services</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>9. Privacy and Data Protection</h3>
+                            <p>Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated by reference into these Terms of Service. By using our services, you consent to our data practices as described in our Privacy Policy.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>10. Termination</h3>
+                            <p>We may terminate or suspend your access to our services at any time, with or without cause, and with or without notice. Upon termination:</p>
+                            <ul>
+                                <li>Your right to use our services ceases immediately</li>
+                                <li>Outstanding obligations remain in effect</li>
+                                <li>Confidentiality obligations continue</li>
+                                <li>We may retain certain information as required by law</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>11. Dispute Resolution</h3>
+                            <p>Any disputes arising from these terms or our services shall be resolved through:</p>
+                            <ul>
+                                <li>Initial good faith negotiation between the parties</li>
+                                <li>Binding arbitration if negotiation fails</li>
+                                <li>Arbitration conducted under New York State law</li>
+                                <li>Venue in New York County, New York</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>12. Governing Law</h3>
+                            <p>These Terms of Service are governed by and construed in accordance with the laws of the State of New York, without regard to conflict of law principles. Any legal action or proceeding shall be brought exclusively in the courts of New York County, New York.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>13. Changes to Terms</h3>
+                            <p>We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on our website. Your continued use of our services after any changes constitutes acceptance of the new terms.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>14. Severability</h3>
+                            <p>If any provision of these terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining terms remain in full force and effect.</p>
+                        </div>
+
+                        <div class="content-section">
+                            <h3>15. Contact Information</h3>
+                            <p>If you have any questions about these Terms of Service, please contact us:</p>
+                            <ul>
+                                <li>Email: <a href="mailto:legal@inspirer.co" class="text-decoration-none">legal@inspirer.co</a></li>
+                                <li>Address: 123 Creative District, Innovation Hub, Floor 5, New York, NY 10001</li>
+                                <li>Phone: <a href="tel:+1234567890" class="text-decoration-none">+1 (234) 567-890</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p class="mb-0"><strong>Questions?</strong> These terms are designed to protect both parties and ensure a positive working relationship. If you have any questions or concerns about these terms, please contact our legal team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Inspirer Co</h5>
+                    <p class="text-light">Creative Intelligence Platform transforming brands through innovative strategies and cultural insights.</p>
+                    <div class="social-nav">
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" aria-label="X (Twitter)">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Services</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="brand-arc.html">Brand Arc</a></li>
+                        <li><a href="cultural-fuels.html">Cultural Fuels</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="inspirers.html">Inspirers</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 text-light">&copy; 2024 Inspirer Co. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
