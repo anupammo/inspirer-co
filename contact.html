@@ -114,31 +114,68 @@
 
         /* Secondary Navigation */
         .secondary-nav {
-            background: var(--primary);
-            padding: 0.8rem 0;
+            background: var(--dark);
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 1020;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .secondary-nav .navbar-nav {
-            width: 100%;
+            flex-direction: row;
             justify-content: center;
-            gap: 2rem;
+            align-items: center;
+            width: 100%;
         }
 
         .secondary-nav .nav-link {
-            color: white !important;
+            color: rgba(255, 255, 255, 0.8) !important;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
-            padding: 0.5rem 0 !important;
-            border-bottom: 2px solid transparent;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+            border-radius: 8px;
         }
 
-        .secondary-nav .nav-link:hover,
-        .secondary-nav .nav-link.active {
+        .secondary-nav .nav-link:hover {
             color: var(--accent) !important;
-            border-bottom-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .secondary-nav .nav-link.active {
+            color: #ffffff !important;
+            background: var(--accent);
+            font-weight: 600;
+        }
+
+        .secondary-nav .nav-link.active:hover {
+            background: var(--accent);
+            transform: none;
+        }
+
+        .btn-nav {
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-nav.btn-solid {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-nav.btn-solid:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Breadcrumb */
