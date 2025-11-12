@@ -1533,12 +1533,25 @@
 
         /* Footer Enhancements */
         footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%) !important;
             margin-top: 4rem;
+            color: white !important;
+            padding: 3rem 0 1rem 0;
+        }
+
+        footer h5 {
+            color: white !important;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8) !important;
+            line-height: 1.6;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(255, 255, 255, 0.7) !important;
             text-decoration: none;
             transition: all 0.3s ease;
             display: block;
@@ -1548,6 +1561,15 @@
         .footer-links a:hover {
             color: var(--accent) !important;
             transform: translateX(5px);
+        }
+
+        /* Payment Text Styling */
+        .footer .text-light {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .footer .text-light i {
+            color: var(--accent) !important;
         }
 
         .social-links a {
@@ -1561,11 +1583,24 @@
             color: white !important;
             margin-right: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-links a:hover {
             background: var(--accent) !important;
+            border-color: var(--accent) !important;
             transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Footer Bottom Section */
+        footer hr {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        footer .row:last-child p {
+            color: rgba(255, 255, 255, 0.6) !important;
+            margin: 0;
         }
     </style>
 </head>
@@ -1711,7 +1746,7 @@
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner hero">
-            <!-- <div class="carousel-item active">
+            <div class="carousel-item active">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-12">
@@ -1744,32 +1779,6 @@
             <div class="carousel-item">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6 col-12">
-                            <div class="hero-content-wrapper">
-                                <h2 class="text-white display-1 mb-4">Inspirers</h2>
-                                <p class="text-white lead mb-4">Connect with 500+ cultural strategists, designers, and innovators across 50+ countries driving creative excellence.</p>
-                                <div class="d-flex flex-column flex-md-row gap-3">
-                                    <a href="inspirers.html" class="btn btn-light btn-lg">Meet Inspirers</a>
-                                    <a href="cultural-fuels.html" class="btn btn-outline-light btn-lg">Cultural Insights</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <img class="img-fluid card"
-                                src="https://images.pexels.com/photos/1181561/pexels-photo-1181561.jpeg"
-                                alt="Creative workspace" loading="lazy">
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <img class="img-fluid card"
-                                src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg"
-                                alt="Team collaboration" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row align-items-center">
                         <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
                                 <h2 class="text-white display-3 mb-4">Top Featured Inspirer of the Month</h2>
@@ -1799,7 +1808,33 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="carousel-item">
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-12">
+                            <div class="hero-content-wrapper">
+                                <h2 class="text-white display-1 mb-4">Inspirers</h2>
+                                <p class="text-white lead mb-4">Connect with 500+ cultural strategists, designers, and innovators across 50+ countries driving creative excellence.</p>
+                                <div class="d-flex flex-column flex-md-row gap-3">
+                                    <a href="inspirers.html" class="btn btn-light btn-lg">Meet Inspirers</a>
+                                    <a href="cultural-fuels.html" class="btn btn-outline-light btn-lg">Cultural Insights</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <img class="img-fluid card"
+                                src="https://images.pexels.com/photos/1181561/pexels-photo-1181561.jpeg"
+                                alt="Creative workspace" loading="lazy">
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <img class="img-fluid card"
+                                src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg"
+                                alt="Team collaboration" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-6 col-12">
@@ -1834,7 +1869,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
         <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -2043,7 +2078,7 @@
                     </h5>
                     <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful
                         recognition.</p>
-                    <div class="d-flex align-items-center text-muted small">
+                    <div class="d-flex align-items-center text-light small">
                         <i class="fas fa-credit-card me-2"></i>
                         Payments via Stripe, Razorpay and more
                     </div>
@@ -2051,29 +2086,29 @@
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Explore</h5>
                     <div class="footer-links">
+                        <a href="index.html">Home</a>
                         <a href="about.html">About Us</a>
                         <a href="brand-arc.html">Brand Arc</a>
                         <a href="cultural-fuels.html">Cultural Fuels</a>
-                        <a href="inspirers.html">Inspirers</a>
                         <a href="portfolio.html">Portfolio</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Community</h5>
                     <div class="footer-links">
-                        <a href="#">Join Now</a>
-                        <a href="#">Guidelines</a>
-                        <a href="#">Events</a>
-                        <a href="#">Resources</a>
+                        <a href="inspirers.html">Join Our Community</a>
+                        <a href="inspirers.html">Inspirers Network</a>
+                        <a href="portfolio.html">Featured Projects</a>
+                        <a href="cultural-fuels.html">Cultural Insights</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Support</h5>
                     <div class="footer-links">
-                        <a href="#">Help Center</a>
-                        <a href="#">Contact Us</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
+                        <a href="about.html">Help Center</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
