@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Sehgal - Contemporary Indian Artist | Inspirer Co</title>
+    <meta name="description" content="Abhay Sehgal: Reimagining India Through Contemporary Art and Code Brown. Explore the portfolio, services, and creative vision of this Delhi-based visual artist.">
+    <meta name="keywords" content="Abhay Sehgal, Code Brown, contemporary Indian art, India, Indian visual artists, Indian design collective, Indian cultural creativity, modern Indian art, Delhi contemporary art, Indian art trends, Indian creative brands, Inspirer">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6c757d;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #e9ecef;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Roboto Condensed', 'Times New Roman', serif;
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Heading Font */
+        h1, h2, h3, h4, h5, h6, .hero h1, .section-title, .card-title, .navbar-brand {
+            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+        }
+        
+        /* Header & Navigation */
+        .navbar {
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--primary) !important;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+        }
+        
+        .btn-nav {
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-nav.btn-outline {
+            color: var(--primary);
+            border-color: rgba(0,0,0,0.1);
+            background: transparent;
+        }
+        
+        .btn-nav.btn-outline:hover {
+            background: var(--light);
+            border-color: var(--primary);
+        }
+        
+        .btn-nav.btn-solid {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-nav.btn-solid:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Social Navigation (Desktop) */
+        .social-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .social-nav a {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-content { padding: 1.5rem 0; }
+        .mobile-cta { padding: 1rem 0; border-top: 1px solid rgba(0,0,0,0.1); margin-top: 1rem; }
+        .mobile-social-nav {
+            display: flex; gap: 1rem; justify-content: center; padding: 1rem 0;
+            border-top: 1px solid rgba(0,0,0,0.1); margin-top: 1rem;
+        }
+        .mobile-social-nav a {
+            display: flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; background: rgba(0,0,0,0.05);
+            border-radius: 50%; color: var(--secondary); transition: all 0.3s ease;
+        }
+        .mobile-social-nav a:hover { background: var(--accent); color: white; }
+
+        /* Secondary Navigation */
+        .secondary-nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0.75rem 0;
+            position: fixed; top: 84px; left: 0; right: 0; z-index: 1029;
+        }
+        .secondary-nav .navbar-nav { justify-content: center; }
+        .secondary-nav .nav-link {
+            color: white !important; font-weight: 500;
+            padding: 0.5rem 1.5rem !important; border-radius: 6px; transition: all 0.3s ease;
+        }
+        .secondary-nav .nav-link:hover, .secondary-nav .nav-link.active {
+            background: rgba(255,255,255,0.2); transform: translateY(-1px);
+        }
+        @media (max-width: 992px) { .secondary-nav { display: none !important; } }
+
+        /* Profile Hero Section */
+        .profile-hero {
+            background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
+            padding: 10rem 0 4rem;
+            margin-top: 140px;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-tagline {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .profile-stat .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .profile-stat .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .social-links-profile {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-links-profile a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .social-links-profile a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* UGC Content Section */
+        .ugc-section {
+            background: var(--light);
+        }
+
+        .ugc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ugc-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .ugc-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ugc-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .ugc-content {
+            padding: 1.5rem;
+        }
+
+        .ugc-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ugc-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .ugc-author-info h6 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .ugc-author-info small {
+            color: var(--secondary);
+        }
+
+        .ugc-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* Debate Section */
+        .debate-section {
+            background: white;
+        }
+
+        .debate-topic {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .debate-topic h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .debate-meta {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .debate-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .comments-section {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .comment {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .comment:hover {
+            border-left-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .comment.highlighted {
+            border-left-color: var(--accent);
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comment-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .comment-author-info h6 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .comment-author-info small {
+            color: var(--secondary);
+        }
+
+        .comment-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .comment-content {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .comment-action-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comment-action-btn:hover {
+            background: var(--light);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .comment-action-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .comment-reply {
+            margin-left: 3rem;
+            margin-top: 1rem;
+        }
+
+        .join-debate-form {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .join-debate-form h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .guidelines-box {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .guidelines-box h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .guidelines-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .guidelines-box li {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-cta {
+            background: linear-gradient(135deg, #1a1a1a, #343a40);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-cta .cta-title {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .footer .brand-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .footer h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+            color: #fff;
+        }
+
+        .btn-outline-primary {
+            border: 2px solid rgba(0,0,0,0.12);
+            color: var(--primary);
+            background: transparent;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-outline-primary:hover {
+            background: #fff;
+            color: var(--primary);
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-hero {
+                padding: 8rem 0 3rem;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .profile-tagline {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .comment-reply {
+                margin-left: 1rem;
+            }
+
+            .footer-cta {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Mobile: Logo on left -->
+            <a class="navbar-brand" href="#">
+                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+            </a>
+            
+            <!-- Desktop: Join Us Button -->
+            <div class="d-none d-lg-flex align-items-center">
+                <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
+            </div>
+            
+            <!-- Desktop: Social Icons -->
+            <div class="social-nav d-none d-lg-flex align-items-center">
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" aria-label="X (Twitter)">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" aria-label="Threads">
+                    <i class="fas fa-at"></i>
+                </a>
+            </div>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Collapsible Navigation (Mobile Only) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="d-lg-none mobile-menu-content">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="brand-arc.html">Brand Arc</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="inspirers.html">Inspirers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Mobile: Join Us Button -->
+                    <div class="mobile-cta">
+                        <a href="#" class="btn btn-nav btn-solid w-100">Join us</a>
+                    </div>
+                    
+                    <!-- Mobile: Social Icons (Mobile Only) -->
+                    <div class="mobile-social-nav d-lg-none">
+                        <a href="#" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" aria-label="X (Twitter)">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Threads">
+                            <i class="fas fa-at"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Navigation (Desktop Only) -->
+    <nav class="navbar navbar-expand-lg secondary-nav d-none d-lg-block">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brand-arc.html">Brand Arc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inspirers.html">Inspirers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Hero Section -->
+    <section class="profile-hero text-center">
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Abhay Sehgal" class="profile-avatar">
+            <h1 class="profile-name">Abhay Sehgal</h1>
+            <p class="profile-tagline">Contemporary Artist & Founder of Code Brown</p>
+            
+            <div class="profile-stats">
+                <div class="profile-stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Artworks</span>
+                </div>
+                <div class="profile-stat">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="profile-stat">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Clients</span>
+                </div>
+            </div>
+
+            <div class="social-links-profile">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
+                <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">Book Consultation</a>
+                <a href="#portfolio" class="btn btn-outline-primary">View Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Abhay</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-content">
+                        <p>Abhay Sehgal is one of those artists who makes you see India in a different light. He doesn't just paint or make visuals; he creates worlds where tradition and modern life meet and talk to each other. He studied at the School of the Art Institute of Chicago and works out of Delhi, but what strikes me is how his work feels so grounded yet so imaginative. It's not about the past or nostalgia; it's about how India can feel alive and evolving in the moment through art.</p>
+
+                        <p>His art often takes familiar things, Indian motifs, architecture, and textures, and then twists them in ways that make you stop and think. There's surrealism, yes, but also a lot of feeling and storytelling. It's like each piece is asking you to notice yourself, your memories, and the world around you in a slightly different way.</p>
+
+                        <p>What's really exciting is that he's also the mind behind Code Brown, a creative collective and brand that carries this same philosophy forward. It's playful, experimental, and bold. It's about celebrating India as it is right now: raw and layered, chaotic and poetic. His work through Code Brown makes you think about identity and culture differently. It feels unapologetic and alive.</p>
+
+                        <p>Sehgal's work doesn't just stay on the wall or in a frame; it pulls you in psychologically and emotionally. He draws from Indian mysticism, psychology, and the stories we all carry in small ways, so it feels personal yet universal. His visuals invite reflection and curiosity. You can get lost in them, but also feel seen.</p>
+
+                        <p>For anyone following contemporary Indian art, collectors, creatives, or just people curious about culture, his work opens up a conversation about how India can be represented today. Not stuck, not frozen, but fluid, thoughtful, and inventive. And it's exciting because it feels like a movement, something that's larger than one artist alone.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="highlight-box">
+                        <h4>Code Brown</h4>
+                        <p>A creative collective and brand that celebrates contemporary India through bold, experimental visual storytelling. Code Brown represents a movement of cultural creativity that's raw, layered, and unapologetically alive.</p>
+                        <a href="#" class="btn btn-outline-light mt-2">Explore Code Brown</a>
+                    </div>
+
+                    <div class="highlight-box mt-4">
+                        <h4>Education</h4>
+                        <p><strong>School of the Art Institute of Chicago</strong></p>
+                        <p class="mb-0">Based in Delhi, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="lead mb-5">Explore a curated collection of contemporary artworks that reimagine India through surrealism, mysticism, and modern cultural narratives.</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=80" alt="Indian Motifs Series" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Indian Motifs Series</h3>
+                        <p class="portfolio-description">A collection exploring traditional Indian patterns reimagined through contemporary visual language.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=800&q=80" alt="Urban Mysticism" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Urban Mysticism</h3>
+                        <p class="portfolio-description">Where ancient Indian spirituality meets modern city life in surreal visual compositions.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?auto=format&fit=crop&w=800&q=80" alt="Code Brown Identity" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Code Brown Identity</h3>
+                        <p class="portfolio-description">Visual identity and branding work for the Code Brown collective celebrating contemporary India.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?auto=format&fit=crop&w=800&q=80" alt="Architectural Reimaginings" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Architectural Reimaginings</h3>
+                        <p class="portfolio-description">Indian architecture transformed through layered textures and surreal perspectives.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Cultural Layers" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Cultural Layers</h3>
+                        <p class="portfolio-description">Multi-layered compositions exploring the complexity of modern Indian identity.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="Commissioned Works" class="portfolio-image">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Commissioned Works</h3>
+                        <p class="portfolio-description">Custom artworks created for collectors and brands seeking unique visual narratives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Services & Consultation</h2>
+            <p class="lead mb-5">Book a consultation or commission custom artwork for your space or brand.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="service-title">Custom Artwork</h3>
+                        <p class="service-description">Commission original contemporary art pieces tailored to your vision, space, or brand identity.</p>
+                        <div class="service-price">From ₹50,000</div>
+                        <a href="#" class="btn btn-primary w-100">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="service-title">Creative Consultation</h3>
+                        <p class="service-description">60-minute consultation on visual identity, cultural branding, and contemporary art direction.</p>
+                        <div class="service-price">₹5,000/hour</div>
+                        <a href="#" class="btn btn-primary w-100">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="service-title">Workshop & Talks</h3>
+                        <p class="service-description">Engaging workshops and talks on contemporary Indian art, cultural creativity, and visual storytelling.</p>
+                        <div class="service-price">Custom Pricing</div>
+                        <a href="#" class="btn btn-primary w-100">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UGC Content Section -->
+    <section class="section ugc-section">
+        <div class="container">
+            <h2 class="section-title">Community Showcase</h2>
+            <p class="lead mb-5">See what the creative community is sharing about contemporary art and culture.</p>
+            
+            <div class="ugc-grid">
+                <div class="ugc-card">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80" alt="Art Process" class="ugc-image">
+                    <div class="ugc-content">
+                        <div class="ugc-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Priya" class="ugc-avatar">
+                            <div class="ugc-author-info">
+                                <h6>Priya Sharma</h6>
+                                <small>Art Collector</small>
+                            </div>
+                        </div>
+                        <p>"Abhay's work completely transformed my understanding of contemporary Indian art. Each piece tells a story."</p>
+                        <div class="ugc-stats">
+                            <span><i class="fas fa-heart"></i> 124</span>
+                            <span><i class="fas fa-comment"></i> 18</span>
+                            <span><i class="fas fa-share"></i> 32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ugc-card">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80" alt="Exhibition" class="ugc-image">
+                    <div class="ugc-content">
+                        <div class="ugc-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Rahul" class="ugc-avatar">
+                            <div class="ugc-author-info">
+                                <h6>Rahul Mehta</h6>
+                                <small>Designer</small>
+                            </div>
+                        </div>
+                        <p>"Code Brown represents exactly what contemporary India should look like - bold, layered, and unapologetic."</p>
+                        <div class="ugc-stats">
+                            <span><i class="fas fa-heart"></i> 89</span>
+                            <span><i class="fas fa-comment"></i> 12</span>
+                            <span><i class="fas fa-share"></i> 24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ugc-card">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=800&q=80" alt="Studio Visit" class="ugc-image">
+                    <div class="ugc-content">
+                        <div class="ugc-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="Ananya" class="ugc-avatar">
+                            <div class="ugc-author-info">
+                                <h6>Ananya Singh</h6>
+                                <small>Cultural Curator</small>
+                            </div>
+                        </div>
+                        <p>"The way Sehgal blends mysticism with modern narratives is exactly what Indian art needs right now."</p>
+                        <div class="ugc-stats">
+                            <span><i class="fas fa-heart"></i> 156</span>
+                            <span><i class="fas fa-comment"></i> 23</span>
+                            <span><i class="fas fa-share"></i> 45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debate Section -->
+    <section class="section debate-section">
+        <div class="container">
+            <h2 class="section-title mb-5">Today's Debate</h2>
+            
+            <div class="debate-topic">
+                <h3>Can Contemporary Art Truly Represent Modern India Without Commercialization?</h3>
+                <p class="debate-meta"><i class="fas fa-calendar-alt me-2"></i>Posted by Abhay Sehgal • November 14, 2025</p>
+                <p class="debate-description">As Indian contemporary art gains global recognition, there's an ongoing tension between authentic cultural expression and market demands. Code Brown and similar movements try to balance both - creating art that's genuine while also being commercially viable. But does commercialization dilute the cultural message? Or can brands and art coexist to amplify India's contemporary narrative? What's your take?</p>
+            </div>
+
+            <div class="comments-section">
+                <h4 class="mb-4">Community Responses (24)</h4>
+
+                <div class="comment highlighted">
+                    <div class="comment-header">
+                        <div class="comment-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Sarah" class="comment-avatar">
+                            <div class="comment-author-info">
+                                <h6>Sarah Desai</h6>
+                                <small>2 hours ago • Art Curator</small>
+                            </div>
+                        </div>
+                        <span class="comment-badge">Highlighted</span>
+                    </div>
+                    <div class="comment-content">
+                        <p>I think the question isn't whether commercialization dilutes art, but rather who controls the narrative. When artists like Abhay maintain creative control while partnering with brands, the cultural message stays intact. Code Brown is a perfect example - it's commercially successful but never compromises on its artistic vision or cultural authenticity.</p>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn active">
+                            <i class="fas fa-thumbs-up"></i> 45
+                        </button>
+                        <button class="comment-action-btn">
+                            <i class="fas fa-reply"></i> Reply
+                        </button>
+                    </div>
+
+                    <div class="comment-reply comment">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Arjun" class="comment-avatar">
+                                <div class="comment-author-info">
+                                    <h6>Arjun Kapoor</h6>
+                                    <small>1 hour ago • Designer</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <p>Exactly! It's about agency. When artists control their commercial partnerships, they can use those resources to create even more impactful work and reach wider audiences.</p>
+                        </div>
+                        <div class="comment-actions">
+                            <button class="comment-action-btn">
+                                <i class="fas fa-thumbs-up"></i> 18
+                            </button>
+                            <button class="comment-action-btn">
+                                <i class="fas fa-reply"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="Meera" class="comment-avatar">
+                            <div class="comment-author-info">
+                                <h6>Meera Patel</h6>
+                                <small>4 hours ago • Cultural Critic</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>I'm more skeptical. Once money enters the equation, there's always pressure to make art more "palatable" for mass consumption. The rawness and experimental nature that makes contemporary Indian art powerful can get smoothed over for commercial appeal.</p>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn">
+                            <i class="fas fa-thumbs-up"></i> 32
+                        </button>
+                        <button class="comment-action-btn">
+                            <i class="fas fa-reply"></i> Reply
+                        </button>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Vikram" class="comment-avatar">
+                            <div class="comment-author-info">
+                                <h6>Vikram Shah</h6>
+                                <small>5 hours ago • Collector</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        <p>The democratization aspect is huge though. Commercial success means more people get exposed to contemporary Indian narratives. Not everyone can afford gallery art, but they can buy a Code Brown tee that carries the same cultural message.</p>
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn">
+                            <i class="fas fa-thumbs-up"></i> 27
+                        </button>
+                        <button class="comment-action-btn">
+                            <i class="fas fa-reply"></i> Reply
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-debate-form">
+                <h5>Join the Conversation</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="commentText" class="form-label">Share Your Perspective</label>
+                        <textarea class="form-control" id="commentText" rows="4" placeholder="What's your take on this debate?"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="guidelinesCheck">
+                        <label class="form-check-label" for="guidelinesCheck">
+                            I agree to the community guidelines for respectful discussion
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+
+                <div class="guidelines-box">
+                    <h6><i class="fas fa-shield-alt me-2"></i>Community Guidelines</h6>
+                    <ul>
+                        <li>Be respectful and constructive in your criticism</li>
+                        <li>Focus on ideas, not personal attacks</li>
+                        <li>Cite sources when making factual claims</li>
+                        <li>Welcome diverse perspectives and viewpoints</li>
+                        <li>Keep discussions relevant to the topic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <!-- <h5 class="d-flex align-items-center"><span class="brand-icon">I</span>Inspirer Co</h5> -->
+                    <h5 class="d-flex align-items-center">
+                        <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
+                    </h5>
+                    <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful
+                        recognition.</p>
+                    <div class="d-flex align-items-center text-light small">
+                        <i class="fas fa-credit-card me-2"></i>
+                        Payments via Stripe, Razorpay and more
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Explore</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="brand-arc.html">Brand Arc</a>
+                        <a href="cultural-fuels.html">Cultural Fuels</a>
+                        <a href="portfolio.html">Portfolio</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Community</h5>
+                    <div class="footer-links">
+                        <a href="inspirers.html">Join Our Community</a>
+                        <a href="inspirers.html">Inspirers Network</a>
+                        <a href="portfolio.html">Featured Projects</a>
+                        <a href="cultural-fuels.html">Cultural Insights</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <div class="footer-links">
+                        <a href="about.html">Help Center</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Connect</h5>
+                    <div class="footer-links">
+                        <a href="mailto:hello@inspirer.co">hello@inspirer.co</a>
+                        <div class="social-links mt-2">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Founded by Arunima Kar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
