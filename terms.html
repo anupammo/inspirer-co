@@ -17,7 +17,7 @@
         :root {
             --primary: #1a1a1a;
             --secondary: #6c757d;
-            --accent: #ff5722;
+            --accent: #ff4502;
             --light: #f8f9fa;
             --dark: #212529;
             --border: #e9ecef;
@@ -111,6 +111,10 @@
             color: white;
             transform: translateY(-2px);
         }
+
+        /* Mobile: Social Icons for mobile menu */
+        .mobile-social-nav { gap: 1.25rem; padding: 1.25rem 0; }
+        .mobile-social-nav a { width: 44px; height: 44px; font-size: 1.1rem; }
 
         /* Secondary Navigation */
         .secondary-nav {
@@ -280,79 +284,72 @@
             }
         }
     </style>
-</head>
+        </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <div class="d-flex align-items-center gap-2">
-                <a href="contact.html" class="btn btn-nav btn-solid">Join us</a>
-            </div>
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="social-nav ms-auto">
-                    <a href="#" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#" aria-label="X (Twitter)">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" aria-label="Threads">
-                        <i class="fas fa-at"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Secondary Navigation -->
-    <nav class="navbar navbar-expand-lg secondary-nav">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#secondaryNav" style="border-color: rgba(255,255,255,0.3);">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="secondaryNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="brand-arc.html">Brand Arc</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="inspirers.html">Inspirers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
+    <!-- Navigation copied exactly from index.html (active states adjusted) -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                    <div class="container">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+                        </a>
+                        <div class="d-none d-lg-flex align-items-center">
+                            <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
+                        </div>
+                        <div class="social-nav d-none d-lg-flex align-items-center">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+                        </div>
+                        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="d-lg-none mobile-menu-content">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                                </ul>
+                                <div class="mobile-cta"><a href="#" class="btn btn-nav btn-solid w-100">Join us</a></div>
+                                <div class="mobile-social-nav d-lg-none">
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg secondary-nav d-none d-lg-block">
+                    <div class="container">
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+                                <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+                                <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+                                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content">
