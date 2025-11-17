@@ -23,7 +23,7 @@
         :root {
             --primary: #1a1a1a;
             --secondary: #6c757d;
-            --accent: #ff5722;
+            --accent: #ff6b6b;
             --light: #f8f9fa;
             --dark: #212529;
             --border: #e9ecef;
@@ -299,71 +299,7 @@
             transform: translateY(-2px);
         }
 
-        /* Secondary Navigation */
-        .secondary-nav {
-            background: var(--dark);
-            padding: 0.75rem 0;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            z-index: 1020;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .secondary-nav .navbar-nav {
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .secondary-nav .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-            margin: 0 0.25rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            position: relative;
-            border-radius: 8px;
-        }
-
-        .secondary-nav .nav-link:hover {
-            color: var(--accent) !important;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .secondary-nav .nav-link.active {
-            color: #ffffff !important;
-            background: var(--accent);
-            font-weight: 600;
-        }
-
-        .secondary-nav .nav-link.active:hover {
-            background: var(--accent);
-            transform: none;
-        }
-
-        .btn-nav {
-            border-radius: 8px;
-            padding: 0.6rem 1.5rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .btn-nav.btn-solid {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-nav.btn-solid:hover {
-            background: var(--accent);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
+        
 
         /* Page Header */
         /* Breadcrumb */
@@ -696,6 +632,25 @@
             box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
         }
 
+        /* Hero Section (from Brand Arc) */
+        .hero {
+            background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
+            color: var(--primary);
+            padding: 8rem 0 6rem;
+            position: relative;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content { max-width: 800px; }
+        .hero h1 { font-weight: 800; margin-bottom: 1.5rem; font-size: 3.5rem; line-height: 1.1; color: var(--primary); }
+        .hero-subtitle { font-size: 1.3rem; margin-bottom: 2rem; color: var(--secondary); line-height: 1.5; }
+        .campaign-tag { display: inline-block; background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: white; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 0.5px; }
+        .hero-image { position: relative; width: 60%; min-width: 300px; max-width: 450px; }
+        @media (min-width: 1200px) { .hero-image { display: block; } }
+        @media (max-width: 1199.98px) { .hero-image { position: static; right: auto; top: auto; transform: none; max-width: 100%; width: 100%; display: block; margin-top: 1.25rem; } }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page-header {
@@ -914,105 +869,26 @@
         </div>
     </div>
 
-    <!-- Collapsible Navigation (Mobile Only) -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="d-lg-none mobile-menu-content">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="brand-arc.html">Brand Arc</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="cultural-fuels.html">Cultural Fuels</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="inspirers.html">Inspirers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
+    
 
-            <!-- Mobile: Join Us Button -->
-            <div class="mobile-cta">
-                <a href="#" class="btn btn-nav btn-solid w-100">Join us</a>
-            </div>
-
-            <!-- Mobile: Social Icons (Mobile Only) -->
-            <div class="mobile-social-nav d-lg-none">
-                <a href="#" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" aria-label="X (Twitter)">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" aria-label="Threads">
-                    <i class="fas fa-at"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    </div>
-    </nav>
-    </div>
-    </div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-wrapper">
+    <!-- Hero Section (Brand Arc layout) -->
+    <section class="hero" style="margin-top: 140px;">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cultural Fuels</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="article-meta mb-3">
-                <span class="badge bg-primary me-2">Cultural Fuels</span>
-                <span class="text-muted">Social Impact Analysis</span>
-            </div>
-            <h1>Wakefit Festive Campaign With Biswa Kalyan Rath: How Humor and Sleep Shaped India's Mindful Festive
-                Season</h1>
-            <p class="lead">Wakefit's festive campaign with Biswa Kalyan Rath blends humor and wellness, redefining how
-                India celebrates with mindfulness, balance, and better sleep.</p>
-            <div class="article-meta-bottom mt-4">
-                <span class="text-muted"><i class="fas fa-calendar me-2"></i>Published on November 13, 2025</span>
-                <span class="text-muted ms-4"><i class="fas fa-clock me-2"></i>5 min read</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Article Hero Image -->
-    <section class="article-hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="hero-image-card">
-                        <div
-                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 3rem; color: white; text-align: center;">
-                            <i class="fas fa-bed" style="font-size: 4rem; margin-bottom: 1.5rem; opacity: 0.9;"></i>
-                            <h2 style="margin-bottom: 1rem; font-weight: 700;">Sleep Right, Shop Right</h2>
-                            <p style="margin: 0; opacity: 0.9; font-size: 1.1rem;">Wakefit × Biswa Kalyan Rath</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 col-12">
+                    <div class="hero-content">
+                        <div class="campaign-tag"><i class="fas fa-fire me-2"></i>Cultural Fuels</div>
+                        <h1 class="fs-1">Wakefit Festive Campaign With Biswa Kalyan Rath: How Humor and Sleep Shaped India's Mindful Festive Season</h1>
+                        <p class="fs-4">Wakefit's festive campaign with Biswa Kalyan Rath blends humor and wellness, redefining how India celebrates with mindfulness, balance, and better sleep.</p>
+                        <div class="text-muted mt-3"><small><i class="fas fa-calendar me-2"></i>Published on November 13, 2025 · <i class="fas fa-clock ms-2 me-2"></i>5 min read</small></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="hero-image float-end">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 2rem; color: white; text-align: center;">
+                            <i class="fas fa-bed" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.9;"></i>
+                            <h4 style="margin-bottom: 0.5rem;">Sleep Right, Shop Right</h4>
+                            <p style="margin: 0; opacity: 0.9;">Wakefit × Biswa Kalyan Rath</p>
                         </div>
                     </div>
                 </div>
@@ -1020,12 +896,11 @@
         </div>
     </section>
 
-    <!-- Article Content -->
-    <section class="section">
+    <!-- Article Content in Brand Arc card -->
+    <section class="section fade-in">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="article-content">
+            <div class="campaign-story">
+                <div class="article-content">
                         <p class="lead">In 2025, India's festive season looks different. The rush to shop, decorate, and
                             celebrate has slowly given way to something quieter, more reflective. Wellness, balance, and
                             humor now share the same stage as gifting and glitter. Wakefit's Diwali campaign with Biswa
@@ -1066,7 +941,6 @@
                             humor, and authenticity now define what celebration means. As the festive calendar stretches
                             from Diwali to New Year, this campaign stays relevant, reminding India that sleep, not
                             splurge, is the real luxury of the season.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1093,29 +967,37 @@
         </div>
     </section>
 
-    <!-- References & Sources -->
-    <section class="section">
+    <!-- References styled as Campaign Credits -->
+    <section class="section section-soft fade-in">
         <div class="container">
+            <h2 class="section-title">References & Sources</h2>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h3 class="section-title">References & Sources</h3>
-                    <div class="references-list">
-                        <div class="reference-item p-3 mb-3"
-                            style="border-left: 4px solid var(--accent); background: rgba(255, 87, 34, 0.05);">
-                            <h6 class="mb-2"><i class="fas fa-link me-2"></i>Campaign Source</h6>
-                            <p class="mb-0">Campaign Brief Asia - Original campaign documentation and analysis</p>
+                <div class="col-lg-8">
+                    <div class="credits-section">
+                        <div class="credit-item">
+                            <span class="credit-role">Campaign Source</span>
+                            <span class="credit-name">Campaign Brief Asia</span>
                         </div>
-                        <div class="reference-item p-3 mb-3"
-                            style="border-left: 4px solid var(--info); background: rgba(23, 162, 184, 0.05);">
-                            <h6 class="mb-2"><i class="fas fa-newspaper me-2"></i>Coverage</h6>
-                            <p class="mb-0">Economic Times Brand Equity - Industry analysis and cultural impact
-                                assessment</p>
+                        <div class="credit-item">
+                            <span class="credit-role">Coverage</span>
+                            <span class="credit-name">Economic Times Brand Equity</span>
                         </div>
-                        <div class="reference-item p-3 mb-3"
-                            style="border-left: 4px solid #e91e63; background: rgba(233, 30, 99, 0.05);">
-                            <h6 class="mb-2"><i class="fab fa-instagram me-2"></i>Campaign Film</h6>
-                            <p class="mb-0">Instagram Link - Watch the complete Wakefit × Biswa Kalyan Rath campaign</p>
+                        <div class="credit-item">
+                            <span class="credit-role">Campaign Film</span>
+                            <span class="credit-name">Instagram Reel (Wakefit × Biswa)</span>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="insight-card h-100" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none;">
+                        <div class="insight-icon" style="background: rgba(255,255,255,0.2); color: white;">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h5 style="color: white;">Watch on Instagram</h5>
+                        <p style="color: rgba(255,255,255,0.9);">Experience the Wakefit × Biswa campaign film and see how humor reframes wellness.</p>
+                        <a href="#" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3);">
+                            <i class="fab fa-instagram me-2"></i>View Reel
+                        </a>
                     </div>
                 </div>
             </div>

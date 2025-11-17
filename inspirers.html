@@ -17,7 +17,7 @@
         :root {
             --primary: #1a1a1a;
             --secondary: #6c757d;
-            --accent: #ff5722;
+            --accent: #ff6b6b; /* Unified accent */
             --light: #f8f9fa;
             --dark: #212529;
             --border: #e9ecef;
@@ -176,54 +176,24 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Page Header */
-        /* Breadcrumb */
-        .breadcrumb-wrapper {
-            background: var(--light);
-            padding: 1rem 0;
-            margin-top: 142px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .breadcrumb {
-            background: transparent;
-            padding: 0;
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb-item a {
+        /* Unified Hero (replaces breadcrumb + page header) */
+        .hero {
+            background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
             color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
+            padding: 7rem 0 5rem;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            margin-top: 140px; /* offset for dual nav */
         }
 
-        .breadcrumb-item a:hover {
-            color: var(--accent);
-        }
-
-        .breadcrumb-item.active {
-            color: var(--secondary);
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8rem 0 6rem;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-
-        .page-header p {
-            font-size: 1.3rem;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
+        .hero-content {max-width: 800px;}
+        .hero h1 {font-weight:800;margin-bottom:1.25rem;font-size:3.2rem;line-height:1.1;color:var(--primary);}        
+        .hero-subtitle {font-size:1.2rem;margin-bottom:1.75rem;color:var(--secondary);line-height:1.5;}
+        .campaign-tag {display:inline-block;background:linear-gradient(135deg,#ff6b6b,#4ecdc4);color:#fff;padding:0.5rem 1.25rem;border-radius:25px;font-weight:600;margin-bottom:1.25rem;font-size:0.85rem;letter-spacing:0.5px;}
+        .hero-image {position:relative;width:60%;min-width:300px;max-width:420px;}
+        @media (max-width:1199.98px){.hero{padding:6rem 0 4rem;flex-direction:column;}.hero-image{position:static;max-width:100%;width:100%;margin-top:1.5rem;}}
 
         /* Section Styling */
         .section {
@@ -589,23 +559,27 @@
         </div>
     </div>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-wrapper">
+    <!-- Hero -->
+    <section class="hero">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Inspirers</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Inspirers</h1>
-            <p>Meet the creative minds shaping the future of innovation</p>
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <span class="campaign-tag">Community</span>
+                        <h1>Inspirers</h1>
+                        <p class="hero-subtitle">Meet the creative minds shaping future brand philosophies, cultural narratives and innovation breakthroughs across our global network.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#join" class="btn btn-nav btn-solid">Join Community</a>
+                            <a href="#directory" class="btn btn-nav btn-outline">Browse Directory</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-lg-end justify-content-center">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Inspirer Community" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -634,47 +608,66 @@
         <div class="container">
             <h2 class="section-title text-center">Featured Inspirers</h2>
             <div class="row g-4">
-                <div class="col-lg-4">
+                <div class="col-12 col-sm-6 col-lg-3">
                     <div class="inspirer-card">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b734?auto=format&fit=crop&w=400&q=80" alt="Sarah Chen">
+                        <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=600&q=80" alt="Abhay Sehgal">
                         <div class="inspirer-overlay">
-                            <div class="inspirer-name">Sarah Chen</div>
-                            <div class="inspirer-role">Creative Director & Brand Strategist</div>
-                            <div class="inspirer-bio">15+ years transforming global brands through cultural intelligence and innovative design thinking. Based in Singapore.</div>
+                            <div class="inspirer-name">Abhay Sehgal</div>
+                            <div class="inspirer-role">Contemporary Indian Artist</div>
+                            <div class="inspirer-bio">Reimagining India through contemporary art and Code Brown. Delhi-based visual artist.</div>
                             <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">Branding</span>
-                                <span class="badge bg-light text-dark me-2">Strategy</span>
-                                <span class="badge bg-light text-dark">UX Design</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="inspirer-card">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Marcus Rodriguez">
-                        <div class="inspirer-overlay">
-                            <div class="inspirer-name">Marcus Rodriguez</div>
-                            <div class="inspirer-role">Cultural Anthropologist & Trend Analyst</div>
-                            <div class="inspirer-bio">Decoding cultural movements and translating insights into authentic brand narratives. Expert in Latin American markets.</div>
-                            <div class="mt-3">
+                                <span class="badge bg-light text-dark me-2">Art</span>
                                 <span class="badge bg-light text-dark me-2">Culture</span>
-                                <span class="badge bg-light text-dark me-2">Research</span>
-                                <span class="badge bg-light text-dark">Strategy</span>
+                                <span class="badge bg-light text-dark">India</span>
+                                <div class="mt-2"><a href="abhay-sehgal.html" class="btn btn-sm btn-light text-dark">View Profile</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-12 col-sm-6 col-lg-3">
                     <div class="inspirer-card">
-                        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=400&q=80" alt="Aisha Patel">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Shounak Tewarie">
                         <div class="inspirer-overlay">
-                            <div class="inspirer-name">Aisha Patel</div>
-                            <div class="inspirer-role">Innovation Designer & Futurist</div>
-                            <div class="inspirer-bio">Pioneering human-centered innovation for sustainable futures. Leading voice in design ethics and AI collaboration.</div>
+                            <div class="inspirer-name">Shounak Tewarie</div>
+                            <div class="inspirer-role">AI-savvy Visual Director & Digital Artist</div>
+                            <div class="inspirer-bio">Devotional-meets-digital imagery of South Asian myth and memory.</div>
                             <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">Innovation</span>
-                                <span class="badge bg-light text-dark me-2">Sustainability</span>
-                                <span class="badge bg-light text-dark">AI Design</span>
+                                <span class="badge bg-light text-dark me-2">AI</span>
+                                <span class="badge bg-light text-dark me-2">Editorial</span>
+                                <span class="badge bg-light text-dark">Digital Art</span>
+                                <div class="mt-2"><a href="shounak-tewarie.html" class="btn btn-sm btn-light text-dark">View Profile</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="inspirer-card">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80" alt="Sneha Chakraborty">
+                        <div class="inspirer-overlay">
+                            <div class="inspirer-name">Sneha Chakraborty</div>
+                            <div class="inspirer-role">Travel Artist & Muralist</div>
+                            <div class="inspirer-bio">Travel & Paint India: murals on culture, memory and mental health.</div>
+                            <div class="mt-3">
+                                <span class="badge bg-light text-dark me-2">Murals</span>
+                                <span class="badge bg-light text-dark me-2">Travel</span>
+                                <span class="badge bg-light text-dark">Community</span>
+                                <div class="mt-2"><a href="sneha-chakraborty.html" class="btn btn-sm btn-light text-dark">View Profile</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="inspirer-card">
+                        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=600&q=80" alt="Srishti Gupta Roy">
+                        <div class="inspirer-overlay">
+                            <div class="inspirer-name">Srishti Gupta Roy</div>
+                            <div class="inspirer-role">Illustrator & Cultural Maximalist</div>
+                            <div class="inspirer-bio">Explosive colour, playful maximalism and pop-cultural humour in bold illustration.</div>
+                            <div class="mt-3">
+                                <span class="badge bg-light text-dark me-2">Maximalism</span>
+                                <span class="badge bg-light text-dark me-2">Illustration</span>
+                                <span class="badge bg-light text-dark">Pop Culture</span>
+                                <div class="mt-2"><a href="srishti-gupta-roy.html" class="btn btn-sm btn-light text-dark">View Profile</a></div>
                             </div>
                         </div>
                     </div>

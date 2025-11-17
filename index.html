@@ -305,7 +305,7 @@
         }
 
         .hero {
-            min-height: 90vh;
+            min-height: 70vh;
             background-color: var(--accent);
             background-image: url(res/blobgreen.svg);
             background-position: left bottom;
@@ -316,12 +316,14 @@
         }
 
         .carousel-item {
-            min-height: 90vh;
+            min-height: 60vh;
+            padding-top: 5vh;
+            padding-bottom: 5vh;
             position: relative;
         }
 
         .carousel-item .container {
-            height: 90vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -1205,265 +1207,48 @@
 
         /* Responsive Design - Enhanced Mobile Navigation */
         @media (max-width: 768px) {
-            .carousel {
-                margin-top: 80px;
-            }
-
-            .hero {
-                min-height: 100vh;
-                background-size: 80% auto;
-                background-position: center bottom;
-            }
-
-            .carousel-item {
-                min-height: 100vh;
-            }
-
-            .carousel-item .container {
-                height: 100vh;
-                padding: 1rem;
-            }
-
-            .carousel-item .col-md-6 {
-                min-height: auto;
-                padding: 1rem;
-                justify-content: center;
-            }
-
-            .hero-content-wrapper {
-                padding: 1.5rem;
-            }
-
-            .carousel-item .p-5,
-            .carousel-item .py-5 {
-                padding: 1.5rem !important;
-            }
-
-            .hero h1, .hero h2 {
-                font-size: 2.2rem !important;
-            }
-
-            .display-1 {
-                font-size: 2.2rem !important;
-            }
-
-            .display-3 {
-                font-size: 1.8rem !important;
-            }
-
-            .hero .lead {
-                font-size: 1.1rem;
-            }
-
-            .hero .btn {
-                width: auto;
-                flex: 1;
-                margin: 0.25rem;
-                min-width: 120px;
-            }
-
-            /* Mobile Button Container - Force Row Layout */
-            .hero .d-flex.flex-column.flex-md-row {
-                flex-direction: row !important;
-                gap: 0.5rem !important;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .img-grid {
-                padding: 1rem 0;
-            }
-
-            .img-grid img {
-                margin-bottom: 0.5rem;
-            }
-
-            /* Mobile Navigation - Enhanced Slick Styles */
-            .mobile-menu-content {
-                width: 100%;
-                padding: 0;
-                margin-top: 0.5rem;
-                position: static;
-                float: none;
-                clear: both;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                border-radius: 0 0 16px 16px;
-                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            }
-
-            .mobile-menu-content .navbar-nav {
-                width: 100%;
-                padding: 1.5rem;
-                flex-direction: column;
-                gap: 0.3rem;
-            }
-
-            .mobile-menu-content .nav-link {
-                color: var(--primary) !important;
-                font-weight: 500;
-                font-size: 1.1rem;
-                padding: 1rem 1.2rem !important;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                text-align: left;
-                display: block;
-                width: 100%;
-                margin: 0;
-                border-radius: 12px;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .mobile-menu-content .nav-link::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 0;
-                height: 100%;
-                background: linear-gradient(135deg, var(--accent), #ff7043);
-                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: -1;
-            }
-
-            .mobile-menu-content .nav-link:hover,
-            .mobile-menu-content .nav-link.active {
-                color: white !important;
-                transform: translateX(5px);
-            }
-
-            .mobile-menu-content .nav-link:hover::before,
-            .mobile-menu-content .nav-link.active::before {
-                width: 100%;
-            }
-
-            .mobile-cta {
-                padding: 1.5rem;
-                border-top: 1px solid rgba(0, 0, 0, 0.08);
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                background: rgba(248, 249, 250, 0.8);
-            }
-
-            .mobile-cta .btn {
-                font-size: 1.1rem;
-                font-weight: 600;
-                padding: 0.8rem 1.5rem;
-                border-radius: 12px;
-            }
-
-            .mobile-social-nav {
-                display: flex;
-                justify-content: center;
-                gap: 1.5rem;
-                padding: 1.5rem 0;
-                background: rgba(248, 249, 250, 0.5);
-            }
-
-            .mobile-social-nav a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.9));
-                color: var(--primary);
-                text-decoration: none;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                font-size: 1.2rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                backdrop-filter: blur(10px);
-            }
-
-            .mobile-social-nav a:hover {
-                background: linear-gradient(135deg, var(--accent), #ff7043);
-                color: white;
-                transform: translateY(-3px) scale(1.1);
-                box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
-            }
-
-            /* Adjust main navigation height on mobile */
-            .navbar {
-                min-height: 70px;
-                padding: 0.5rem 0;
-            }
-
-            .navbar .container {
-                padding: 0 1rem;
-                flex-wrap: wrap !important;
-            }
-
-            .navbar-brand {
-                padding: 0;
-                flex: none !important;
-            }
-
-            .navbar-brand img {
-                height: 35px !important;
-            }
-
-            .navbar-toggler {
-                padding: 0.25rem 0.5rem;
-                border-width: 1px;
-                flex: none !important;
-                align-self: center;
-            }
-
-            /* Ensure collapsed menu doesn't affect top bar layout */
-            .navbar-collapse.collapsing,
-            .navbar-collapse.show {
-                position: relative;
-                top: 0;
-            }
+            .carousel {margin-top:72px;}
+            .hero {min-height:72vh; background-size:90% auto; background-position:center bottom; padding-top:4rem; padding-bottom:3rem;}
+            .carousel-item {min-height:72vh;}
+            .carousel-item .container {height:auto; padding:1rem 1.25rem;}
+            .carousel-item .row {gap:1.25rem;}
+            .carousel-item .col-md-6 {min-height:auto; padding:0.5rem; justify-content:center;}
+            .hero-content-wrapper {padding:0.75rem 0;}
+            .hero h1,.hero h2 {font-size:clamp(2.4rem,6.8vw,3rem) !important; line-height:1.15;}
+            .display-1 {font-size:clamp(2.4rem,6.8vw,3rem) !important;}
+            .display-3 {font-size:clamp(2rem,5.8vw,2.4rem) !important;}
+            .hero .lead {font-size:1.15rem;}
+            .hero .btn {width:auto; margin:0.3rem 0.4rem; min-width:128px;}
+            .hero .d-flex.flex-column.flex-md-row {flex-direction:row !important; gap:0.6rem !important; justify-content:center; align-items:center; flex-wrap:wrap;}
+            /* Trim image column vertical space */
+            .carousel-item .card, .carousel-item img.card {margin:0.5rem 0;}
+            /* Navigation adjustments */
+            .navbar {min-height:66px; padding:0.45rem 0;}
+            .navbar .container {padding:0 0.75rem; flex-wrap:wrap !important;}
+            .navbar-brand img {height:36px !important;}
+            /* Mobile menu refinements */
+            .mobile-menu-content {background:rgba(255,255,255,0.98); backdrop-filter:blur(18px); border-radius:0 0 14px 14px; box-shadow:0 6px 24px rgba(0,0,0,0.12); margin-top:0.4rem; padding:0 0.75rem;}
+            .mobile-menu-content .navbar-nav {padding:1.25rem 0; gap:0.25rem;}
+            .mobile-menu-content .nav-link {font-size:1.05rem; padding:0.85rem 1rem !important; border-bottom:1px solid rgba(0,0,0,0.06);}
+            .mobile-menu-content .nav-link::before {background:linear-gradient(135deg,var(--accent),#ff7043);}            
+            .mobile-cta {padding:1.25rem 0.75rem;}
+            .mobile-cta .btn {font-size:1rem; padding:0.75rem 1.25rem;}
+            .mobile-social-nav {gap:1.25rem; padding:1.25rem 0;}
+            .mobile-social-nav a {width:44px; height:44px; font-size:1.1rem;}
         }
 
         /* Extra Small Mobile Devices */
         @media (max-width: 576px) {
-            .carousel {
-                margin-top: 55px;
-            }
-
-            .hero {
-                min-height: 85vh;
-                background-size: 100% auto;
-            }
-
-            .carousel-item {
-                min-height: 85vh;
-            }
-
-            .carousel-item .container {
-                min-height: 85vh;
-                padding: 0.5rem;
-            }
-
-            .hero h1, .hero h2 {
-                font-size: 1.4rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-
-            .display-1 {
-                font-size: 1.4rem !important;
-            }
-
-            .display-3 {
-                font-size: 1.2rem !important;
-            }
-
-            .hero .lead {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-content-wrapper {
-                padding: 0.5rem;
-            }
-
-            .hero .btn {
-                font-size: 0.9rem;
-                padding: 0.6rem 0.8rem;
-            }
+            .carousel {margin-top:58px;}
+            .hero {min-height:68vh; background-size:95% auto; padding-top:3.2rem; padding-bottom:2.2rem;}
+            .carousel-item {min-height:68vh;}
+            .carousel-item .container {min-height:auto; padding:0.6rem 0.75rem;}
+            .hero h1,.hero h2 {font-size:clamp(2rem,8.2vw,2.6rem) !important; margin-bottom:0.9rem !important;}
+            .display-1 {font-size:clamp(2rem,8.2vw,2.6rem) !important;}
+            .display-3 {font-size:clamp(1.7rem,7vw,2.2rem) !important;}
+            .hero .lead {font-size:1.02rem; margin-bottom:0.85rem;}
+            .hero-content-wrapper {padding:0.4rem;}
+            .hero .btn {font-size:0.95rem; padding:0.65rem 0.9rem; min-width:118px;}
         }
 
         /* Section Spacing and Layout Enhancements */
@@ -1739,28 +1524,27 @@
 
     <!-- Hero Section -->
     <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-        <div class="carousel-indicators">
+        <!-- <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
+        </div> -->
         <div class="carousel-inner hero">
             <div class="carousel-item active">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6 col-12">
+                        <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
                                 <h1 class="text-white display-1 mb-4">Inspiring Creative Minds</h1>
-                                <p class="text-white lead mb-4">Empowering brands with the insights and creative
-                                    excellence needed to connect authentically across cultures.</p>
+                                <!-- <p class="text-white lead mb-4">Empowering brands with the insights and creative excellence needed to connect authentically across cultures.</p> -->
                                 <div class="d-flex flex-column flex-md-row gap-3">
                                     <a href="brand-arc.html" class="btn btn-light btn-lg">Explore Our Work</a>
                                     <a href="inspirers.html" class="btn btn-outline-light btn-lg">Join Community</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-md-3 col-6">
                             <img class="img-fluid card my-4"
                                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80"
                                 alt="Creative workspace" loading="lazy">
@@ -1768,7 +1552,7 @@
                                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=400&q=80"
                                 alt="Team collaboration" loading="lazy">
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-md-3 col-6">
                             <img class="img-fluid card"
                                 src="https://images.pexels.com/photos/33402174/pexels-photo-33402174.jpeg"
                                 alt="Digital design" loading="lazy">
@@ -1782,25 +1566,27 @@
                         <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
                                 <h2 class="text-white display-3 mb-4">Top Featured Inspirer of the Month</h2>
-                                <p class="text-white lead mb-4">Discover exceptional creative minds making waves in the global cultural landscape.</p>
+                                <!-- <p class="text-white lead mb-4">Discover exceptional creative minds making waves in the global cultural landscape.</p> -->
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="card bg-dark border-0 shadow-lg" style="border-radius: 20px;">
                                 <div class="card-body p-4">
-                                    <h3 class="text-white h2 fw-bold mb-3">Abhay Sehgal</h3>
-                                    <p class="text-white mb-4">Redefining Indian Identity with surreal fusion of heritage and digital modernity.</p>
                                     <div class="row g-3">
-                                        <div class="col-6">
+                                        <div class="col">
+                                            <h3 class="text-white h2 fw-bold mb-3">Abhay Sehgal</h3>
+                                        </div>
+                                        <div class="col">
                                             <img class="img-fluid"
                                                 src="https://images.pexels.com/photos/3660035/pexels-photo-3660035.jpeg"
                                                 alt="Team collaboration" loading="lazy">
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col">
                                             <img class="img-fluid"
                                                 src="https://images.pexels.com/photos/4442088/pexels-photo-4442088.jpeg"
                                                 alt="Digital design" loading="lazy">
                                         </div>
+                                    <p class="text-white mb-4">Redefining Indian Identity with surreal fusion of heritage and digital modernity.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1814,7 +1600,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="hero-content-wrapper">
                                 <h2 class="text-white display-1 mb-4">Inspirers</h2>
-                                <p class="text-white lead mb-4">Connect with 500+ cultural strategists, designers, and innovators across 50+ countries driving creative excellence.</p>
+                                <!-- <p class="text-white lead mb-4">Connect with 500+ cultural strategists, designers, and innovators across 50+ countries driving creative excellence.</p> -->
                                 <div class="d-flex flex-column flex-md-row gap-3">
                                     <a href="inspirers.html" class="btn btn-light btn-lg">Meet Inspirers</a>
                                     <a href="cultural-fuels.html" class="btn btn-outline-light btn-lg">Cultural Insights</a>
@@ -1840,7 +1626,7 @@
                         <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
                                 <h2 class="text-white align-middle display-1 mb-4">Portfolio</h2>
-                                <p class="text-white lead mb-4">Explore our award-winning campaigns and projects that have transformed brands across cultures.</p>
+                                <!-- <p class="text-white lead mb-4">Explore our award-winning campaigns and projects that have transformed brands across cultures.</p> -->
                                 <div class="d-flex flex-column flex-md-row gap-3">
                                     <a href="portfolio.html" class="btn btn-light btn-lg">View Portfolio</a>
                                     <a href="brand-arc.html" class="btn btn-outline-light btn-lg">Brand Arc</a>
@@ -1852,7 +1638,7 @@
                                 <img src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p> -->
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -1862,7 +1648,7 @@
                                 <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>

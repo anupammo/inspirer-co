@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneha Chakraborty - Travel Artist & Muralist | Inspirer Co</title>
+  <meta name="description" content="Sneha Chakraborty — travel artist and muralist behind the Travel & Paint India Tour, blending cultural memory, mental health awareness, and community storytelling across India." />
+  <meta name="keywords" content="Sneha Chakraborty, travel artist, muralist, Travel & Paint India, public art, Mind & Matter Trust, New Indian Express, TravelTradeToday" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --primary:#1a1a1a; --secondary:#6c757d; --accent:#ff6b6b; --light:#f8f9fa; --dark:#212529; --border:#e9ecef; }
+    body { font-family:'Roboto Condensed','Times New Roman',serif; color:var(--primary); line-height:1.6; overflow-x:hidden; }
+    h1,h2,h3,h4,h5,h6,.hero h1,.section-title,.card-title,.navbar-brand { font-family:'Sora','Open Sauce','Segoe UI',Arial,sans-serif; }
+    .navbar{padding:.8rem 0;transition:all .3s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 2px 20px rgba(0,0,0,.05);z-index:1050}
+    .navbar.scrolled{padding:.6rem 0;background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.1)}
+    .navbar-brand{font-weight:800;font-size:1.6rem;color:var(--primary)!important;display:flex;align-items:center;transition:all .3s ease}
+    .navbar-brand img{transition:all .3s ease}
+    .navbar-brand:hover img{transform:scale(1.05)}
+    @media (min-width:992px){.navbar .container{display:flex;align-items:center;justify-content:space-between}.navbar .container>*:first-child{flex:1}.navbar-brand{flex:1;justify-content:center;order:2}.social-nav{flex:1;justify-content:flex-end;order:3}.container>div:first-child{order:1}}
+    .nav-link{font-weight:500;margin:0 .3rem;position:relative;color:var(--primary)!important;transition:all .3s cubic-bezier(.4,0,.2,1);padding:.6rem 1rem!important;border-radius:8px}
+    .nav-link:hover{color:var(--accent)!important;transform:translateY(-1px);background:rgba(255,87,34,.05)}
+    .navbar-nav{margin:0;gap:.2rem}
+    .social-nav{display:flex;align-items:center;gap:1rem}
+    .social-nav a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);transition:all .3s ease;text-decoration:none}
+    .social-nav a:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+    .secondary-nav{background:linear-gradient(135deg,var(--dark) 0%,#2c2c2c 100%);padding:.7rem 0;position:fixed;top:70px;left:0;right:0;z-index:1040;border-bottom:1px solid rgba(255,255,255,.15);box-shadow:0 4px 20px rgba(0,0,0,.2);transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .secondary-nav .navbar-nav{flex-direction:row;justify-content:center;align-items:center;width:100%;gap:.5rem}
+    .secondary-nav .nav-link{color:rgba(255,255,255,.85)!important;font-weight:500;font-size:.95rem;padding:.6rem 1.2rem!important;margin:0 .2rem;transition:all .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;position:relative;border-radius:10px;overflow:hidden}
+    .secondary-nav .nav-link::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(135deg,var(--accent),#ff7043);transition:width .3s cubic-bezier(.4,0,.2,1);z-index:-1}
+    .secondary-nav .nav-link:hover{color:#fff!important;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,87,34,.3)}
+    .secondary-nav .nav-link:hover::before{width:100%}
+    .secondary-nav .nav-link.active{color:#fff!important;background:linear-gradient(135deg,var(--accent),#ff7043);font-weight:600;box-shadow:0 4px 15px rgba(255,87,34,.4)}
+    .secondary-nav .nav-link.active:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,87,34,.5)}
+    .btn-nav{border-radius:12px;padding:.7rem 1.8rem;font-weight:600;font-size:.9rem;transition:all .3s cubic-bezier(.4,0,.2,1);border:2px solid transparent;position:relative;overflow:hidden}
+    .btn-nav::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+    .btn-nav:hover::before{left:100%}
+    .btn-nav.btn-outline{color:var(--primary);border-color:rgba(0,0,0,.15);background:rgba(255,255,255,.8);backdrop-filter:blur(10px)}
+    .btn-nav.btn-outline:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
+    .btn-nav.btn-solid{background:linear-gradient(135deg,var(--primary),#2c2c2c);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+    .btn-nav.btn-solid:hover{background:linear-gradient(135deg,var(--accent),#ff7043);transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,87,34,.3);color:#fff}
+    @media (max-width:991.98px){.navbar .container{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;position:relative}.navbar-brand{order:1!important;margin:0!important;flex:0 0 auto}.navbar-toggler{order:2!important;margin-left:auto!important;margin-right:0!important;flex:0 0 auto;position:relative}.navbar-collapse{order:3!important;flex-basis:100%!important;width:100%!important;margin-top:1rem!important}.d-none.d-lg-flex{display:none!important}}
+    @media (max-width:768px){.secondary-nav{display:none!important}}
+    .mobile-menu-content{background:#fff;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin-top:.5rem;padding:0 1rem;width:100%}
+    .mobile-cta .btn-nav{background:var(--primary);border-color:var(--primary)}
+    .mobile-cta .btn-nav:hover{background:var(--accent);border-color:var(--accent)}
+    .mobile-social-nav{display:flex;gap:1rem;justify-content:center;padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(0,0,0,.1)}
+    .mobile-social-nav a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(0,0,0,.05);border-radius:50%;color:var(--secondary);transition:all .3s ease}
+    .mobile-social-nav a:hover{background:var(--accent);color:#fff}
+    .profile-hero{background:linear-gradient(135deg,#fdf7f0,#fef7ed);padding:10rem 0 4rem;margin-top:140px}
+    .profile-avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:2rem}
+    .profile-name{font-size:2.5rem;font-weight:800;margin-bottom:.5rem}
+    .profile-tagline{font-size:1.3rem;color:var(--secondary);margin-bottom:1.5rem}
+    .profile-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+    .profile-stat{text-align:center}.profile-stat .stat-number{font-size:2rem;font-weight:700;color:var(--accent);display:block}
+    .profile-stat .stat-label{font-size:.9rem;color:var(--secondary)}
+    .social-links-profile{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
+    .social-links-profile a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;background:#fff;border-radius:50%;color:var(--primary);font-size:1.2rem;transition:all .3s ease;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+    .social-links-profile a:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+    .section{padding:5rem 0}
+    .section-title{font-weight:700;margin-bottom:3rem;position:relative;display:inline-block}
+    .section-title:after{content:'';position:absolute;width:50%;height:3px;background-color:var(--accent);bottom:-10px;left:0}
+    .about-content{font-size:1.1rem;line-height:1.8}
+    .highlight-box{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:2rem;border-radius:16px;margin:2rem 0}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem}
+    .portfolio-item{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.1);transition:transform .3s ease,box-shadow .3s ease;background:#fff}
+    .portfolio-item:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+    .portfolio-image{width:100%;height:300px;object-fit:cover}
+    .portfolio-info{padding:1.5rem}
+    .portfolio-title{font-weight:700;font-size:1.2rem;margin-bottom:.5rem}
+    .portfolio-description{color:var(--secondary);font-size:.95rem}
+    .service-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 8px 25px rgba(0,0,0,.08);border:1px solid var(--border);transition:all .3s ease;height:100%}
+    .service-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,.12);border-color:var(--accent)}
+    .service-icon{width:60px;height:60px;background:linear-gradient(135deg,#ff6b6b,#4ecdc4);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;margin-bottom:1.5rem}
+    .ugc-section{background:var(--light)}
+    .ugc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+    .ugc-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:transform .3s ease}
+    .ugc-card:hover{transform:translateY(-5px)}
+    .ugc-image{width:100%;height:250px;object-fit:cover}
+    .ugc-content{padding:1.5rem}
+    .ugc-author{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+    .ugc-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover}
+    .ugc-stats{display:flex;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.9rem;color:var(--secondary)}
+    .debate-section{background:#fff}
+    .debate-topic{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:16px;padding:2.5rem;margin-bottom:3rem;box-shadow:0 10px 30px rgba(102,126,234,.2)}
+    .footer{background-color:var(--dark);color:#fff;padding:4rem 0 2rem}
+    .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;display:block;margin-bottom:.5rem;transition:color .3s ease}
+    .footer-links a:hover{color:#fff}
+    @media (max-width:768px){.profile-hero{padding:8rem 0 3rem}.profile-name{font-size:2rem}.profile-tagline{font-size:1.1rem}.section{padding:3rem 0}}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="logo.webp" alt="Inspirer Co" style="height:40px;width:auto" /></a>
+      <div class="d-none d-lg-flex align-items-center"><a href="#" class="btn btn-nav btn-solid me-3">Join us</a></div>
+      <div class="social-nav d-none d-lg-flex align-items-center">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+      </div>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="d-lg-none mobile-menu-content">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+            <li class="nav-item"><a class="nav-link active" href="inspirers.html">Inspirers</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-cta"><a href="#" class="btn btn-nav btn-solid w-100">Join us</a></div>
+          <div class="mobile-social-nav d-lg-none">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg secondary-nav d-none d-lg-block">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+          <li class="nav-item"><a class="nav-link active" href="inspirers.html">Inspirers</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-hero text-center">
+    <div class="container">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Sneha Chakraborty" class="profile-avatar" />
+      <h1 class="profile-name">Sneha Chakraborty</h1>
+      <p class="profile-tagline">The Travel Artist & Muralist</p>
+      <div class="profile-stats">
+        <div class="profile-stat"><span class="stat-number">India</span><span class="stat-label">On Tour</span></div>
+        <div class="profile-stat"><span class="stat-number">Murals</span><span class="stat-label">Public Walls</span></div>
+        <div class="profile-stat"><span class="stat-number">Stories</span><span class="stat-label">Community</span></div>
+      </div>
+      <div class="social-links-profile">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="cta-buttons">
+        <a href="#services" class="btn btn-primary">Commission a mural</a>
+        <a href="#portfolio" class="btn btn-outline-primary">See the tour</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">About Sneha</h2>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="about-content">
+            <p><strong>The travel artist painting India’s stories, one mural at a time.</strong></p>
+            <p>Sneha Chakraborty is a muralist and travel artist who brings the soul of India’s streets and towns to life through her <em>Travel & Paint India</em> tour. Her work isn’t just visual: it’s a journey of cultural memory, mental health awareness, and community storytelling. <em>Sources: The New Indian Express; TravelTradeToday</em></p>
+            <h5 class="mt-4">The art of travel, in colour and texture</h5>
+            <p>For Sneha, travel is more than a destination — it’s a canvas. She sketches, paints and murals scenes in places many pass by. She slows down to capture hidden corners: market stairways, sunlight filtering through ancient architecture, and the rhythms of local life. Her art is a visual journal deeply rooted in place. <em>Source: The New Indian Express</em></p>
+            <p>Her creative process draws from her early years moving around India. From Assam’s hills to Kashmir’s snows, frequent relocations opened her to diverse landscapes and communities. <em>Source: The New Indian Express</em></p>
+            <h5 class="mt-4">Public murals, private stories</h5>
+            <p>Her signature <em>Travel & Paint India</em> mural tour, in collaboration with the Mind & Matter Charitable Trust, paints large-scale walls that speak to mental well‑being and social stories. <em>Sources: The Indian Express; The New Indian Express</em></p>
+            <p>One mural in Madikeri (Kodagu) is particularly meaningful. “I have been planning on traveling and painting on the streets for two years now … my first stop had to be Madikeri!” she shared when announcing the wall. <em>Source: The Kodagu Express</em></p>
+            <h5 class="mt-4">Every wall tells a story</h5>
+            <p>Her tour isn’t driven by commercial commissions alone — she makes art where she sees purpose. Many murals celebrate unsung heroes: women in small towns, environmental activists, local changemakers. <em>Source: The New Indian Express</em></p>
+            <div class="highlight-box"><h4>Public Art Ethos</h4><p>“When you create a beautiful wall, people think twice before spitting on it or throwing garbage near it.” <span class="d-block"><small><em>Source: The New Indian Express</em></small></span></p></div>
+          </div>
+        </div>
+        <div class="col-lg-4"><div class="card p-3"><h5 class="mb-3">Quick Facts</h5><ul class="list-unstyled mb-0"><li class="mb-2"><i class="fas fa-location-dot me-2 text-muted"></i>India — on tour</li><li class="mb-2"><i class="fas fa-language me-2 text-muted"></i>English, Hindi, Bengali</li><li class="mb-2"><i class="fas fa-award me-2 text-muted"></i>Featured: The New Indian Express; TravelTradeToday</li><li class="mb-2"><i class="fas fa-briefcase me-2 text-muted"></i>Partner: Mind & Matter Charitable Trust</li></ul></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section" style="background:var(--light);">
+    <div class="container">
+      <h2 class="section-title">Selected Work</h2>
+      <p class="lead mb-5">Murals, travel sketching, and community storytelling across India.</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item"><img class="portfolio-image" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Travel & Paint India mural tour"><div class="portfolio-info"><div class="portfolio-title">Travel & Paint India</div><div class="portfolio-description">A nationwide mural and sketch tour on culture, memory, and mental health. <em>Sources: The New Indian Express; TravelTradeToday</em></div></div></div>
+        <div class="portfolio-item"><img class="portfolio-image" src="https://images.unsplash.com/photo-1496318447583-f524534e9ce1?auto=format&fit=crop&w=800&q=80" alt="Madikeri mural"><div class="portfolio-info"><div class="portfolio-title">Madikeri (Kodagu) Mural</div><div class="portfolio-description">First stop of the tour, created with Mind & Matter Charitable Trust. <em>Source: The Kodagu Express</em></div></div></div>
+        <div class="portfolio-item"><img class="portfolio-image" src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Hospitality & boutique hotel murals"><div class="portfolio-info"><div class="portfolio-title">Hospitality Murals</div><div class="portfolio-description">Site-specific walls and guest experiences for boutique hotels and stays.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Collaborations & Features</h2>
+      <p class="lead mb-4">Public art partners and media mentions.</p>
+      <ul>
+        <li><strong>Mind & Matter Charitable Trust</strong> — Social impact murals and mental well‑being themes.</li>
+        <li><strong>The New Indian Express</strong> — Feature on her travel & mural journey.</li>
+        <li><strong>TravelTradeToday</strong> — Coverage of national story tour and street‑art collaboration.</li>
+        <li><strong>Linktree</strong> — Portfolio of street art, wall murals, and digital work.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="lead mb-5">Public art, mural commissions, and travel‑based visual storytelling.</p>
+      <div class="row g-4">
+        <div class="col-md-4"><div class="service-card h-100"><div class="service-icon"><i class="fas fa-map-location-dot"></i></div><div class="service-title">Tourism Trails</div><div class="service-description">Visual documentation and murals for cultural routes.</div><a href="#" class="btn btn-outline-primary">Enquire</a></div></div>
+        <div class="col-md-4"><div class="service-card h-100"><div class="service-icon"><i class="fas fa-hotel"></i></div><div class="service-title">Hospitality Murals</div><div class="service-description">Boutique hotels and stays — site‑specific walls and guest experiences.</div><a href="#" class="btn btn-outline-primary">Enquire</a></div></div>
+        <div class="col-md-4"><div class="service-card h-100"><div class="service-icon"><i class="fas fa-heart-pulse"></i></div><div class="service-title">Social Impact Art</div><div class="service-description">Mental health and community storytelling initiatives.</div><a href="#" class="btn btn-outline-primary">Enquire</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ugc-section">
+    <div class="container">
+      <h2 class="section-title">Audience & Brand Fit</h2>
+      <p class="lead mb-4">Who follows her work — and ideal partners.</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <ul>
+            <li>Urban creatives, travel lovers, millennial and Gen Z art consumers.</li>
+            <li>Community‑conscious audiences who value mental health and social purpose.</li>
+            <li>Pop‑culture and street‑art followers who engage with living city stories.</li>
+            <li>Brands seeking travel‑anchored, culturally rooted visuals and murals.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="highlight-box">
+            <h5 class="mb-2">Why She’s an Inspirer</h5>
+            <p>Through every brushstroke, Sneha shows that art can be a bridge — between communities, between mental health and hope, and between daily life and shared human experience.</p>
+            <p class="mb-0">She paints not just walls, but living stories — accessible, relevant, and cared for by the people who see themselves in them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section debate-section">
+    <div class="container">
+      <h2 class="section-title mb-5">Today's Debate</h2>
+      <div class="debate-topic">
+        <h3>Can public art change behaviour?</h3>
+        <p class="debate-meta"><i class="fas fa-calendar-alt me-2"></i>Posted by Sneha • Nov 2025</p>
+        <p class="debate-description">From pride in place to cleaner streets — does a beautiful wall shift how we treat our cities?</p>
+      </div>
+      <div class="comments-section bg-light rounded p-3"><p class="mb-0 text-muted">Community comments will appear here.</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4"><h5 class="d-flex align-items-center"><img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);" /></h5><p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p></div>
+        <div class="col-lg-2 col-md-6 mb-4"><h5>Explore</h5><div class="footer-links"><a href="about.html">About Us</a><a href="brand-arc.html">Brand Arc</a><a href="cultural-fuels.html">Cultural Fuels</a><a href="inspirers.html">Inspirers</a><a href="portfolio.html">Portfolio</a></div></div>
+        <div class="col-lg-2 col-md-6 mb-4"><h5>Community</h5><div class="footer-links"><a href="#">Join Now</a><a href="#">Guidelines</a><a href="#">Events</a><a href="#">Resources</a></div></div>
+        <div class="col-lg-2 col-md-6 mb-4"><h5>Support</h5><div class="footer-links"><a href="contact.html">Contact Us</a><a href="#">Help Center</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
+        <div class="col-lg-2 col-md-6 mb-4"><h5>Connect</h5><div class="footer-links"><a href="mailto:hello@inspirer.co" style="color:#fff;">hello@inspirer.co</a><div class="social-links mt-2"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div></div>
+      </div>
+      <hr class="mt-4 mb-4" />
+      <div class="row"><div class="col-md-6"><p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p></div><div class="col-md-6 text-md-end"><p class="mb-0">Founded by Arunima Kar</p></div></div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
