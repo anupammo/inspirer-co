@@ -17,7 +17,7 @@
         :root {
             --primary: #1a1a1a;
             --secondary: #6c757d;
-            --accent: #ff6b6b;
+            --accent: #ff4502; /* Match index.html accent */
             --light: #f8f9fa;
             --dark: #212529;
             --border: #e9ecef;
@@ -55,7 +55,7 @@
         .navbar-brand:hover img { transform: scale(1.05); filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); }
         @media (min-width: 992px) { .navbar .container { display: flex; align-items: center; justify-content: space-between; } .navbar .container > *:first-child { flex: 1; } .navbar-brand { flex: 1; justify-content: center; order: 2; } .social-nav { flex: 1; justify-content: flex-end; order: 3; } .container > div:first-child { order: 1; } }
         .nav-link { font-weight: 500; margin: 0 0.3rem; position: relative; color: var(--primary) !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); padding: 0.6rem 1rem !important; border-radius: 8px; }
-        .nav-link:hover, .nav-link.active { color: var(--accent) !important; transform: translateY(-1px); background: rgba(255, 87, 34, 0.05); }
+        .nav-link:hover { color: var(--accent) !important; transform: translateY(-1px); background: rgba(255, 87, 34, 0.05); }
         .navbar-nav { margin: 0; gap: 0.2rem; }
         .social-nav { display: flex; align-items: center; gap: 1rem; }
         .social-nav a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 0, 0, 0.05); color: var(--primary); text-decoration: none; transition: all 0.3s ease; font-size: 1rem; }
