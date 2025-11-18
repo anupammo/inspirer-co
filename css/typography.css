@@ -1,0 +1,30 @@
+/* Typography Module: Headlines = Times-like condensed, Body = Work Sans */
+
+:root {
+  --font-heading: 'Old Standard TT', 'Times New Roman', Times, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* Base */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); }
+
+/* Headlines */
+h1, h2, h3, h4, h5, h6,
+.hero h1,
+.section-title,
+.card-title,
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.2px; /* slight tightening to evoke condensed feel */
+}
+
+/* Body & UI */
+p, li, a, input, button, textarea, select, .nav-link, .btn, small {
+  font-family: var(--font-body);
+}
+
+/* Utilities */
+.font-heading { font-family: var(--font-heading) !important; }
+.font-body { font-family: var(--font-body) !important; }

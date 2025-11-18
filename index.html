@@ -11,10 +11,8 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <!-- Google Fonts: Old Standard TT (headlines) + Work Sans (body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a1a1a;
@@ -29,7 +27,7 @@
         }
 
         body {
-            font-family: 'Roboto Condensed', 'Times New Roman', serif;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             color: var(--primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -46,7 +44,7 @@
         .section-title,
         .card-title,
         .navbar-brand {
-            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Old Standard TT', 'Times New Roman', Times, serif;
         }
 
         /* Header & Navigation - Slick Modern Design */
@@ -305,7 +303,8 @@
         }
 
         .hero {
-            min-height: 70vh;
+            min-height: 50vh;
+            max-height: 70vh;
             background-color: var(--accent);
             background-image: url(res/blobgreen.svg);
             background-position: left bottom;
@@ -316,14 +315,14 @@
         }
 
         .carousel-item {
-            min-height: 60vh;
+            min-height: 70vh;
             padding-top: 5vh;
             padding-bottom: 5vh;
             position: relative;
         }
 
         .carousel-item .container {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -1233,17 +1232,18 @@
             .mobile-menu-content .nav-link::before {background:linear-gradient(135deg,var(--accent),#ff7043);}            
             .mobile-cta {padding:1.25rem 0.75rem;}
             .mobile-cta .btn {font-size:1rem; padding:0.75rem 1.25rem;}
-            .mobile-social-nav {gap:1.25rem; padding:1.25rem 0;}
-            .mobile-social-nav a {width:44px; height:44px; font-size:1.1rem;}
+            .mobile-social-nav {display:flex;gap:1rem;justify-content:center;padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(0,0,0,0.1);} 
+            .mobile-social-nav a {display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(0,0,0,0.05);border-radius:50%;color:var(--secondary);transition:all 0.3s ease;}
+            .mobile-social-nav a:hover {background:var(--accent);color:#fff;}
         }
 
         /* Extra Small Mobile Devices */
         @media (max-width: 576px) {
             .carousel {margin-top:58px;}
-            .hero {min-height:68vh; background-size:95% auto; padding-top:3.2rem; padding-bottom:2.2rem;}
-            .carousel-item {min-height:68vh;}
+            .hero {min-height:70vh; max-height: 80vh; background-size:95% auto; padding-top:3.2rem; padding-bottom:2.2rem;}
+            .carousel-item {min-height:70vh;}
             .carousel-item .container {min-height:auto; padding:0.6rem 0.75rem;}
-            .hero h1,.hero h2 {font-size:clamp(2rem,8.2vw,2.6rem) !important; margin-bottom:0.9rem !important;}
+            .hero h1,.hero h2 {font-size:clamp(2rem,12vw,6rem) !important; margin-bottom:0.9rem !important; text-align: center ;}
             .display-1 {font-size:clamp(2rem,8.2vw,2.6rem) !important;}
             .display-3 {font-size:clamp(1.7rem,7vw,2.2rem) !important;}
             .hero .lead {font-size:1.02rem; margin-bottom:0.85rem;}
@@ -1388,6 +1388,8 @@
             margin: 0;
         }
     </style>
+    <!-- Site Typography Module (shared across pages) -->
+    <link rel="stylesheet" href="css/typography.css">
 </head>
 
 <body>
@@ -1536,7 +1538,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
-                                <h1 class="text-white display-1 mb-4">Inspiring Creative Minds</h1>
+                                <h1 class="text-white display-1 mb-4">
+                                    <span class="d-block">Inspiring</span>
+                                    <span class="d-block">Creative</span>
+                                    <span class="d-block">Minds</span>
+                                </h1>
                                 <!-- <p class="text-white lead mb-4">Empowering brands with the insights and creative excellence needed to connect authentically across cultures.</p> -->
                                 <div class="d-flex flex-column flex-md-row gap-3">
                                     <a href="brand-arc.html" class="btn btn-light btn-lg">Explore Our Work</a>
@@ -1544,7 +1550,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-6">
+                        <div class="col-md-6 col-12">
+                            <div class="px-5">
+                                <img src="res/inspirers-page.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3 col-6">
                             <img class="img-fluid card my-4"
                                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80"
                                 alt="Creative workspace" loading="lazy">
@@ -1556,7 +1567,7 @@
                             <img class="img-fluid card"
                                 src="https://images.pexels.com/photos/33402174/pexels-photo-33402174.jpeg"
                                 alt="Digital design" loading="lazy">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1565,12 +1576,13 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 col-12">
                             <div class="hero-content-wrapper">
-                                <h2 class="text-white display-3 mb-4">Top Featured Inspirer of the Month</h2>
+                                <h2 class="text-white display-3 mb-4">Featured Inspirer of the Month</h2>
                                 <!-- <p class="text-white lead mb-4">Discover exceptional creative minds making waves in the global cultural landscape.</p> -->
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
-                            <div class="card bg-dark border-0 shadow-lg" style="border-radius: 20px;">
+                            <img src="res/abhay-sehgal-profile.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                            <!-- <div class="card bg-dark border-0 shadow-lg" style="border-radius: 20px;">
                                 <div class="card-body p-4">
                                     <div class="row g-3">
                                         <div class="col">
@@ -1589,7 +1601,7 @@
                                     <p class="text-white mb-4">Redefining Indian Identity with surreal fusion of heritage and digital modernity.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1607,7 +1619,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
+                        <div class="col-md-6 col-12">
+                            <div class="px-5">
+                                <img src="res/inspirers-page.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-3 col-6">
                             <img class="img-fluid card"
                                 src="https://images.pexels.com/photos/1181561/pexels-photo-1181561.jpeg"
                                 alt="Creative workspace" loading="lazy">
@@ -1616,7 +1633,7 @@
                             <img class="img-fluid card"
                                 src="https://images.pexels.com/photos/4348403/pexels-photo-4348403.jpeg"
                                 alt="Team collaboration" loading="lazy">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1633,12 +1650,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-6">
+                        <div class="col-md-6 col-12">
+                            <img src="res/abhay-sehgal-profile.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                        </div>
+                        <!-- <div class="col-md-3 col-6">
                             <div class="card" style="width: auto;">
                                 <img src="https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p> -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
@@ -1648,11 +1668,11 @@
                                 <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1673,12 +1693,12 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
                     <div class="text-center">
-                        <img class="img-fluid rounded-circle shadow-lg my-5" src="res/profile.jpg" alt="Arunima Kar - Founder" style="max-width: 400px;">
+                        <img class="img-fluid rounded-circle shadow-lg my-5" src="res/arunima-kar.jpg" alt="Arunima Kar - Founder" style="max-width: 400px;">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="ps-lg-4">
-                        <h2 class="section-title mb-4">Our Story</h2>
+                        <h2 class="section-title display-3 mb-4">Our Story</h2>
                         <p class="lead mb-4">Inspirer Co is a creative intelligence platform founded by brand marketer Arunima Kar, designed to connect creative minds with inspiration, insights, and meaningful recognition.</p>
                         <p class="mb-4">We celebrate the work of individuals whose contributions deserve more recognition, while providing a space for creative professionals to think, experiment, connect, and thrive without pressure.</p>
                         <p class="mb-4">Our goal is to help creative professionals overcome everyday creative blocks, foster collaboration, and turn inspiration into work that truly makes an impact.</p>

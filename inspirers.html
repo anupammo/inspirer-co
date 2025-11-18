@@ -10,9 +10,7 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts: Sora (headings) + Roboto Condensed (body) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Roboto+Condensed:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a1a1a;
@@ -44,7 +42,7 @@
         .section-title,
         .card-title,
         .navbar-brand {
-            font-family: 'Sora', 'Open Sauce', 'Segoe UI', Arial, sans-serif;
+               font-family: 'Old Standard TT', 'Times New Roman', Times, serif; 
         }
 
         /* Header & Navigation - match index.html */
@@ -123,6 +121,10 @@
         .secondary-nav .nav-link:hover { color: #ffffff !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 87, 34, 0.3); }
         .secondary-nav .nav-link:hover::before { width: 100%; }
         .secondary-nav .nav-link.active { color: #ffffff !important; background: linear-gradient(135deg, var(--accent), #ff7043); font-weight: 600; box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4); }
+        /* Mobile social icons (match Brand Arc) */
+        .mobile-social-nav {display:flex;gap:1rem;justify-content:center;padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(0,0,0,0.1);} 
+        .mobile-social-nav a {display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(0,0,0,0.05);border-radius:50%;color:var(--secondary);transition:all 0.3s ease;}
+        .mobile-social-nav a:hover {background:var(--accent);color:#fff;}
         .secondary-nav .nav-link.active:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5); }
 
         /* Slick Button Styling */
@@ -176,7 +178,7 @@
         .hero h1 {font-weight:800;margin-bottom:1.25rem;font-size:3.2rem;line-height:1.1;color:var(--primary);}        
         .hero-subtitle {font-size:1.2rem;margin-bottom:1.75rem;color:var(--secondary);line-height:1.5;}
         .campaign-tag {display:inline-block;background:linear-gradient(135deg,#ff6b6b,#4ecdc4);color:#fff;padding:0.5rem 1.25rem;border-radius:25px;font-weight:600;margin-bottom:1.25rem;font-size:0.85rem;letter-spacing:0.5px;}
-        .hero-image {position:relative;width:60%;min-width:300px;max-width:420px;}
+        .hero-image {position:relative;width:60%;min-width:300px;}
         @media (max-width:1199.98px){.hero{padding:6rem 0 4rem;flex-direction:column;}.hero-image{position:static;max-width:100%;width:100%;margin-top:1.5rem;}}
 
         /* Section Styling */
@@ -409,6 +411,8 @@
             }
         }
     </style>
+    <!-- Site Typography Module (shared across pages) -->
+    <link rel="stylesheet" href="css/typography.css">
 </head>
 
 <body>
@@ -547,7 +551,7 @@
     <section class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7">
+                <div class="col-lg-4 col-md-6 col-12">
                     <div class="hero-content">
                         <span class="campaign-tag">Community</span>
                         <h1>Inspirers</h1>
@@ -558,30 +562,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 d-flex justify-content-lg-end justify-content-center">
+                <div class="col-lg-8 col-md-6 col-12 d-flex justify-content-lg-end justify-content-center">
                     <div class="hero-image">
                         <img src="res/inspirers-page.png" alt="Inspirer Community" class="img-fluid rounded shadow">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Overview -->
-    <section class="section">
-        <div class="container">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6">
-                    <h2 class="section-title">The Inspirer Community</h2>
-                    <p class="lead">A global network of creative professionals, cultural strategists, and innovation leaders who shape the future of brands and experiences.</p>
-                    <p>Our community spans 50+ countries and includes award-winning designers, strategists, artists, and cultural anthropologists who collaborate on groundbreaking projects.</p>
-                    <div class="d-flex gap-3 mt-4">
-                        <a href="#join" class="btn btn-primary">Join Community</a>
-                        <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -594,7 +578,7 @@
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="inspirer-card">
-                        <img src="res/abhay-sehgal-profile.png" alt="Abhay Sehgal">
+                        <img src="res/abhay-sehgal-2.png" alt="Abhay Sehgal">
                         <div class="inspirer-overlay">
                             <div class="inspirer-name">Abhay Sehgal</div>
                             <div class="inspirer-role">Contemporary Indian Artist</div>
@@ -655,6 +639,26 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title">The Inspirer Community</h2>
+                    <p class="lead">A global network of creative professionals, cultural strategists, and innovation leaders who shape the future of brands and experiences.</p>
+                    <p>Our community spans 50+ countries and includes award-winning designers, strategists, artists, and cultural anthropologists who collaborate on groundbreaking projects.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#join" class="btn btn-primary">Join Community</a>
+                        <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
                 </div>
             </div>
         </div>
