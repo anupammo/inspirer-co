@@ -166,12 +166,13 @@
         .hero {
             background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
             color: var(--primary);
-            padding: 7rem 0 5rem;
+            padding: 3.75rem 0 2.5rem;
             position: relative;
-            min-height: 60vh;
+            min-height: auto;
             display: flex;
             align-items: center;
-            margin-top: 140px; /* offset for dual nav */
+            margin: 0; /* unified with page-wrapper margin-top */
+            border-bottom:1px solid rgba(0,0,0,0.06);
         }
 
         .hero-content {max-width: 800px;}
@@ -179,7 +180,7 @@
         .hero-subtitle {font-size:1.2rem;margin-bottom:1.75rem;color:var(--secondary);line-height:1.5;}
         .campaign-tag {display:inline-block;background:linear-gradient(135deg,#ff6b6b,#4ecdc4);color:#fff;padding:0.5rem 1.25rem;border-radius:25px;font-weight:600;margin-bottom:1.25rem;font-size:0.85rem;letter-spacing:0.5px;}
         .hero-image {position:relative;width:60%;min-width:300px;}
-        @media (max-width:1199.98px){.hero{padding:6rem 0 4rem;flex-direction:column;}.hero-image{position:static;max-width:100%;width:100%;margin-top:1.5rem;}}
+        @media (max-width:1199.98px){.hero{padding:3.25rem 0 2.5rem;flex-direction:column;}.hero-image{position:static;max-width:100%;width:100%;margin-top:1.25rem;}}
 
         /* Spotlight: Inspirer of the Month */
         .spotlight-badge {display:inline-block;background:linear-gradient(135deg, var(--accent), #ff7043);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:700;font-size:0.8rem;letter-spacing:0.3px;margin-bottom:0.75rem;}
@@ -417,6 +418,18 @@
                 height: 300px;
             }
         }
+        /* Sidebar (25% width on lg+) */
+        .sidebar {position:sticky;top:140px;padding-left:1.25rem;border-left:1px solid rgba(0,0,0,0.08);}        
+        .sidebar .sidebar-title {font-weight:700;margin-bottom:1rem;}
+        .featured-list {display:flex;flex-direction:column;gap:1rem;}
+        .featured-card {display:flex;gap:0.75rem;background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:8px;padding:0.65rem 0.7rem;align-items:center;transition:none;text-decoration:none;color:inherit;}
+        .featured-card:hover {background:#f9f9f9;}
+        .featured-thumb {width:64px;height:64px;border-radius:10px;overflow:hidden;flex:0 0 auto;}
+        .featured-thumb img {width:100%;height:100%;object-fit:cover;display:block;}
+        .featured-meta {flex:1 1 auto;}
+        .featured-meta .title {font-weight:600;line-height:1.2;margin:0 0 4px;font-size:0.95rem;}
+        .featured-meta .desc {margin:0;font-size:0.8rem;color:var(--secondary);}        
+        @media (max-width: 991.98px){.sidebar{position:static;top:auto;padding-left:0;border-left:none;margin-top:1.75rem;}}
     </style>
     <!-- Site Typography Module (shared across pages) -->
     <link rel="stylesheet" href="css/typography.css">
@@ -554,266 +567,267 @@
         </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="hero-content">
-                        <span class="campaign-tag">Community</span>
-                        <h1>Inspirers</h1>
-                        <p class="hero-subtitle">Meet the creative minds shaping future brand philosophies, cultural narratives and innovation breakthroughs across our global network.</p>
-                        <div class="d-flex gap-3 flex-wrap">
-                            <a href="#join" class="btn btn-nav btn-solid">Join Community</a>
-                            <a href="#directory" class="btn btn-nav btn-outline">Browse Directory</a>
+    <!-- Unified 75/25 Layout -->
+    <div class="page-wrapper container" style="margin-top:140px;">
+        <div class="row g-4">
+            <div class="col-lg-9">
+                <header class="hero" style="margin:0;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 col-md-6 col-12">
+                                <div class="hero-content">
+                                    <span class="campaign-tag">Community</span>
+                                    <h1 class="fs-1">Inspirers</h1>
+                                    <p class="hero-subtitle">Meet the creative minds shaping future brand philosophies, cultural narratives and innovation breakthroughs across our global network.</p>
+                                    <div class="d-flex gap-3 flex-wrap">
+                                        <a href="#join" class="btn btn-nav btn-solid">Join Community</a>
+                                        <a href="#directory" class="btn btn-nav btn-outline">Browse Directory</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-6 col-12 d-flex justify-content-lg-end justify-content-center">
+                                <div class="hero-image mt-3 mt-lg-0">
+                                    <img src="res/inspirers-page.png" alt="Inspirer Community" class="img-fluid rounded shadow">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-8 col-md-6 col-12 d-flex justify-content-lg-end justify-content-center">
-                    <div class="hero-image">
-                        <img src="res/inspirers-page.png" alt="Inspirer Community" class="img-fluid rounded shadow">
+                </header>
+                <section id="spotlight" class="section spotlight-section" style="padding-top:3rem;">
+                    <div class="container">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6 order-lg-1 order-2">
+                                <span class="spotlight-badge mb-4">Spotlight: Inspirer of the month</span>
+                                <h2 class="section-title d-block">Meet Abhay Sehgal</h2>
+                                <p class="lead mb-3">Contemporary Indian artist reimagining India through bold visual narratives and Code Brown. Delhi-based, Abhay’s work explores culture, memory and everyday satire.</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="abhay-sehgal.html" class="btn btn-primary">Read more</a>
+                                    <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-lg-2 order-1">
+                                <div class="spotlight-image">
+                                    <img src="res/abhay-sehgal-profile.png" alt="Abhay Sehgal" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+                <section class="section" style="background: var(--light);">
+                    <div class="container">
+                        <h2 class="section-title text-center">Featured Inspirers</h2>
+                        <div class="row g-4">
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="inspirer-card">
+                                    <img src="res/abhay-sehgal-2.png" alt="Abhay Sehgal">
+                                    <div class="inspirer-overlay">
+                                        <div class="inspirer-name">Abhay Sehgal</div>
+                                        <div class="inspirer-role">Contemporary Indian Artist</div>
+                                        <!-- <div class="inspirer-bio">Reimagining India through contemporary art and Code Brown. Delhi-based visual artist.</div> -->
+                                        <div class="mt-3">
+                                            <!-- <span class="badge bg-light text-dark me-2">Art</span>
+                                            <span class="badge bg-light text-dark me-2">Culture</span>
+                                            <span class="badge bg-light text-dark">India</span> -->
+                                            <div class="mt-2"><a href="abhay-sehgal.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="inspirer-card">
+                                    <img src="res/shounak-tewarie.png" alt="Shounak Tewarie">
+                                    <div class="inspirer-overlay">
+                                        <div class="inspirer-name">Shounak Tewarie</div>
+                                        <div class="inspirer-role">AI-savvy Visual Director & Digital Artist</div>
+                                        <!-- <div class="inspirer-bio">Devotional-meets-digital imagery of South Asian myth and memory.</div> -->
+                                        <div class="mt-3">
+                                            <!-- <span class="badge bg-light text-dark me-2">AI</span>
+                                            <span class="badge bg-light text-dark me-2">Editorial</span>
+                                            <span class="badge bg-light text-dark">Digital Art</span> -->
+                                            <div class="mt-2"><a href="shounak-tewarie.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="inspirer-card">
+                                    <img src="res/sneha-chakraborty.jpg" alt="Sneha Chakraborty">
+                                    <div class="inspirer-overlay">
+                                        <div class="inspirer-name">Sneha Chakraborty</div>
+                                        <div class="inspirer-role">Travel Artist & Muralist</div>
+                                        <!-- <div class="inspirer-bio">Travel & Paint India: murals on culture, memory and mental health.</div> -->
+                                        <div class="mt-3">
+                                            <!-- <span class="badge bg-light text-dark me-2">Murals</span>
+                                            <span class="badge bg-light text-dark me-2">Travel</span>
+                                            <span class="badge bg-light text-dark">Community</span> -->
+                                            <div class="mt-2"><a href="sneha-chakraborty.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="inspirer-card">
+                                    <img src="res/srishti-gupta-roy.jpg" alt="Srishti Gupta Roy">
+                                    <div class="inspirer-overlay">
+                                        <div class="inspirer-name">Srishti Gupta Roy</div>
+                                        <div class="inspirer-role">Illustrator & Cultural Maximalist</div>
+                                        <!-- <div class="inspirer-bio">Explosive colour, playful maximalism and pop-cultural humour in bold illustration.</div> -->
+                                        <div class="mt-3">
+                                            <!-- <span class="badge bg-light text-dark me-2">Maximalism</span>
+                                            <span class="badge bg-light text-dark me-2">Illustration</span>
+                                            <span class="badge bg-light text-dark">Pop Culture</span> -->
+                                            <div class="mt-2"><a href="srishti-gupta-roy.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="container">
+                        <div class="row align-items-center mb-5">
+                            <div class="col-lg-6">
+                                <h2 class="section-title">The Inspirer Community</h2>
+                                <p class="lead">A global network of creative professionals, cultural strategists, and innovation leaders who shape the future of brands and experiences.</p>
+                                <p>Our community spans 50+ countries and includes award-winning designers, strategists, artists, and cultural anthropologists who collaborate on groundbreaking projects.</p>
+                                <div class="d-flex gap-3 mt-4">
+                                    <a href="#join" class="btn btn-primary">Join Community</a>
+                                    <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Community Features</h2>
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-network-wired mb-3" style="font-size: 3rem; color: var(--accent);"></i>
+                                        <h5>Global Network</h5>
+                                        <p>Connect with 500+ creative professionals across 50+ countries and diverse industries.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-handshake mb-3" style="font-size: 3rem; color: var(--accent);"></i>
+                                        <h5>Collaboration Hub</h5>
+                                        <p>Find partners for projects, share resources, and co-create innovative solutions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-graduation-cap mb-3" style="font-size: 3rem; color: var(--accent);"></i>
+                                        <h5>Learning & Growth</h5>
+                                        <p>Access exclusive masterclasses, workshops, and cultural intelligence reports.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card h-100 text-center">
+                                    <div class="card-body">
+                                        <i class="fas fa-award mb-3" style="font-size: 3rem; color: var(--accent);"></i>
+                                        <h5>Recognition Platform</h5>
+                                        <p>Showcase your work, earn community recognition, and build your creative reputation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="community-stats">
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <span class="stat-number">500+</span>
+                                    <div class="stat-label">Active Inspirers</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <span class="stat-number">50+</span>
+                                    <div class="stat-label">Countries</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <span class="stat-number">1000+</span>
+                                    <div class="stat-label">Projects Completed</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="stat-box">
+                                    <span class="stat-number">95%</span>
+                                    <div class="stat-label">Success Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section" style="padding-top:4rem;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h2 class="section-title">Become an Inspirer</h2>
+                                <p class="lead mb-4">Join our community of creative professionals and thought leaders who are shaping the future of design and innovation.</p>
+                                <div class="row g-3">
+                                    <div class="col-md-6"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-success me-3"></i><span>Global Recognition</span></div></div>
+                                    <div class="col-md-6"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-success me-3"></i><span>Networking Opportunities</span></div></div>
+                                    <div class="col-md-6"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-success me-3"></i><span>Exclusive Resources</span></div></div>
+                                    <div class="col-md-6"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-success me-3"></i><span>Professional Growth</span></div></div>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="#" class="btn btn-nav btn-solid me-3">Apply Now</a>
+                                    <a href="#" class="btn btn-outline-primary">Learn More</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+            <aside class="col-lg-3">
+                <div class="sidebar py-5">
+                    <h5 class="sidebar-title">Featured Highlights</h5>
+                    <div class="featured-list">
+                        <a href="abhay-sehgal.html" class="featured-card">
+                            <div class="featured-thumb"><img src="res/abhay-sehgal-profile.png" alt="Abhay"></div>
+                            <div class="featured-meta"><p class="title">Abhay Sehgal</p><p class="desc">Contemporary Artist</p></div>
+                        </a>
+                        <a href="shounak-tewarie.html" class="featured-card">
+                            <div class="featured-thumb"><img src="res/shounak-tewarie.png" alt="Shounak"></div>
+                            <div class="featured-meta"><p class="title">Shounak Tewarie</p><p class="desc">Visual Director</p></div>
+                        </a>
+                        <a href="sneha-chakraborty.html" class="featured-card">
+                            <div class="featured-thumb"><img src="res/sneha-chakraborty.jpg" alt="Sneha"></div>
+                            <div class="featured-meta"><p class="title">Sneha Chakraborty</p><p class="desc">Travel Muralist</p></div>
+                        </a>
+                        <a href="srishti-gupta-roy.html" class="featured-card">
+                            <div class="featured-thumb"><img src="res/srishti-gupta-roy.jpg" alt="Srishti"></div>
+                            <div class="featured-meta"><p class="title">Srishti Gupta Roy</p><p class="desc">Illustrator</p></div>
+                        </a>
+                        <a href="portfolio.html" class="featured-card">
+                            <div class="featured-thumb"><img src="res/inspirers-page.png" alt="Portfolio"></div>
+                            <div class="featured-meta"><p class="title">Explore Portfolio</p><p class="desc">Projects & Insights</p></div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
         </div>
-    </section>
-
-    <!-- Spotlight: Inspirer of the Month -->
-    <section id="spotlight" class="section spotlight-section">
-        <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-6 order-lg-1 order-2">
-                    <span class="spotlight-badge mb-4">Spotlight: Inspirer of the month</span>
-                    <h2 class="section-title d-block">Meet Abhay Sehgal</h2>
-                    <p class="lead mb-3">Contemporary Indian artist reimagining India through bold visual narratives and Code Brown. Delhi-based, Abhay’s work explores culture, memory and everyday satire.</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="abhay-sehgal.html" class="btn btn-primary">Read more</a>
-                        <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-2 order-1">
-                    <div class="spotlight-image">
-                        <img src="res/abhay-sehgal-profile.png" alt="Abhay Sehgal" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Inspirers -->
-    <section class="section" style="background: var(--light);">
-        <div class="container">
-            <h2 class="section-title text-center">Featured Inspirers</h2>
-            <div class="row g-4">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="inspirer-card">
-                        <img src="res/abhay-sehgal-2.png" alt="Abhay Sehgal">
-                        <div class="inspirer-overlay">
-                            <div class="inspirer-name">Abhay Sehgal</div>
-                            <div class="inspirer-role">Contemporary Indian Artist</div>
-                            <div class="inspirer-bio">Reimagining India through contemporary art and Code Brown. Delhi-based visual artist.</div>
-                            <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">Art</span>
-                                <span class="badge bg-light text-dark me-2">Culture</span>
-                                <span class="badge bg-light text-dark">India</span>
-                                <div class="mt-2"><a href="abhay-sehgal.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="inspirer-card">
-                        <img src="res/shounak-tewarie.png" alt="Shounak Tewarie">
-                        <div class="inspirer-overlay">
-                            <div class="inspirer-name">Shounak Tewarie</div>
-                            <div class="inspirer-role">AI-savvy Visual Director & Digital Artist</div>
-                            <div class="inspirer-bio">Devotional-meets-digital imagery of South Asian myth and memory.</div>
-                            <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">AI</span>
-                                <span class="badge bg-light text-dark me-2">Editorial</span>
-                                <span class="badge bg-light text-dark">Digital Art</span>
-                                <div class="mt-2"><a href="shounak-tewarie.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="inspirer-card">
-                        <img src="res/sneha-chakraborty.jpg" alt="Sneha Chakraborty">
-                        <div class="inspirer-overlay">
-                            <div class="inspirer-name">Sneha Chakraborty</div>
-                            <div class="inspirer-role">Travel Artist & Muralist</div>
-                            <div class="inspirer-bio">Travel & Paint India: murals on culture, memory and mental health.</div>
-                            <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">Murals</span>
-                                <span class="badge bg-light text-dark me-2">Travel</span>
-                                <span class="badge bg-light text-dark">Community</span>
-                                <div class="mt-2"><a href="sneha-chakraborty.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="inspirer-card">
-                        <img src="res/srishti-gupta-roy.jpg" alt="Srishti Gupta Roy">
-                        <div class="inspirer-overlay">
-                            <div class="inspirer-name">Srishti Gupta Roy</div>
-                            <div class="inspirer-role">Illustrator & Cultural Maximalist</div>
-                            <div class="inspirer-bio">Explosive colour, playful maximalism and pop-cultural humour in bold illustration.</div>
-                            <div class="mt-3">
-                                <span class="badge bg-light text-dark me-2">Maximalism</span>
-                                <span class="badge bg-light text-dark me-2">Illustration</span>
-                                <span class="badge bg-light text-dark">Pop Culture</span>
-                                <div class="mt-2"><a href="srishti-gupta-roy.html" class="btn btn-sm btn-light text-dark">Read more</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Overview -->
-    <section class="section">
-        <div class="container">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6">
-                    <h2 class="section-title">The Inspirer Community</h2>
-                    <p class="lead">A global network of creative professionals, cultural strategists, and innovation leaders who shape the future of brands and experiences.</p>
-                    <p>Our community spans 50+ countries and includes award-winning designers, strategists, artists, and cultural anthropologists who collaborate on groundbreaking projects.</p>
-                    <div class="d-flex gap-3 mt-4">
-                        <a href="#join" class="btn btn-primary">Join Community</a>
-                        <a href="#directory" class="btn btn-outline-primary">Browse Directory</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Features -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title text-center">Community Features</h2>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-network-wired mb-3" style="font-size: 3rem; color: var(--accent);"></i>
-                            <h5>Global Network</h5>
-                            <p>Connect with 500+ creative professionals across 50+ countries and diverse industries.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-handshake mb-3" style="font-size: 3rem; color: var(--accent);"></i>
-                            <h5>Collaboration Hub</h5>
-                            <p>Find partners for projects, share resources, and co-create innovative solutions.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-graduation-cap mb-3" style="font-size: 3rem; color: var(--accent);"></i>
-                            <h5>Learning & Growth</h5>
-                            <p>Access exclusive masterclasses, workshops, and cultural intelligence reports.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-award mb-3" style="font-size: 3rem; color: var(--accent);"></i>
-                            <h5>Recognition Platform</h5>
-                            <p>Showcase your work, earn community recognition, and build your creative reputation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Stats -->
-    <section class="community-stats">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="stat-box">
-                        <span class="stat-number">500+</span>
-                        <div class="stat-label">Active Inspirers</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-box">
-                        <span class="stat-number">50+</span>
-                        <div class="stat-label">Countries</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-box">
-                        <span class="stat-number">1000+</span>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-box">
-                        <span class="stat-number">95%</span>
-                        <div class="stat-label">Success Rate</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Become an Inspirer -->
-    <section class="section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title">Become an Inspirer</h2>
-                    <p class="lead mb-4">Join our community of creative professionals and thought leaders who are shaping the future of design and innovation.</p>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-3"></i>
-                                <span>Global Recognition</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-3"></i>
-                                <span>Networking Opportunities</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-3"></i>
-                                <span>Exclusive Resources</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-3"></i>
-                                <span>Professional Growth</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-nav btn-solid me-3">Apply Now</a>
-                        <a href="#" class="btn btn-outline-primary">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=600&q=80" alt="Community" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
