@@ -109,7 +109,7 @@
         .hero {
             background: linear-gradient(135deg, #fdf7f0 0%, #fef7ed 100%);
             color: var(--primary);
-            padding: 8rem 0 6rem;
+            padding: 3rem 0 3rem;
             position: relative;
             min-height: 65vh;
             display: flex;
@@ -498,6 +498,20 @@
             background-clip: text;
         }
         
+        /* Article cards with image overlay */
+        .article-card {border: none; border-radius: 12px; overflow: hidden; background: #000;}
+        .article-card .article-media {position: relative;}
+        .article-card .card-img-top {width: 100%; height: 200px; object-fit: cover; transition: transform .5s ease; display:block;}
+        .article-card--lg .card-img-top {height: 380px;}
+        .article-card:hover .card-img-top {transform: scale(1.05);}        
+        .article-card .overlay {position: absolute; inset: 0; display:flex; align-items:flex-end; justify-content:flex-start; padding:0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); opacity: 1; transition: opacity .35s ease;}
+        .article-card .overlay-content {color: #fff; width:100%; padding: 1rem 1.1rem; transform: none; transition: transform .35s ease;}
+        /* Keep hover transform subtle for polish */
+        .article-card:hover .overlay-content {transform: translateY(-4px);}        
+        .article-card .overlay-content .card-title {color:#fff; margin:0 0 .25rem;}
+        .article-card .overlay-content .card-text {color: rgba(255,255,255,.85); margin:0 0 .75rem; font-size: .95rem;}
+        .overlay-badge {background: rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.25); backdrop-filter: blur(4px);}        
+        
 
         /* Sidebar (25% width on lg+) */
         .sidebar { position: sticky; top: 140px; }
@@ -549,8 +563,8 @@
             }
         }
     </style>
-        <!-- Site Typography Module (shared across pages) -->
-        <link rel="stylesheet" href="css/typography.css">
+    <!-- Site Typography Module (shared across pages) -->
+    <link rel="stylesheet" href="css/typography.css">
 </head>
 <body>
     <!-- Navigation copied exactly from index.html (active states adjusted) -->
@@ -617,21 +631,112 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" style="margin-top: 140px;">
+    <!-- Hero (reintroduced with breadcrumb + Brand Arc label) -->
+    <header class="hero" style="margin-top:140px;padding:3.75rem 0 2.5rem;min-height:auto;">
         <div class="container">
-            <div class="row justify-content-start">
-                <div class="col-lg-9 col-12">
-                    <div class="hero-content">
-                        <div class="campaign-tag">
-                            <i class="fas fa-bed me-2"></i>Brand Arc
-                        </div>
-                        <h1 class="fs-1">From Product to Philosophy</h1>
-                        <p class="fs-4">Wakefit Festive Campaign Featuring Biswa Kalyan Rath: <strong>Sleep Right, Shop Right.</strong> How a brand transformed from mattress disruptor to wellness-first philosophy.</p>
+            <div class="row">
+                <div class="col-lg-3 col-md 4 col-12">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb mb-2" style="background:transparent;padding:0;">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Brand Arc</li>
+                        </ol>
+                    </nav>
+                    <div class="campaign-tag mb-3" style="background:linear-gradient(135deg,#ff6b6b,#4ecdc4);color:#fff;border-radius:25px;padding:0.5rem 1.25rem;font-weight:600;font-size:0.85rem;display:inline-flex;align-items:center;letter-spacing:.5px;">
+                        <i class="fas fa-bed me-2"></i>Brand Arc
                     </div>
-                    <!-- Image stacked below text -->
-                    <div class="hero-image mt-3">
-                        <img src="res/wake-fit.jpg" alt="Wakefit Campaign" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-9 col-md-8 col-12">
+                    <h1 class="text-end fs-1 mb-3" style="font-weight:800;font-size:2.6rem;line-height:1.15;">Brand Arc: From Product to Philosophy</h1>
+                    <p class="hero-subtitle text-end mb-0" style="font-size:1.1rem;">Exploring how Indian brands evolve beyond features into cultural, behavioral and ritual relevance.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Related Articles Grid (50/25/25) -->
+    <section class="hero">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <!-- 50% width column with single featured card -->
+                <div class="col-lg-6 col-12">
+                    <a href="wakefit-campaign-brand-arc.html" class="text-decoration-none text-reset">
+                        <div class="card article-card article-card--lg h-100">
+                            <div class="article-media">
+                                <img src="https://images.pexels.com/photos/6392926/pexels-photo-6392926.jpeg" class="card-img-top" alt="Wakefit Festive Campaign">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h5 class="card-title">Wakefit Festive Campaign Featuring Biswa Kalyan Rath</h5>
+                                        <p class="card-text">Sleep Right, Shop Right — from product to philosophy.</p>
+                                        <span class="badge overlay-badge">Nov 27, 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 25% width column with two stacked cards -->
+                <div class="col-lg-3 col-12">
+                    <div class="d-flex flex-column gap-4 h-100">
+                        <a href="suta-brand-arc.html" class="text-decoration-none text-reset">
+                            <div class="card article-card">
+                                <div class="article-media">
+                                    <img src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg" class="card-img-top" alt="Suta Brand Arc">
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <h6 class="card-title mb-1">Suta: Craft to Culture</h6>
+                                            <p class="card-text">Handloom storytelling as movement.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="blinkit-brand-arc.html" class="text-decoration-none text-reset">
+                            <div class="card article-card">
+                                <div class="article-media">
+                                    <img src="https://images.pexels.com/photos/7857539/pexels-photo-7857539.jpeg" class="card-img-top" alt="Blinkit Brand Arc">
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <h6 class="card-title mb-1">Blinkit: Everyday Velocity</h6>
+                                            <p class="card-text">Speed becomes philosophy.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 25% width column with two stacked cards -->
+                <div class="col-lg-3 col-12">
+                    <div class="d-flex flex-column gap-4 h-100">
+                        <a href="nykaa-brand-arc.html" class="text-decoration-none text-reset">
+                            <div class="card article-card">
+                                <div class="article-media">
+                                    <img src="https://images.pexels.com/photos/1377034/pexels-photo-1377034.jpeg" class="card-img-top" alt="Nykaa Brand Arc">
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <h6 class="card-title mb-1">Nykaa: Beauty In Motion</h6>
+                                            <p class="card-text">Curation shaping conversation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="zomato-brand-arc.html" class="text-decoration-none text-reset">
+                            <div class="card article-card">
+                                <div class="article-media">
+                                    <img src="https://images.pexels.com/photos/12725452/pexels-photo-12725452.jpeg" class="card-img-top" alt="Zomato Brand Arc">
+                                    <div class="overlay">
+                                        <div class="overlay-content">
+                                            <h6 class="card-title mb-1">Zomato: Appetite for Moments</h6>
+                                            <p class="card-text">Wit meets ritual cravings.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -643,111 +748,104 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-9">
-                    <div class="campaign-story">
-                        <h3>The Ad That Made Us Laugh and Think</h3>
-                        <p>This Diwali, Wakefit stepped away from emotional clichés and instead tapped into India's collective exhaustion from the festive sale season. Starring comedian Biswa Kalyan Rath, the campaign "Sleep is Mast, Biswa is now Swasth" opens with a familiar sight: a late-night scroller impulsively buying things online.</p>
-                        <p>From the first doorbell ring to Biswa's hilariously awkward chat with the delivery guy, it's a mirror of modern India's sleepless hustle. In an age of 5-second reels, Wakefit dared to go slower and won. The pacing feels cinematic, confident that good storytelling can still hold an audience.</p>
-                        <div class="highlight-quote">"When content respects attention, attention returns."</div>
-                        <p>Wakefit takes a cultural truth, India's sleepless, hyper-connected consumer habit, and turns it into insight. In a world addicted to reels and flash sales, the ad reminds us that instant doesn't always mean intelligence. And yet, it never lectures. It just mirrors our lives with a wink.</p>
-                        <p>Who hasn't sat awake at 2 AM, juggling between Swiggy, Instamart, Blinkit, and Amazon, convincing themselves that another home décor item or gadget will make life better? Wakefit uses humor to expose that exhaustion, then delivers a message that lands softly but surely: the smartest investment this festive season is good sleep.</p>
-                    </div>
-
-                    <!-- Brand Evolution Insights -->
-                    <!-- <div class="section section-soft fade-in" style="padding-top: 2rem; padding-bottom: 2rem;">
-                        <h2 class="section-title">Brand Evolution Insights</h2>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <div class="insight-card">
-                                    <div class="insight-icon" style="background: linear-gradient(135deg, #ff6b6b, #ff8a80);">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <h5>From Product to Philosophy</h5>
-                                    <p>Wakefit evolved from a mattress disruptor to a wellness-first home company, building emotional equity through wit and empathy.</p>
+                    <!-- Additional Related Articles Grid (9 cards) -->
+                    <section class="section" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+                        <div class="container-fluid px-0">
+                            <div class="row g-4">
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="patanjali-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/patanjali/600/400" class="card-img-top" alt="Patanjali Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">Patanjali: Ayurveda Scaling Trust</h6><p class="card-text">Blending legacy wellness with FMCG velocity.</p><span class="badge overlay-badge">Oct 02, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="insight-card">
-                                    <div class="insight-icon" style="background: linear-gradient(135deg, #4ecdc4, #44a08d);">
-                                        <i class="fas fa-lightbulb"></i>
-                                    </div>
-                                    <h5>Cultural Truth</h5>
-                                    <p>"Sleep Right, Shop Right" isn't just a clever line; it's a philosophy that taps into India's shifting narrative from consumption to consciousness.</p>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="cultsport-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/cultsport/600/400" class="card-img-top" alt="CultSport Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">CultSport: Ritualizing Movement</h6><p class="card-text">Fitness utility becomes daily identity.</p><span class="badge overlay-badge">Oct 12, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="insight-card">
-                                    <div class="insight-icon" style="background: linear-gradient(135deg, #6c5ce7, #a8e6cf);">
-                                        <i class="fas fa-heart"></i>
-                                    </div>
-                                    <h5>Rest as Self-Respect</h5>
-                                    <p>The campaign reframes sleep as the new luxury, not a reward after hustle, but the foundation of it.</p>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="boat-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/boat/600/400" class="card-img-top" alt="boAt Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">boAt: Accessorizing Self-Expression</h6><p class="card-text">Audio gear recast as fashion signal.</p><span class="badge overlay-badge">Oct 18, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Cultural Commentary -->
-                    <div class="campaign-story">
-                        <h3>Cultural Commentary: The Burnout Generation</h3>
-                        <p>The campaign also signals how far Wakefit has come as a brand. "Sleep Right, Shop Right" isn't just a clever line; it's a philosophy. Wakefit is no longer selling just products; it's selling peace of mind, balance, and better mornings. At a time when the festive calendar now runs seamlessly from Diwali to Christmas to weddings and New Year holidays, that message feels particularly relevant.</p>
-                        <p>There's also a larger cultural undercurrent at play. India's festive narrative is shifting from consumption to consciousness. The old rhythm of "buy more, show more" is being replaced by a gentler one: "live better, rest more." Wakefit taps into that evolution beautifully.</p>
-                        <div class="highlight-quote">"Humor replaces hype. Comfort replaces chaos. The film becomes both a brand story and a social commentary on the burnout generation that's learning to pause."</div>
-                        <p>For marketers, this campaign is a case study in how long-form storytelling still works when it's honest. For investors, it's a reminder that purpose-led brands build deeper, more lasting value. Wakefit's creative confidence lies in its restraint. No melodrama, no excess, just good writing, natural pacing, and a cultural truth told with wit.</p>
-                        <p>Ultimately, Wakefit isn't selling a mattress. It's selling a modern ritual: rest as self-respect. It reframes sleep as the new luxury, not a reward after hustle, but the foundation of it. That's what makes this collaboration with Biswa Kalyan Rath so resonant. It's more than an ad; it's a cultural cue. A reminder to a restless generation that celebration doesn't have to mean overconsumption. Sometimes, the best Diwali gift is to simply sleep well.</p>
-                    </div>
-
-                    <!-- Credits inside main (75%) -->
-                    <div class="section section-soft fade-in" style="padding-top: 2rem; padding-bottom: 2rem;">
-                        <h2 class="section-title">Campaign Credits</h2>
-                        <div class="row g-4 align-items-stretch">
-                            <div class="col-lg-8">
-                                <div class="credits-section h-100">
-                                    <div class="credit-item">
-                                        <span class="credit-role">Creative Agency</span>
-                                        <span class="credit-name">The New Thing</span>
-                                    </div>
-                                    <div class="credit-item">
-                                        <span class="credit-role">Creators</span>
-                                        <span class="credit-name">Srishti Pandey, Anand Menon</span>
-                                    </div>
-                                    <div class="credit-item">
-                                        <span class="credit-role">Production</span>
-                                        <span class="credit-name">Pink Sauce Studios</span>
-                                    </div>
-                                    <div class="credit-item">
-                                        <span class="credit-role">Director</span>
-                                        <span class="credit-name">Anand Menon</span>
-                                    </div>
-                                    <div class="credit-item">
-                                        <span class="credit-role">Client</span>
-                                        <span class="credit-name">Wakefit (Mattress & Furniture)</span>
-                                    </div>
-                                    <div class="credit-item">
-                                        <span class="credit-role">Message by</span>
-                                        <span class="credit-name">Chaitanya Ramalingegowda, Co-founder</span>
-                                    </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="paperboat-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/paperboat/600/400" class="card-img-top" alt="Paper Boat Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">Paper Boat: Memory As Flavor</h6><p class="card-text">Nostalgia bottled as brand engine.</p><span class="badge overlay-badge">Oct 25, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="insight-card h-100" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none;">
-                                    <div class="insight-icon" style="background: rgba(255,255,255,0.2); color: white;">
-                                        <i class="fab fa-instagram"></i>
-                                    </div>
-                                    <h5 style="color: white;">Watch on Instagram</h5>
-                                    <p style="color: rgba(255,255,255,0.9);">Experience the full Wakefit campaign featuring Biswa Kalyan Rath. See how product marketing transformed into cultural commentary.</p>
-                                    <a href="https://www.instagram.com/reel/DP3G9UNEQRz/?utm_source=ig_web_button_share_sheet" 
-                                       class="btn" 
-                                       target="_blank" 
-                                       rel="noopener noreferrer"
-                                       style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;"
-                                       onmouseover="this.style.background='rgba(255,255,255,0.3)'; this.style.borderColor='white';"
-                                       onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.3)';">
-                                        <i class="fab fa-instagram me-2"></i>View Reel <i class="fas fa-external-link-alt ms-2"></i>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="tata-1mg-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/tata1mg/600/400" class="card-img-top" alt="Tata 1mg Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">Tata 1mg: Trust In Play</h6><p class="card-text">Clinical credibility humanized.</p><span class="badge overlay-badge">Nov 01, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="dunzo-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/dunzo/600/400" class="card-img-top" alt="Dunzo Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">Dunzo: Micro-Mission Utility</h6><p class="card-text">Errands reframed as empowerment.</p><span class="badge overlay-badge">Nov 08, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="sugar-cosmetics-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/sugarcos/600/400" class="card-img-top" alt="SUGAR Cosmetics Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">SUGAR: Bold Tone Ownership</h6><p class="card-text">Colour language staking identity.</p><span class="badge overlay-badge">Nov 14, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="mcdonalds-india-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/mcdindia/600/400" class="card-img-top" alt="McDonald's India Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">McDonald's India: Localized Crave Cycles</h6><p class="card-text">Global system tuned to festival taste.</p><span class="badge overlay-badge">Nov 21, 2025</span></div></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <a href="ikea-india-brand-arc.html" class="text-decoration-none text-reset">
+                                        <div class="card article-card">
+                                            <div class="article-media">
+                                                <img src="https://picsum.photos/seed/ikeaindia/600/400" class="card-img-top" alt="IKEA India Brand Arc">
+                                                <div class="overlay"><div class="overlay-content"><h6 class="card-title mb-1">IKEA India: Flat-Pack Belonging</h6><p class="card-text">Design democratized for new homes.</p><span class="badge overlay-badge">Nov 26, 2025</span></div></div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
+
 
                     <!-- Page CTA inside main (75%) -->
                     <div class="section fade-in" style="padding-top: 0;">
@@ -806,8 +904,6 @@
             </div>
         </div>
     </section>
-
-    
 
     <!-- Footer -->
     <footer class="footer">
