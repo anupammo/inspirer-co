@@ -81,7 +81,10 @@
         .navbar-nav {margin: 0;gap: 0.2rem;}
         .social-nav {display: flex;align-items: center;gap: 1rem;}
         .social-nav a {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,0.05);color:var(--primary);transition:all 0.3s ease;text-decoration:none;}
-        .social-nav a:hover {background: var(--accent);color:#fff;transform:translateY(-2px);}
+        .social-nav a:hover {background: var(--accent);color:#fff;transform:translateY(-2px);}        
+        /* Mobile search icon (visible on mobile) */
+        .mobile-search {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,0.05);color:var(--primary);text-decoration:none;}
+        .mobile-search:hover {background: var(--accent); color:#fff;}
         .secondary-nav {background: linear-gradient(135deg, var(--dark) 0%, #2c2c2c 100%);padding:0.7rem 0;position:fixed;top:70px;left:0;right:0;z-index:1040;border-bottom:1px solid rgba(255,255,255,0.15);box-shadow:0 4px 20px rgba(0,0,0,0.2);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);}
         .secondary-nav .navbar-nav {flex-direction:row;justify-content:center;align-items:center;width:100%;gap:0.5rem;}
         .secondary-nav .nav-link {color:rgba(255,255,255,0.85) !important;font-weight:500;font-size:0.95rem;padding:0.6rem 1.2rem !important;margin:0 0.2rem;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);white-space:nowrap;position:relative;border-radius:10px;overflow:hidden;}
@@ -97,7 +100,16 @@
         .btn-nav.btn-outline:hover {background:var(--primary);color:#fff;border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.15);}
         .btn-nav.btn-solid {background:linear-gradient(135deg,var(--primary),#2c2c2c);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
         .btn-nav.btn-solid:hover {background:linear-gradient(135deg,var(--accent),#ff7043);transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,87,34,0.3);color:#fff;}
-        @media (max-width: 991.98px){.navbar .container{display:flex !important;flex-wrap:wrap;align-items:center;justify-content:space-between;position:relative;}.navbar-brand{order:1 !important;margin:0 !important;flex:0 0 auto;}.navbar-toggler{order:2 !important;margin-left:auto !important;margin-right:0 !important;flex:0 0 auto;position:relative;}.navbar-collapse{order:3 !important;flex-basis:100% !important;width:100% !important;margin-top:1rem !important;}.d-none.d-lg-flex{display:none !important;}}
+        @media (max-width: 991.98px){
+            .navbar .container{display:flex !important;flex-wrap:wrap;align-items:center;justify-content:space-between;position:relative;padding:0 .75rem;}
+            /* Row items */
+            .navbar-toggler{order:1 !important;margin:0 !important;flex:0 0 auto;}
+            .navbar-brand{order:2 !important;margin:0 auto !important;position:static;transform:none;flex:0 0 auto;}
+            .mobile-search{order:3 !important;margin-left:auto;flex:0 0 auto;}
+            /* Menu below full width */
+            .navbar-collapse{order:4 !important;flex-basis:100% !important;width:100% !important;margin-top:.6rem !important;}
+            .d-none.d-lg-flex{display:none !important;}
+        }
         @media (max-width: 768px){.secondary-nav{display:none !important;}}
         .mobile-menu-content {background:#fff;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin-top:0.5rem;padding:0 1rem;width:100%;}
         .mobile-menu-content .navbar-nav .nav-item:last-child .nav-link {border-bottom:none;}
@@ -567,7 +579,7 @@
     <link rel="stylesheet" href="css/typography.css">
 </head>
 <body>
-    <!-- Navigation copied exactly from index.html (active states adjusted) -->
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -586,9 +598,14 @@
                             <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
                         </div>
+                        <!-- Hamburger (left on mobile) -->
                         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        <!-- Search icon (right on mobile) -->
+                        <a href="#" class="mobile-search d-lg-none" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </a>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <div class="d-lg-none mobile-menu-content">
                                 <ul class="navbar-nav">
@@ -635,7 +652,7 @@
     <header class="hero" style="margin-top:140px;padding:3.75rem 0 2.5rem;min-height:auto;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md 4 col-12">
+                <div class="col-lg-2 col-md 3 col-12">
                     <nav aria-label="breadcrumb" class="mb-3">
                         <ol class="breadcrumb mb-2" style="background:transparent;padding:0;">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -646,9 +663,9 @@
                         <i class="fas fa-bed me-2"></i>Brand Arc
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8 col-12">
-                    <h1 class="text-end fs-1 mb-3" style="font-weight:800;font-size:2.6rem;line-height:1.15;">Brand Arc: From Product to Philosophy</h1>
-                    <p class="hero-subtitle text-end mb-0" style="font-size:1.1rem;">Exploring how Indian brands evolve beyond features into cultural, behavioral and ritual relevance.</p>
+                <div class="col-lg-10 col-md-9 col-12">
+                    <h1 class="text-center fs-1 mb-3" style="font-weight:800;font-size:2.6rem;line-height:1.15;">Brand Arc: From Product to Philosophy</h1>
+                    <p class="hero-subtitle text-center mb-0" style="font-size:1.1rem;">Exploring how Indian brands evolve beyond features into cultural, behavioral and ritual relevance.</p>
                 </div>
             </div>
         </div>
