@@ -81,7 +81,16 @@
         .btn-nav.btn-outline:hover { background:var(--primary); color:#fff; border-color:var(--primary); transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,0.15); }
         .btn-nav.btn-solid { background:linear-gradient(135deg,var(--primary),#2c2c2c); color:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
         .btn-nav.btn-solid:hover { background:linear-gradient(135deg,var(--accent),#ff7043); transform:translateY(-2px); box-shadow:0 8px 25px rgba(255,87,34,0.3); color:#fff; }
-        @media (max-width: 991.98px){ .navbar .container{display:flex !important;flex-wrap:wrap;align-items:center;justify-content:space-between;position:relative;} .navbar-brand{order:1 !important;margin:0 !important;flex:0 0 auto;} .navbar-toggler{order:2 !important;margin-left:auto !important;margin-right:0 !important;flex:0 0 auto;position:relative;} .navbar-collapse{order:3 !important;flex-basis:100% !important;width:100% !important;margin-top:1rem !important;} .d-none.d-lg-flex{display:none !important;} }
+        /* Standardized Mobile Navbar (<= 991.98px) */
+        @media (max-width: 991.98px) {
+            .navbar .container { display: flex !important; align-items: center; padding: 0 .75rem; }
+            .navbar-toggler { order: 1 !important; margin-right: .5rem !important; }
+            .navbar-brand { order: 2 !important; margin: 0 auto !important; display: flex; align-items: center; justify-content: center; }
+            .mobile-search { order: 3; margin-left: .5rem; display: flex; align-items: center; }
+            .mobile-search a { color: var(--primary); text-decoration: none; padding: .25rem .4rem; border-radius: 8px; background: rgba(0,0,0,0.05); }
+            .navbar-collapse { order: 4 !important; width: 100% !important; margin-top: .6rem !important; }
+            .d-none.d-lg-flex { display: none !important; }
+        }
         @media (max-width: 768px){ .secondary-nav{display:none !important;} }
         .mobile-menu-content {background:#fff;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin-top:0.5rem;padding:0 1rem;width:100%;}
         .mobile-menu-content .navbar-nav .nav-item:last-child .nav-link {border-bottom:none;}
@@ -692,12 +701,14 @@
     <!-- Navigation (exact structure from index) -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <a class="navbar-brand" href="index.html">
                 <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
             </a>
-            <div class="d-none d-lg-flex align-items-center">
-                <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
-            </div>
+            <div class="mobile-search d-lg-none"><a href="#" aria-label="Search"><i class="fas fa-search"></i></a></div>
+            <div class="d-none d-lg-flex align-items-center"><a href="#" class="btn btn-nav btn-solid me-3">Join us</a></div>
             <div class="social-nav d-none d-lg-flex align-items-center">
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -705,9 +716,6 @@
                 <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
                 <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
             </div>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="d-lg-none mobile-menu-content">
                     <ul class="navbar-nav">
@@ -719,9 +727,7 @@
                         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
-                    <div class="mobile-cta">
-                        <a href="#" class="btn btn-nav btn-solid w-100">Join us</a>
-                    </div>
+                    <div class="mobile-cta"><a href="#" class="btn btn-nav btn-solid w-100">Join us</a></div>
                     <div class="mobile-social-nav d-lg-none">
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>

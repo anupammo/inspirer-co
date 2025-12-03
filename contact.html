@@ -75,7 +75,16 @@
         .btn-nav.btn-solid:hover { background: linear-gradient(135deg, var(--accent), #ff7043); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3); color: white; }
         .navbar-toggler { border: 1px solid rgba(0,0,0,.1); padding: 0.25rem 0.5rem; }
         .navbar-toggler:focus { box-shadow: 0 0 0 0.25rem rgba(255, 87, 34, 0.25); }
-        @media (max-width: 991.98px) { .navbar .container { display: flex !important; flex-wrap: wrap; align-items: center; justify-content: space-between; position: relative; } .navbar-brand { order: 1 !important; margin: 0 !important; flex: 0 0 auto; } .navbar-toggler { order: 2 !important; margin-left: auto !important; margin-right: 0 !important; flex: 0 0 auto; position: relative; } .navbar-collapse { order: 3 !important; flex-basis: 100% !important; width: 100% !important; margin-top: 1rem !important; } .d-none.d-lg-flex { display: none !important; } }
+        /* Standardized Mobile Navbar (<= 991.98px) */
+        @media (max-width: 991.98px) {
+            .navbar .container { display: flex !important; align-items: center; padding: 0 .75rem; }
+            .navbar-toggler { order: 1 !important; margin-right: .5rem !important; }
+            .navbar-brand { order: 2 !important; margin: 0 auto !important; display: flex; align-items: center; justify-content: center; }
+            .mobile-search { order: 3; margin-left: .5rem; display: flex; align-items: center; }
+            .mobile-search a { color: var(--primary); text-decoration: none; padding: .25rem .4rem; border-radius: 8px; background: rgba(0,0,0,0.05); }
+            .navbar-collapse { order: 4 !important; width: 100% !important; margin-top: .6rem !important; }
+            .d-none.d-lg-flex { display: none !important; }
+        }
         @media (min-width: 992px) { .navbar .container { display: flex; align-items: center; } .navbar-brand { margin: 0 auto; } .navbar-collapse { flex-basis: auto; width: auto; } }
         .mobile-menu-content { background: white; border-radius: 0 0 8px 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-top: 0.5rem; padding: 0 1rem; width: 100%; position: relative; }
         .mobile-menu-content .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
@@ -205,91 +214,45 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <!-- Mobile: Logo on left -->
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
-            </a>
-            
-            <!-- Desktop: Join Us Button -->
-            <div class="d-none d-lg-flex align-items-center">
-                <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
-            </div>
-            
-            <!-- Desktop: Social Icons -->
-            <div class="social-nav d-none d-lg-flex align-items-center">
-                <a href="#" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" aria-label="X (Twitter)">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" aria-label="Threads">
-                    <i class="fas fa-at"></i>
-                </a>
-            </div>
-            
-            <!-- Mobile Toggle Button -->
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#contactNavbar" aria-controls="contactNavbar" aria-expanded="false" 
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <!-- Collapsible Navigation (Mobile Only) -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.webp" alt="Inspirer Co" style="height: 40px; width: auto;">
+            </a>
+            <div class="mobile-search d-lg-none">
+                <a href="#" aria-label="Search"><i class="fas fa-search"></i></a>
+            </div>
+            <div class="d-none d-lg-flex align-items-center">
+                <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
+            </div>
+            <div class="social-nav d-none d-lg-flex align-items-center">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+            </div>
             <div class="collapse navbar-collapse" id="contactNavbar">
                 <div class="d-lg-none mobile-menu-content">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="brand-arc.html">Brand Arc</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="inspirers.html">Inspirers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contact.html">Contact</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+                        <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
-                    
-                    <!-- Mobile: Join Us Button -->
-                    <div class="mobile-cta">
-                        <a href="#" class="btn btn-nav btn-solid w-100">Join us</a>
-                    </div>
-                    
-                    <!-- Mobile: Social Icons (Mobile Only) -->
+                    <div class="mobile-cta"><a href="#" class="btn btn-nav btn-solid w-100">Join us</a></div>
                     <div class="mobile-social-nav d-lg-none">
-                        <a href="#" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" aria-label="X (Twitter)">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" aria-label="Threads">
-                            <i class="fas fa-at"></i>
-                        </a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
                     </div>
                 </div>
             </div>
@@ -551,7 +514,7 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
