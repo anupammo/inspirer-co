@@ -1524,6 +1524,14 @@
             color: rgba(255, 255, 255, 0.6) !important;
             margin: 0;
         }
+        /* Inspirer Card (match inspirers.html Featured Inspirers) */
+        .inspirer-card { position: relative; overflow: hidden; border-radius: 15px; width: 220px; aspect-ratio: 2 / 3; }
+        .inspirer-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; display: block; }
+        .inspirer-card:hover img { transform: scale(1.05); }
+        .inspirer-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: #fff; padding: 0.8rem 1rem 1.4rem; }
+        .inspirer-name { font-size: 1rem; font-weight: 700; margin: 0; }
+        .inspirer-role { font-size: 0.85rem; opacity: 0.9; margin: 0.15rem 0 0; }
+        @media (max-width: 576px) { .inspirer-card { width: 45vw; aspect-ratio: 1 / 2; } }
     </style>
     <!-- Site Typography Module (shared across pages) -->
     <link rel="stylesheet" href="css/typography.css">
@@ -1690,7 +1698,26 @@
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="px-5">
-                                <img src="res/inspirers-page.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-4 flex-nowrap">
+                                    <a href="abhay-sehgal.html" class="text-decoration-none" aria-label="View profile: Abhay Sehgal">
+                                        <div class="inspirer-card">
+                                            <img src="res/abhay-sehgal-2.png" alt="Abhay Sehgal">
+                                            <div class="inspirer-overlay">
+                                                <p class="inspirer-name">Abhay Sehgal</p>
+                                                <p class="inspirer-role">Contemporary Artist</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="shounak-tewarie.html" class="text-decoration-none" aria-label="View profile: Shounak Tewarie">
+                                        <div class="inspirer-card">
+                                            <img src="res/shounak-tewarie.png" alt="Shounak Tewarie">
+                                            <div class="inspirer-overlay">
+                                                <p class="inspirer-name">Shounak Tewarie</p>
+                                                <p class="inspirer-role">Creative Strategist</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <!-- <div class="col-md-3 col-6">
@@ -1761,9 +1788,33 @@
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="px-5">
-                                <img src="res/inspirers-page.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                                <div class="d-flex justify-content-center align-items-center gap-4 flex-nowrap">
+                                    <a href="abhay-sehgal.html" class="text-decoration-none" aria-label="View profile: Abhay Sehgal">
+                                        <div class="inspirer-card">
+                                            <img src="res/sneha-chakraborty.jpg" alt="Sneha Chakraborty">
+                                            <div class="inspirer-overlay">
+                                                <p class="inspirer-name">Sneha Chakraborty</p>
+                                                <p class="inspirer-role">Travel Artist</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="shounak-tewarie.html" class="text-decoration-none" aria-label="View profile: Shounak Tewarie">
+                                        <div class="inspirer-card">
+                                            <img src="res/srishti-gupta-roy.jpg" alt="Srishti Gupta Roy">
+                                            <div class="inspirer-overlay">
+                                                <p class="inspirer-name">Srishti Gupta Roy</p>
+                                                <p class="inspirer-role">Cultural Maximalist</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <!-- <div class="col-md-6 col-12">
+                            <div class="px-5">
+                                <img src="res/inspirers-page.png" alt="abhay-sehgal" class="img-fluid card mb-4">
+                            </div>
+                        </div> -->
                         <!-- <div class="col-lg-3 col-6">
                             <img class="img-fluid card"
                                 src="https://images.pexels.com/photos/1181561/pexels-photo-1181561.jpeg"
