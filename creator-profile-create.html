@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Creator Profile | Inspirer Co</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="A platform for creators who create with purpose. Join the InspireCo Creator Community and publish your profile and portfolio.">
+  <style>
+    :root {--primary:#1a1a1a;--secondary:#6c757d;--accent:#ff4502;--light:#f8f9fa;--dark:#212529;--border:#e9ecef;--space-xs:.5rem;--space-sm:1rem;--space-md:1.75rem;--space-lg:2.5rem;--space-xl:4rem;--max-reading:760px;}
+    body{font-family:'Work Sans',Arial,sans-serif;color:var(--primary);line-height:1.58;overflow-x:hidden;background:#fcfcfc;}
+    h1,h2,h3,h4,h5,h6,.hero h1,.section-title,.card-title,.navbar-brand{font-family:'Sora','Open Sauce','Segoe UI',Arial,sans-serif;}
+    .navbar{padding:.8rem 0;transition:all .3s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 2px 20px rgba(0,0,0,.05);z-index:1050;}
+    .navbar.scrolled{padding:.6rem 0;background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.1);}    
+    .navbar-brand{font-weight:800;font-size:1.6rem;color:var(--primary)!important;display:flex;align-items:center;transition:all .3s ease;}
+    @media (min-width:992px){.navbar .container{display:flex;align-items:center;justify-content:space-between;} .navbar .container>*:first-child{flex:1;} .navbar-brand{flex:1;justify-content:center;order:2;} .social-nav{flex:1;justify-content:flex-end;order:3;} .container>div:first-child{order:1;}}
+    .nav-link{font-weight:500;margin:0 .3rem;position:relative;color:var(--primary)!important;transition:all .3s cubic-bezier(.4,0,.2,1);padding:.6rem 1rem!important;border-radius:8px;}
+    .nav-link:hover{color:var(--accent)!important;transform:translateY(-1px);background:rgba(255,87,34,.05);}        
+    .social-nav{display:flex;align-items:center;gap:1rem;}
+    .social-nav a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);transition:all .3s ease;text-decoration:none;}
+    .social-nav a:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}        
+    .secondary-nav{background:linear-gradient(135deg,var(--dark) 0%,#2c2c2c 100%);padding:.7rem 0;position:fixed;top:70px;left:0;right:0;z-index:1040;border-bottom:1px solid rgba(255,255,255,.15);box-shadow:0 4px 20px rgba(0,0,0,.2);}        
+    .secondary-nav .navbar-nav{flex-direction:row;justify-content:center;align-items:center;width:100%;gap:.5rem;}
+    .secondary-nav .nav-link{color:rgba(255,255,255,.85)!important;font-weight:500;font-size:.95rem;padding:.6rem 1.2rem!important;margin:0 .2rem;transition:all .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;position:relative;border-radius:10px;overflow:hidden;}
+    .secondary-nav .nav-link.active{color:#fff!important;background:linear-gradient(135deg,var(--accent),#ff7043);font-weight:600;}
+
+    .hero {background:#fff;color:var(--primary);padding:3.75rem 0 2.5rem;position:relative;display:flex;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06);}        
+    .hero-content {max-width:var(--max-reading);}        
+    .hero .fs-1 {font-weight:700;margin-bottom:1rem;font-size:2.6rem;line-height:1.15;color:var(--primary);}        
+    .post-meta {color: var(--secondary);font-size: 0.95rem;margin: 0.25rem 0 0.75rem;}        
+    .campaign-tag {display:inline-block;background:var(--accent);color:#fff;padding:0.4rem 1rem;border-radius:4px;font-weight:600;margin-bottom:1rem;font-size:0.75rem;letter-spacing:.5px;text-transform:uppercase;}        
+    .cta-primary {display:flex;gap:.75rem;align-items:center;margin-top:1rem;}
+    .cta-primary a {border-radius:12px;padding:.8rem 1.2rem;font-weight:700;}
+
+    .section {padding:var(--space-xl) 0;}
+    .section-title {font-weight:700;margin-bottom:1rem;}
+    .section-subtitle {color:var(--secondary);margin-bottom:1rem;}
+    .card-soft {background:#fff;border:1px solid var(--border);border-radius:16px;padding:var(--space-md);} 
+    .footer{background:#111;color:#eee;margin-top:var(--space-xl);padding:var(--space-lg) 0;} 
+
+    .portfolio-tile {border:1px solid var(--border);border-radius:12px;padding:1rem;background:#fff;height:100%;}
+    .tile-media {border:1px dashed var(--border);border-radius:10px;padding:1rem;text-align:center;background:#fafafa;}
+    .tile-media input {display:block;margin:0 auto;}
+
+    .preview-card {border:1px solid var(--border);border-radius:12px;padding:1rem;background:#fff;}
+    /* Mobile collapsible styles (from portfolio) */
+    .navbar-toggler{border:1px solid rgba(0,0,0,.1);padding:.25rem .5rem}
+    .navbar-toggler:focus{box-shadow:0 0 0 .25rem rgba(255,87,34,.25)}
+    .mobile-search{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);text-decoration:none}
+    .mobile-search:hover{background:var(--accent);color:#fff}
+    .mobile-menu-content{background:#fff;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin-top:.5rem;padding:0 1rem;width:100%;position:relative}
+    .mobile-social-nav{display:flex;gap:1rem;justify-content:center;padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(0,0,0,.1)}
+    .mobile-social-nav a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(0,0,0,.05);border-radius:50%;color:var(--secondary);transition:all .3s ease}
+    .mobile-social-nav a:hover{background:var(--accent);color:#fff}
+  </style>
+  <link rel="stylesheet" href="css/typography.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.webp" alt="Inspirer Co" style="height:40px;width:auto;">
+      </a>
+      <div class="d-none d-lg-flex align-items-center">
+        <a href="#" class="btn btn-nav btn-solid me-3">Join us</a>
+      </div>
+      <div class="social-nav d-none d-lg-flex align-items-center">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+      </div>
+      <!-- Mobile Toggle + Search -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="#" class="mobile-search d-lg-none ms-2" aria-label="Search"><i class="fas fa-search"></i></a>
+
+      <!-- Collapsible Navigation (Mobile Only) -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="d-lg-none mobile-menu-content">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+            <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-cta my-2">
+            <a href="#" class="btn btn-nav btn-solid w-100">Join us</a>
+          </div>
+          <div class="mobile-social-nav d-lg-none">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg secondary-nav d-none d-lg-block">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="brand-arc.html">Brand Arc</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+          <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrapper container" style="margin-top:140px;">
+    <div class="row g-4">
+      <div class="col-lg-9">
+        <header class="hero" style="margin:0;">
+          <div class="hero-content">
+            <div class="campaign-tag"><i class="fas fa-user-pen me-2"></i>Create Profile</div>
+            <h1 class="fs-1">A platform for creators who create with purpose.</h1>
+            <div class="cta-primary">
+              <a href="#profile-form" class="btn btn-primary">Become a part of InspireCo Creator Community</a>
+              <a href="#profile-form" class="btn btn-outline-secondary">Submit Your Work</a>
+            </div>
+          </div>
+        </header>
+
+        <div class="card-soft mb-4 p-3" id="wizard-stepper">
+          <div class="d-flex flex-wrap align-items-center gap-2">
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="1">1. Basic</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="2">2. Bio</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="3">3. Portfolio</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="4">4. Links</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="5">5. Aspirations</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="6">6. Preview</span>
+            <span class="badge rounded-pill text-bg-dark px-3 py-2" data-step="7">7. Confirm</span>
+            <div class="progress flex-grow-1" style="height:8px;min-width:160px;">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+
+        <form id="profile-form" class="section" novalidate>
+          <!-- SECTION 1 — Basic Info -->
+          <div class="card-soft mb-4 step" data-step="1">
+            <h2 class="section-title">Basic Info</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input name="fullName" type="text" class="form-control" placeholder="Your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Location</label>
+                <input name="location" type="text" class="form-control" placeholder="City, Country" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Creative Title</label>
+                <select class="form-select">
+                  <option selected>Choose...</option>
+                  <option>Illustrator</option>
+                  <option>Designer</option>
+                  <option>Copywriter</option>
+                  <option>Creative Director</option>
+                  <option>Photographer</option>
+                  <option>AI Artist</option>
+                  <option>Motion Artist</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Custom Title</label>
+                <input type="text" class="form-control" placeholder="If not listed above">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">One-Line Statement</label>
+                <input name="oneLine" type="text" class="form-control" placeholder="What do you do in one line?" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Profile Photo</label>
+                <input name="photo" type="file" class="form-control" accept="image/*" required>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <button type="button" class="btn btn-primary" data-action="next">Next</button>
+            </div>
+          </div>
+
+          <!-- SECTION 2 — Bio -->
+          <div class="card-soft mb-4 step" data-step="2">
+            <h2 class="section-title">Bio</h2>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Short Bio (50–120 words)</label>
+                <textarea name="bio" class="form-control" rows="4" placeholder="Write a concise bio" required></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Inspiration Tags</label>
+                <div class="row g-2">
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-culture"><label class="form-check-label" for="tag-culture">Culture</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-travel"><label class="form-check-label" for="tag-travel">Travel</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-identity"><label class="form-check-label" for="tag-identity">Identity</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-fashion"><label class="form-check-label" for="tag-fashion">Fashion</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-ai"><label class="form-check-label" for="tag-ai">AI</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-pop"><label class="form-check-label" for="tag-pop">Pop Culture</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-music"><label class="form-check-label" for="tag-music">Music</label></div></div>
+                  <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="tag-story"><label class="form-check-label" for="tag-story">Storytelling</label></div></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">What defines your work?</label>
+                <input name="philosophy" type="text" class="form-control" placeholder="Describe your creative philosophy" required>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <button type="button" class="btn btn-primary" data-action="next">Next</button>
+            </div>
+          </div>
+
+          <!-- SECTION 3 — Portfolio Upload -->
+          <div class="card-soft mb-4 step" data-step="3">
+            <h2 class="section-title">Portfolio Upload</h2>
+            <p class="section-subtitle">Add 6–12 items. Each tile supports image or video.</p>
+            <div class="row g-3">
+              <!-- 6 tiles scaffolded; users can add more dynamically in future -->
+              <!-- Tile Template -->
+              <!-- Repeat 6 times -->
+              %PORTFOLIO_TILES%
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <button type="button" class="btn btn-primary" data-action="next">Next</button>
+            </div>
+          </div>
+
+          <!-- SECTION 4 — Links -->
+          <div class="card-soft mb-4 step" data-step="4">
+            <h2 class="section-title">Links</h2>
+            <div class="row g-3">
+              <div class="col-md-4"><label class="form-label">Instagram</label><input type="text" class="form-control" placeholder="https://instagram.com/username"></div>
+              <div class="col-md-4"><label class="form-label">Behance</label><input type="text" class="form-control" placeholder="https://behance.net/username"></div>
+              <div class="col-md-4"><label class="form-label">Dribbble</label><input type="text" class="form-control" placeholder="https://dribbble.com/username"></div>
+              <div class="col-md-4"><label class="form-label">Website</label><input type="text" class="form-control" placeholder="https://yoursite.com"></div>
+              <div class="col-md-4"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="you@domain.com"></div>
+              <div class="col-md-4"><label class="form-label">YouTube</label><input type="text" class="form-control" placeholder="https://youtube.com/@channel"></div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <button type="button" class="btn btn-primary" data-action="next">Next</button>
+            </div>
+          </div>
+
+          <!-- SECTION 5 — Aspirations -->
+          <div class="card-soft mb-4 step" data-step="5">
+            <h2 class="section-title">Aspirations</h2>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label">Dream Collaborations</label><input type="text" class="form-control" placeholder="Brands, people or projects"></div>
+              <div class="col-md-6">
+                <label class="form-label">Preferred Projects</label>
+                <div class="row g-2">
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-editorial"><label class="form-check-label" for="pref-editorial">Editorial</label></div></div>
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-fashion"><label class="form-check-label" for="pref-fashion">Fashion</label></div></div>
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-brand"><label class="form-check-label" for="pref-brand">Brand Collaboration Campaigns</label></div></div>
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-film"><label class="form-check-label" for="pref-film">Film</label></div></div>
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-illustration"><label class="form-check-label" for="pref-illustration">Illustration</label></div></div>
+                  <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" id="pref-digital"><label class="form-check-label" for="pref-digital">Digital Content</label></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <button type="button" class="btn btn-primary" data-action="next">Next</button>
+            </div>
+          </div>
+
+          <!-- SECTION 6 — Preview -->
+          <div class="card-soft mb-4 step" data-step="6">
+            <h2 class="section-title">Preview</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="preview-card h-100">
+                  <h5>Profile Card Preview</h5>
+                  <p class="text-secondary">Your name, title, and one-line statement will appear here.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="preview-card h-100">
+                  <h5>Portfolio Grid Preview</h5>
+                  <p class="text-secondary">A compact preview of your uploaded tiles.</p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-outline-secondary" data-action="to-edit">Edit</button>
+                <button type="button" class="btn btn-primary" data-action="next">Next</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 7 — Confirmation -->
+          <div class="card-soft step" data-step="7">
+            <h2 class="section-title">Confirmation</h2>
+            <p class="mb-0">“Your profile is now live on InspireCo.”</p>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-outline-secondary" data-action="back">Back</button>
+              <button type="submit" class="btn btn-success">Publish Profile</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <aside class="col-lg-3">
+        <div class="sidebar">
+          <h5 class="sidebar-title pt-5">Tips</h5>
+          <div class="featured-list">
+            <div class="featured-card">
+              <div class="featured-meta"><p class="title mb-0">Keep bio concise</p><p class="desc">Aim for 50–120 words</p></div>
+            </div>
+            <div class="featured-card mt-2">
+              <div class="featured-meta"><p class="title mb-0">High-quality visuals</p><p class="desc">Prefer 1600x900+</p></div>
+            </div>
+            <div class="featured-card mt-2">
+              <div class="featured-meta"><p class="title mb-0">Accurate links</p><p class="desc">Use public profiles</p></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="d-flex align-items-center">
+            <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
+          </h5>
+          <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
+          <div class="d-flex align-items-center text-light small">
+            <i class="fas fa-credit-card me-2"></i>
+            Payments via Stripe, Razorpay and more
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Explore</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="brand-arc.html">Brand Arc</a>
+            <a href="cultural-fuels.html">Cultural Fuels</a>
+            <a href="portfolio.html">Portfolio</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="inspirers.html">Join Our Community</a>
+            <a href="inspirers.html">Inspirers Network</a>
+            <a href="portfolio.html">Featured Projects</a>
+            <a href="cultural-fuels.html">Cultural Insights</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Support</h5>
+          <div class="footer-links">
+            <a href="about.html">Help Center</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Connect</h5>
+          <div class="footer-links">
+            <a href="mailto:hello@inspirer.co">hello@inspirer.co</a>
+            <div class="social-links mt-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Founded by Arunima Kar</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('scroll', function(){
+      const nav = document.querySelector('.navbar');
+      if(!nav) return; nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Generate 6 portfolio tiles
+    (function(){
+      const container = document.querySelector('#profile-form .row.g-3');
+      const marker = '%PORTFOLIO_TILES%';
+      const form = document.getElementById('profile-form');
+      let html = '';
+      for(let i=1;i<=6;i++){
+        html += `
+        <div class=\"col-md-6\">
+          <div class=\"portfolio-tile\">
+            <div class=\"tile-media mb-3\">
+              <p class=\"mb-2\">Upload Image/Video</p>
+              <input type=\"file\" class=\"form-control\" accept=\"image/*,video/*\">
+            </div>
+            <div class=\"mb-2\">
+              <label class=\"form-label\">Title</label>
+              <input type=\"text\" class=\"form-control\" placeholder=\"Project title\">
+            </div>
+            <div class=\"mb-2\">
+              <label class=\"form-label\">Category</label>
+              <select class=\"form-select\">
+                <option selected>Choose...</option>
+                <option>Illustration</option>
+                <option>Branding</option>
+                <option>Copywriting</option>
+                <option>Design</option>
+                <option>AI Art</option>
+                <option>Website Design</option>
+                <option>Photography</option>
+                <option>Motion</option>
+              </select>
+            </div>
+            <div class=\"mb-2\">
+              <label class=\"form-label\">Description (optional)</label>
+              <input type=\"text\" class=\"form-control\" placeholder=\"Short description\">
+            </div>
+            <div>
+              <label class=\"form-label\">Tools Used</label>
+              <input type=\"text\" class=\"form-control\" placeholder=\"e.g., Photoshop, Figma, Blender\">
+            </div>
+          </div>
+        </div>`;
+      }
+      form.innerHTML = form.innerHTML.replace(marker, html);
+    })();
+  </script>
+  <script>
+    // Wizard behavior: show/hide steps, progress, navigation
+    (function(){
+      const form = document.getElementById('profile-form');
+      if(!form) return;
+      const steps = Array.from(form.querySelectorAll('.step'));
+      const stepper = document.getElementById('wizard-stepper');
+      const badges = stepper ? Array.from(stepper.querySelectorAll('[data-step]')) : [];
+      const progressBar = stepper ? stepper.querySelector('.progress-bar') : null;
+      let current = 1;
+
+      function updateUI(){
+        steps.forEach(s => {
+          const n = Number(s.getAttribute('data-step'));
+          s.style.display = (n === current) ? '' : 'none';
+        });
+        badges.forEach(b => {
+          const n = Number(b.getAttribute('data-step'));
+          b.classList.toggle('text-bg-warning', n === current);
+          b.classList.toggle('text-bg-dark', n !== current);
+        });
+        if(progressBar){
+          const pct = Math.round((current-1) / (steps.length-1) * 100);
+          progressBar.style.width = pct + '%';
+          progressBar.setAttribute('aria-valuenow', String(pct));
+        }
+      }
+
+      function validateStep(n){
+        const stepEl = steps.find(s => Number(s.getAttribute('data-step')) === n);
+        if(!stepEl) return true;
+        const requiredFields = Array.from(stepEl.querySelectorAll('[required]'));
+        let ok = true;
+        requiredFields.forEach(f => {
+          if((f.type === 'file' && !f.files?.length) || (f.type !== 'file' && !f.value?.trim())){
+            f.classList.add('is-invalid');
+            ok = false;
+          } else {
+            f.classList.remove('is-invalid');
+          }
+        });
+        return ok;
+      }
+
+      function goNext(){
+        if(!validateStep(current)) return;
+        if(current < steps.length){
+          current++;
+          updateUI();
+          window.scrollTo({top: document.querySelector('.page-wrapper').offsetTop - 20, behavior:'smooth'});
+        }
+      }
+
+      function goBack(){
+        if(current > 1){
+          current--;
+          updateUI();
+          window.scrollTo({top: document.querySelector('.page-wrapper').offsetTop - 20, behavior:'smooth'});
+        }
+      }
+
+      form.addEventListener('click', function(e){
+        const t = e.target;
+        if(!(t instanceof HTMLElement)) return;
+        if(t.matches('[data-action="next"]')){ e.preventDefault(); goNext(); }
+        if(t.matches('[data-action="back"]')){ e.preventDefault(); goBack(); }
+        if(t.matches('[data-action="to-edit"]')){ e.preventDefault(); current = 1; updateUI(); }
+      });
+
+      if(stepper){
+        stepper.addEventListener('click', function(e){
+          const el = e.target.closest('[data-step]');
+          if(!el) return;
+          const targetStep = Number(el.getAttribute('data-step'));
+          if(targetStep === current) return;
+          if(targetStep > current && !validateStep(current)) return;
+          current = Math.min(Math.max(1, targetStep), steps.length);
+          updateUI();
+        });
+      }
+
+      form.addEventListener('submit', function(e){
+        if(current !== steps.length || !validateStep(current)){
+          e.preventDefault();
+          return;
+        }
+      });
+
+      updateUI();
+    })();
+  </script>
+</body>
+</html>
