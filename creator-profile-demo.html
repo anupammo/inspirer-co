@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Profile Demo | Inspirer Co</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {--primary:#1a1a1a;--secondary:#6c757d;--accent:#ff4502;--light:#f8f9fa;--dark:#212529;--border:#e9ecef;}
+    body{font-family:'Work Sans',Arial,sans-serif;color:var(--primary);line-height:1.6;overflow-x:hidden;background:#fff;}
+    h1,h2,h3,h4,h5,h6,.section-title,.navbar-brand{font-family:'Old Standard TT','Times New Roman',Times,serif;}
+    /* Top nav + secondary nav (match index.html) */
+    .navbar{padding:.8rem 0;transition:all .3s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 2px 20px rgba(0,0,0,.05);z-index:1050;}
+    .navbar.scrolled{padding:.6rem 0;background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.1);}    
+    .navbar-brand{font-weight:800;font-size:1.6rem;color:var(--primary)!important;display:flex;align-items:center;transition:all .3s ease;}
+    @media (min-width:992px){.navbar .container{display:flex;align-items:center;justify-content:space-between;} .navbar .container>*:first-child{flex:1;} .navbar-brand{flex:1;justify-content:center;order:2;} .social-nav{flex:1;justify-content:flex-end;order:3;} .container>div:first-child{order:1;}}
+    .nav-link{font-weight:500;margin:0 .3rem;position:relative;color:var(--primary)!important;transition:all .3s cubic-bezier(.4,0,.2,1);padding:.6rem 1rem!important;border-radius:8px;}
+    .nav-link:hover{color:var(--accent)!important;transform:translateY(-1px);background:rgba(255,87,34,.05);}        
+    .social-nav{display:flex;align-items:center;gap:1rem;}
+    .social-nav a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);transition:all .3s ease;text-decoration:none;}
+    .social-nav a:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}        
+    .secondary-nav{background:linear-gradient(135deg,var(--dark) 0%,#2c2c2c 100%);padding:.7rem 0;position:fixed;top:70px;left:0;right:0;z-index:1040;border-bottom:1px solid rgba(255,255,255,.15);box-shadow:0 4px 20px rgba(0,0,0,.2);}        
+    .secondary-nav .navbar-nav{flex-direction:row;justify-content:center;align-items:center;width:100%;gap:.5rem;}
+    .secondary-nav .nav-link{color:rgba(255,255,255,.85)!important;font-weight:500;font-size:.95rem;padding:.6rem 1.2rem!important;margin:0 .2rem;transition:all .3s cubic-bezier(.4,0,.2,1);white-space:nowrap;position:relative;border-radius:10px;overflow:hidden;}
+    .secondary-nav .nav-link::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(135deg,var(--accent),#ff7043);transition:width .3s cubic-bezier(.4,0,.2,1);z-index:-1}
+    .secondary-nav .nav-link:hover{color:#fff!important;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,87,34,.3)}
+    .secondary-nav .nav-link:hover::before{width:100%}
+    .secondary-nav .nav-link.active{color:#fff!important;background:linear-gradient(135deg,var(--accent),#ff7043);font-weight:600;box-shadow:0 4px 15px rgba(255,87,34,.4)}
+    .navbar-toggler{border:1px solid rgba(0,0,0,.1);padding:.25rem .5rem}
+    .navbar-toggler:focus{box-shadow:0 0 0 .25rem rgba(255,87,34,.25)}
+    .mobile-search{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);text-decoration:none}
+    .mobile-search:hover{background:var(--accent);color:#fff}
+    .mobile-menu-content{background:#fff;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,.1);margin-top:.5rem;padding:0 1rem;width:100%;position:relative}
+    .mobile-social-nav{display:flex;gap:1rem;justify-content:center;padding:1rem 0;margin-top:1rem;border-top:1px solid rgba(0,0,0,.1)}
+    .mobile-social-nav a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:rgba(0,0,0,.05);border-radius:50%;color:var(--secondary);transition:all .3s ease}
+    .mobile-social-nav a:hover{background:var(--accent);color:#fff}
+    @media (max-width:991.98px){.navbar .container{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;position:relative;padding:0 .75rem}.navbar-toggler{order:1!important;margin:0!important;flex:0 0 auto}.navbar-brand{order:2!important;margin:0 auto!important;position:static;transform:none;flex:0 0 auto}.mobile-search{order:3!important;margin-left:auto;flex:0 0 auto}.navbar-collapse{order:4!important;flex-basis:100%!important;width:100%!important;margin-top:.6rem!important}.d-none.d-lg-flex{display:none!important}}
+    @media (min-width:992px){.navbar .container{display:flex;align-items:center}.navbar-brand{margin:0 auto}.navbar-collapse{flex-basis:auto;width:auto}}
+
+    /* Profile hero (match inspirers) */
+    .profile-hero{background:linear-gradient(135deg,#fdf7f0 0%,#fef7ed 100%);padding:10rem 0 4rem;margin-top:140px;text-align:center}
+    .profile-avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:2rem}
+    .profile-name{font-size:2.5rem;font-weight:800;margin-bottom:.5rem}
+    .profile-tagline{font-size:1.3rem;color:var(--secondary);margin-bottom:1.5rem}
+    .profile-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+    .profile-stat{text-align:center}
+    .profile-stat .stat-number{font-size:2rem;font-weight:700;color:var(--accent);display:block}
+    .profile-stat .stat-label{font-size:.9rem;color:var(--secondary)}
+    .social-links-profile{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
+    .social-links-profile a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;background:#fff;border-radius:50%;color:var(--primary);font-size:1.2rem;transition:all .3s ease;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+    .social-links-profile a:hover{background:var(--accent);color:#fff;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+
+    .section{padding:5rem 0}
+    .section-title{font-weight:700;margin-bottom:3rem;display:inline-block;position:relative}
+    .section-title:after{content:'';position:absolute;width:50%;height:3px;background-color:var(--accent);bottom:-10px;left:0}
+
+    /* Portfolio grid */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+    .portfolio-item{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.1);transition:transform .3s ease,box-shadow .3s ease;background:#fff}
+    .portfolio-item:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(0,0,0,.15)}
+    .portfolio-image{width:100%;height:240px;object-fit:cover}
+    .portfolio-info{padding:1rem}
+    .portfolio-title{font-weight:700;font-size:1.1rem;margin-bottom:.25rem}
+    .portfolio-description{color:var(--secondary);font-size:.95rem}
+
+    /* Footer (match index.html) */
+    .footer{background-color:var(--dark);color:#fff;padding:4rem 0 2rem}
+    .footer h5{font-weight:600;margin-bottom:1.5rem}
+    .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;display:block;margin-bottom:.5rem;transition:color .3s ease}
+    .footer-links a:hover{color:#fff}
+    .social-links a{display:inline-block;width:40px;height:40px;background-color:rgba(255,255,255,.1);border-radius:50%;text-align:center;line-height:40px;margin-right:.5rem;transition:background-color .3s ease}
+    .social-links a:hover{background-color:var(--accent)}
+  </style>
+  <link rel="stylesheet" href="css/typography.css">
+</head>
+<body>
+  <!-- Primary Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.webp" alt="Inspirer Co" style="height:40px;width:auto;">
+      </a>
+      <div class="d-none d-lg-flex align-items-center"><a href="#" class="btn btn-nav btn-solid me-3">Join us</a></div>
+      <div class="social-nav d-none d-lg-flex align-items-center">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+      </div>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="#" class="mobile-search d-lg-none ms-2" aria-label="Search"><i class="fas fa-search"></i></a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="d-lg-none mobile-menu-content">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+            <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+            <li class="nav-item"><a class="nav-link" href="inspirers.html">Inspirers</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-cta my-2"><a href="#" class="btn btn-nav btn-solid w-100">Join us</a></div>
+          <div class="mobile-social-nav d-lg-none">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Threads"><i class="fas fa-at"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Secondary Navbar -->
+  <nav class="navbar navbar-expand-lg secondary-nav d-none d-lg-block">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="brand-arc.html">Brand Arc</a></li>
+          <li class="nav-item"><a class="nav-link" href="cultural-fuels.html">Cultural Fuels</a></li>
+          <li class="nav-item"><a class="nav-link active" href="inspirers.html">Inspirers</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Hero -->
+  <section class="profile-hero">
+    <div class="container">
+      <img id="demo-avatar" src="res/placeholder-profile.png" alt="Profile avatar" class="profile-avatar">
+      <h1 id="demo-name" class="profile-name">Demo Creator Name</h1>
+      <p id="demo-tagline" class="profile-tagline">Creative Title • Location • One-line statement</p>
+      <div class="profile-stats">
+        <div class="profile-stat"><span class="stat-number" id="demo-projects">6</span><span class="stat-label">Projects</span></div>
+        <div class="profile-stat"><span class="stat-number" id="demo-followers">1.2K</span><span class="stat-label">Followers</span></div>
+        <div class="profile-stat"><span class="stat-number" id="demo-experience">5y</span><span class="stat-label">Experience</span></div>
+      </div>
+      <div class="social-links-profile" id="demo-social">
+        <a id="demo-instagram" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a id="demo-behance" href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+        <a id="demo-dribbble" href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+        <a id="demo-website" href="#" aria-label="Website"><i class="fas fa-link"></i></a>
+      </div>
+      <div class="cta-buttons">
+        <a href="#portfolio" class="btn btn-outline-secondary">View Portfolio</a>
+        <a href="#about" class="btn btn-primary" style="background: var(--accent); border-color: var(--accent);">About</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p id="demo-bio">This is a concise bio loaded from the creator form. It highlights inspiration, philosophy, and purpose-driven creative work.</p>
+          <div class="highlight-box" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:2rem;border-radius:16px;margin:2rem 0;">
+            <h4>Creative Philosophy</h4>
+            <p id="demo-philosophy">Describe your creative philosophy: what defines your work, your approach, and your core values.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section" style="background: var(--light);">
+    <div class="container">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="portfolio-grid" id="demo-portfolio">
+        <!-- Tiles injected from stored form data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (match index.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="d-flex align-items-center">
+            <img src="logo.webp" alt="logo" width="120" height="30" class="me-2" style="filter: invert(1);">
+          </h5>
+          <p>A creative intelligence platform connecting minds with inspiration, insights, and meaningful recognition.</p>
+          <div class="d-flex align-items-center text-light small">
+            <i class="fas fa-credit-card me-2"></i>
+            Payments via Stripe, Razorpay and more
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Explore</h5>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="brand-arc.html">Brand Arc</a>
+            <a href="cultural-fuels.html">Cultural Fuels</a>
+            <a href="portfolio.html">Portfolio</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Community</h5>
+          <div class="footer-links">
+            <a href="inspirers.html">Join Our Community</a>
+            <a href="inspirers.html">Inspirers Network</a>
+            <a href="portfolio.html">Featured Projects</a>
+            <a href="cultural-fuels.html">Cultural Insights</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Support</h5>
+          <div class="footer-links">
+            <a href="about.html">Help Center</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Connect</h5>
+          <div class="footer-links">
+            <a href="mailto:hello@inspirer.co">hello@inspirer.co</a>
+            <div class="social-links mt-2">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">© 2025 Inspirer Co. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Founded by Arunima Kar</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll nav effect
+    document.addEventListener('scroll', function(){
+      const nav = document.querySelector('.navbar');
+      if(!nav) return; nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Demo data: read from localStorage set by creator form (fallback to sample)
+    const demo = (() => {
+      try {
+        const raw = localStorage.getItem('creatorProfileDraft');
+        if(raw){ return JSON.parse(raw); }
+      } catch(e) {}
+      return {
+        fullName: 'Demo Creator Name',
+        location: 'Mumbai, India',
+        title: 'Illustrator',
+        oneLine: 'I create culture-forward visuals with purpose.',
+        bio: 'Purpose-driven illustrator blending folklore, fashion, and identity. Focused on meaningful narratives and high-impact visuals.',
+        philosophy: 'Story-first creation. Craft with empathy, iterate with curiosity, and collaborate for impact.',
+        links: { instagram: '#', behance: '#', dribbble: '#', website: '#' },
+        avatar: 'res/srishti-gupta-roy.jpg',
+        portfolio: [
+          { media: 'res/indie-wild.jpg', title: 'Indē Wild Styleboard', category: 'Illustration', desc: 'Culture and identity moodboard' },
+          { media: 'res/hyphen.jpg', title: 'Hyphen Campaign Concepts', category: 'Branding', desc: 'Minimal modern narratives' },
+          { media: 'res/wake-fit.jpg', title: 'Wakefit Festive Visuals', category: 'Digital', desc: 'Mindful living motifs' }
+        ]
+      };
+    })();
+
+    // Bind profile hero
+    document.getElementById('demo-name').textContent = demo.fullName || 'Demo Creator Name';
+    document.getElementById('demo-tagline').textContent = `${demo.title || 'Creator'} • ${demo.location || 'City, Country'} • ${demo.oneLine || ''}`.trim();
+    const avatarEl = document.getElementById('demo-avatar');
+    if(demo.avatar){ avatarEl.src = demo.avatar; }
+
+    // Bind social links
+    const linkMap = { instagram: 'demo-instagram', behance: 'demo-behance', dribbble: 'demo-dribbble', website: 'demo-website' };
+    Object.entries(linkMap).forEach(([key,id]) => {
+      const el = document.getElementById(id);
+      if(el && demo.links && demo.links[key]) el.href = demo.links[key];
+    });
+
+    // About
+    document.getElementById('demo-bio').textContent = demo.bio || document.getElementById('demo-bio').textContent;
+    document.getElementById('demo-philosophy').textContent = demo.philosophy || document.getElementById('demo-philosophy').textContent;
+
+    // Portfolio tiles
+    const grid = document.getElementById('demo-portfolio');
+    if(Array.isArray(demo.portfolio)){
+      demo.portfolio.forEach(item => {
+        const col = document.createElement('div');
+        col.className = 'portfolio-item';
+        col.innerHTML = `
+          <img src="${item.media}" alt="${item.title}" class="portfolio-image">
+          <div class="portfolio-info">
+            <div class="portfolio-title">${item.title}</div>
+            <div class="portfolio-description">${item.category} • ${item.desc || ''}</div>
+          </div>`;
+        grid.appendChild(col);
+      });
+    }
+  </script>
+</body>
+</html>
