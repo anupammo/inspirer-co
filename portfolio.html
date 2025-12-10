@@ -144,6 +144,38 @@
             margin-bottom: 0;
             opacity: 0.9;
         }
+        /* Hero CTAs: ensure strong contrast and prominence */
+        .page-header .hero-cta { margin-top: 1.25rem; display: flex; gap: .75rem; justify-content: center; }
+        .page-header .btn-hero-primary { 
+            background: var(--accent); 
+            color: #fff; 
+            border: 2px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            padding: .8rem 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+        }
+        .page-header .btn-hero-primary:hover { 
+            background: #ff6a33; 
+            color: #fff; 
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(0,0,0,0.3);
+        }
+        .page-header .btn-hero-outline { 
+            background: transparent; 
+            color: #fff; 
+            border: 2px solid #fff;
+            border-radius: 12px;
+            padding: .8rem 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+        }
+        .page-header .btn-hero-outline:hover { 
+            background: rgba(255,255,255,0.15); 
+            color: #fff; 
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(0,0,0,0.3);
+        }
 
         /* Section Styling */
         .section {
@@ -577,6 +609,10 @@
         <div class="container">
             <h1>Portfolio</h1>
             <p>Showcasing our creative excellence and innovative solutions</p>
+            <div class="hero-cta">
+                <a href="creator-profile-create.html" class="btn btn-hero-primary">Join the Community</a>
+                <a href="sneha-chakraborty.html" class="btn btn-hero-outline">Profile Dashboard</a>
+            </div>
         </div>
     </section>
 
