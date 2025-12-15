@@ -68,6 +68,16 @@
         .insight-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:var(--space-md);box-shadow:0 6px 20px rgba(0,0,0,.04);} .insight-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:.8rem;}
         .cta-section{background:linear-gradient(135deg,#1f1f1f 0%,#2c2c2c 100%);color:#fff;border-radius:16px;padding:var(--space-lg);text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.2);} .btn-cta{border-radius:12px;padding:.8rem 1.6rem;font-weight:700;margin:.3rem;}
         .sidebar{position:sticky;top:140px;} .sidebar-title{font-weight:700;color:var(--primary);} .featured-list{display:flex;flex-direction:column;gap:.8rem;} .featured-link{text-decoration:none;color:inherit;} .featured-card{display:flex;gap:.8rem;background:#fff;border:1px solid var(--border);border-radius:14px;padding:.6rem;align-items:center;transition:transform .2s ease;} .featured-card:hover{transform:translateY(-2px);} .featured-thumb{width:68px;height:68px;border-radius:10px;overflow:hidden;flex-shrink:0;} .featured-thumb img{width:100%;height:100%;object-fit:cover;} .featured-meta .title{font-weight:600;} .featured-meta .desc{font-size:.9rem;color:var(--secondary);}        
+        
+        /* Share Buttons */
+        .share-buttons{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding:1rem 0;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);}
+        .share-label{font-weight:600;color:var(--secondary);font-size:.9rem;margin-right:.5rem;}
+        .share-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);color:var(--primary);text-decoration:none;transition:all .3s ease;font-size:1.1rem;}
+        .share-btn:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,.15);color:#fff;}
+        .share-btn.facebook:hover{background:#1877f2;} .share-btn.twitter:hover{background:#1da1f2;} .share-btn.linkedin:hover{background:#0a66c2;} .share-btn.whatsapp:hover{background:#25d366;} .share-btn.email:hover{background:#ea4335;} .share-btn.copy:hover{background:var(--accent);}
+        .share-btn.copy.copied{background:var(--success);color:#fff;}
+        @media (max-width:576px){.share-buttons{flex-wrap:wrap;} .share-label{width:100%;margin-bottom:.5rem;}}
+        
         .footer{background:#111;color:#eee;margin-top:var(--space-xl);padding:var(--space-lg) 0;} .footer a{color:#eee;text-decoration:none;} .footer a:hover{color:#fff;text-decoration:underline;}
     </style>
 
@@ -163,6 +173,18 @@
                         <div class="post-meta">
                             <span>By Brand Arc Editors</span><span class="sep">•</span><time datetime="2025-12-07">Dec 7, 2025</time><span class="sep">•</span><span>5 min read</span>
                         </div>
+                        
+                        <!-- Share Buttons -->
+                        <div class="share-buttons">
+                            <span class="share-label">Share:</span>
+                            <a href="#" class="share-btn facebook" onclick="shareOnFacebook(event)" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn twitter" onclick="shareOnTwitter(event)" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn(event)" title="Share on LinkedIn" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="share-btn whatsapp" onclick="shareOnWhatsApp(event)" title="Share on WhatsApp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-btn email" onclick="shareViaEmail(event)" title="Share via Email" aria-label="Share via Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="share-btn copy" onclick="copyLink(event)" title="Copy Link" aria-label="Copy Link"><i class="fas fa-link"></i></a>
+                        </div>
+                        
                         <div class="hero-image mt-3"><img src="res/indie-wild.jpg" alt="indē wild brand visual" class="img-fluid rounded shadow"></div>
                     </div>
                 </header>
@@ -309,6 +331,49 @@
             const nav = document.querySelector('.navbar');
             if(!nav) return; nav.classList.toggle('scrolled', window.scrollY > 10);
         });
+        
+        // Social Share Functions
+        function shareOnFacebook(e) {
+            e.preventDefault();
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        }
+        function shareOnTwitter(e) {
+            e.preventDefault();
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+        function shareOnLinkedIn(e) {
+            e.preventDefault();
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+        }
+        function shareOnWhatsApp(e) {
+            e.preventDefault();
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        }
+        function shareViaEmail(e) {
+            e.preventDefault();
+            const subject = encodeURIComponent(document.title);
+            const body = encodeURIComponent(`Check out this article: ${window.location.href}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+        function copyLink(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = e.currentTarget;
+                const icon = btn.querySelector('i');
+                btn.classList.add('copied');
+                icon.className = 'fas fa-check';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    icon.className = 'fas fa-link';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
